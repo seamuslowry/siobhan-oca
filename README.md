@@ -26,7 +26,7 @@ nvm install
 nvm use
 # install all dependencies
 npm install
-# run development server
+# run the development server
 npm run dev
 ```
 
