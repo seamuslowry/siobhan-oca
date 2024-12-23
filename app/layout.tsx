@@ -1,19 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { geistMono, geistSans } from './fonts';
-import { readFile } from 'fs/promises';
+import { geistMono, geistSans } from '../utils/fonts';
+import { retrieveMetadata } from '@/utils/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const title = await readFile('./public/metadata/default/title.txt', 'utf8');
-  const description = await readFile(
-    './public/metadata/default/description.txt',
-    'utf8',
-  );
+  console.log(await retrieveMetadata('default'));
 
-  return {
-    title,
-    description,
-  };
+  return retrieveMetadata('default');
 }
 
 export default function RootLayout({
