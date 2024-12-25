@@ -3,6 +3,25 @@
 import ButtonLink from '@/components/ButtonLink';
 import { MouseEventHandler, useRef } from 'react';
 
+function MenuIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      className="w-6 h-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  );
+}
+
 export function MobileNavbarLinks() {
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -17,7 +36,9 @@ export function MobileNavbarLinks() {
 
   return (
     <div>
-      <button onClick={handleOpen}>Open</button>
+      <button onClick={handleOpen}>
+        <MenuIcon />
+      </button>
       <dialog
         ref={ref}
         onClose={handleClose}
@@ -26,10 +47,18 @@ export function MobileNavbarLinks() {
       >
         {/* ensure that the dialog contents always fill the whole clickable area; this is so we can treat 'DIALOG' clicks (the backdrop) as requests to close */}
         <div className="w-full h-full flex flex-col p-4">
-          <ButtonLink href="/">Research</ButtonLink>
-          <ButtonLink href="/">Teaching</ButtonLink>
-          <ButtonLink href="/">News</ButtonLink>
-          <ButtonLink href="/">Who</ButtonLink>
+          <ButtonLink onClick={handleClose} href="/">
+            Research
+          </ButtonLink>
+          <ButtonLink onClick={handleClose} href="/">
+            Teaching
+          </ButtonLink>
+          <ButtonLink onClick={handleClose} href="/">
+            News
+          </ButtonLink>
+          <ButtonLink onClick={handleClose} href="/">
+            Who
+          </ButtonLink>
         </div>
       </dialog>
     </div>
