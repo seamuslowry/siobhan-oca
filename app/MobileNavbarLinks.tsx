@@ -14,10 +14,12 @@ export function MobileNavbarLinks() {
         onClose={() => setOpen(false)}
         className="fixed top-0 left-full m-0 p-0 w-full max-w-xs h-screen bg-gray-800 text-white shadow-lg flex flex-col z-50 transform transition-transform open:-translate-x-full"
       >
-        <ButtonLink href="/">Research</ButtonLink>
-        <ButtonLink href="/">Teaching</ButtonLink>
-        <ButtonLink href="/">News</ButtonLink>
-        <ButtonLink href="/">Who</ButtonLink>
+        <div className="flex flex-col p-4">
+          <ButtonLink href="/">Research</ButtonLink>
+          <ButtonLink href="/">Teaching</ButtonLink>
+          <ButtonLink href="/">News</ButtonLink>
+          <ButtonLink href="/">Who</ButtonLink>
+        </div>
       </dialog>
     </div>
   );
