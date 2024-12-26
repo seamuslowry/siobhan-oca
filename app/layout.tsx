@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { geistMono, geistSans } from '../utils/fonts';
+import { geistMono, geistSans } from '@/utils/fonts';
 import { retrieveMetadata } from '@/utils/metadata';
+import { Navbar } from './Navbar';
 
 export async function generateMetadata(): Promise<Metadata> {
-  console.log(await retrieveMetadata('default'));
-
   return retrieveMetadata('default');
 }
 
@@ -17,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable} antialiased [&:has(dialog[open])]:overflow-hidden`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
