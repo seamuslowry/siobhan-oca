@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable} antialiased [&:has(dialog[open])]:overflow-hidden`}
       >
         <Navbar />
         {children}
