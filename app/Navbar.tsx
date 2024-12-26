@@ -14,7 +14,7 @@ export function Navbar() {
           <ButtonLink href="/">News</ButtonLink>
           <ButtonLink href="/">Who</ButtonLink>
         </div>
-        <div id="mobile-nav-links" className="md:hidden">
+        <div id="mobile-nav-links" className="flex md:hidden">
           <MobileNavbarLinks />
         </div>
       </div>
