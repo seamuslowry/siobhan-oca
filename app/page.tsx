@@ -9,6 +9,7 @@ export default function Home() {
           src={heroImage}
           alt="Hero image description"
           className="absolute h-[80vh] object-cover"
+          placeholder="blur"
         />
         <div className="bg-sky-500/50 absolute ml-[10%] h-[80vh] w-[20vw]" />
       </div>
