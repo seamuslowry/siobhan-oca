@@ -14,9 +14,6 @@ The metadata information of the site through the two text files at
 
 To run the development server, first install [nvm](https://github.com/nvm-sh/nvm). This will allow you to install multiple node versions and easily switch between them. The installation of this command will vary by OS. Once installed, run the below to start the development server:
 
-
-Run `nvm install` to install the current node version specified in the `.nvmrc` file and then run `nvm use` to use that node version. Install all dependencies using `npm install` and run the development server with `npm run dev`.
-
 To run the development server:
 
 ```bash
