@@ -5,7 +5,7 @@ import { retrieveMetadata } from '@/utils/metadata';
 import { Navbar } from './Navbar';
 
 export async function generateMetadata(): Promise<Metadata> {
-  return retrieveMetadata('default');
+  return retrieveMetadata('home');
 }
 
 export default function RootLayout({
