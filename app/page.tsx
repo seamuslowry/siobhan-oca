@@ -12,7 +12,7 @@ export default function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-500/50 absolute ml-[10%] h-[80vh] w-[20vw]" />
+        <div className="bg-sky-700/30 absolute ml-[10%] h-[80vh] w-[30vw]" />
       </div>
     </div>
   );
