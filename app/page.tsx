@@ -13,15 +13,15 @@ export default function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-700/30 grid grid-rows-[1fr_min-content] gap-3 py-8 px-4 h-[80vh] mx-auto w-10/12 sm:animate-slideInFromLeft sm:absolute sm:ml-[10%] sm:w-[30vw] sm:min-w-80">
+        <div className="bg-sky-700/30 grid grid-rows-[1fr_min-content] gap-5 py-8 px-4 h-[80vh] mx-auto w-10/12 sm:animate-slideInFromLeft sm:absolute sm:ml-[10%] sm:w-[30vw] sm:min-w-80">
           <Image
             src={bannerImage}
             alt="Banner image description"
             placeholder="blur"
-            className="object-fit h-full"
+            className="object-cover h-full w-[80%] justify-self-center"
             unoptimized
           />
-          <p className="text-center text-xl">
+          <p className="text-xl self-center justify-self-center p-5">
             Email:{' '}
             <a href="mailto:skr23@duke.edu" className="underline">
               skr23@duke.edu
