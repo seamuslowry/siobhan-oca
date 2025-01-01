@@ -18,7 +18,7 @@ export default function Home() {
             src={bannerImage}
             alt="Banner image description"
             placeholder="blur"
-            className="object-cover h-full w-[80%] justify-self-center"
+            className="object-cover h-full w-[80%] justify-self-center rounded-md"
             unoptimized
           />
           <p className="text-xl self-center justify-self-center p-5">
