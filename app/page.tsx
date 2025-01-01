@@ -13,7 +13,7 @@ export default function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-700/30 grid grid-rows-[1fr_min-content] gap-3 py-8 px-4 h-[80vh] mx-auto w-10/12 sm:absolute sm:ml-[10%] sm:w-[30vw] sm:min-w-80">
+        <div className="animate-slideInFromLeft bg-sky-700/30 grid grid-rows-[1fr_min-content] gap-3 py-8 px-4 h-[80vh] mx-auto w-10/12 sm:absolute sm:ml-[10%] sm:w-[30vw] sm:min-w-80">
           <Image
             src={bannerImage}
             alt="Banner image description"
