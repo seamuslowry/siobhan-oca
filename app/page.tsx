@@ -13,7 +13,7 @@ export default function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-700/30 h-full flex flex-col items-center justify-evenly gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:absolute sm:ml-[10%] sm:w-[20vw] sm:min-w-80">
+        <div className="bg-sky-700/30 h-full grid grid-rows-[auto_auto_auto] items-center justify-evenly gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:absolute sm:ml-[10%] sm:w-[20vw] sm:min-w-80">
           <div className="flex flex-col items-center">
             <Image
               src={bannerImage}
