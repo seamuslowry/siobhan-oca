@@ -1,18 +1,17 @@
 import { readFile } from 'fs/promises';
+import json5 from 'json5';
 import type { Metadata } from 'next';
 
 type DefinedMetadata = 'home';
 
-const DEFINED_METADATA_KEYS = ['title', 'description'] as const;
-
 export async function retrieveMetadata(
   page: DefinedMetadata,
 ): Promise<Metadata> {
-  return DEFINED_METADATA_KEYS.reduce<Promise<Metadata>>(
-    async (acc, curr) => ({
-      ...(await acc),
-      [curr]: await readFile(`./public/${page}/metadata/${curr}.txt`, 'utf8'),
-    }),
-    Promise.resolve({}),
+  console.log(
+    json5.parse(await readFile(`./public/${page}/metadata.json5`, 'utf-8')),
+  );
+
+  return json5.parse(
+    await readFile(`./public/${page}/metadata.json5`, 'utf-8'),
   );
 }
