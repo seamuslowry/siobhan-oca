@@ -5,15 +5,15 @@ import bannerImage from '@/assets/home/banner.png';
 export default function Home() {
   return (
     <div>
-      <div className="sm:relative max-h-[clamp(fit-content,80vh,56rem)] sm:h-[80vh]">
+      <div className="grid grid-cols-[auto_auto_auto] sm:grid-cols-[10%_auto_auto] min-h-fit h-[80vh] max-h-[56rem]">
         <Image
           src={heroImage}
           alt="Hero image description"
-          className="object-cover hidden h-full sm:absolute sm:block"
+          className="object-cover hidden h-full row-start-1 col-start-1 col-span-3 sm:block"
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-700/30 h-full grid grid-rows-[auto_auto_auto] items-center justify-evenly gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:absolute sm:ml-[10%] sm:w-[20vw] sm:min-w-80">
+        <div className="bg-sky-700/30 row-start-1 col-start-2 h-full grid grid-rows-[auto_auto_auto] gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:ml-[10%] sm:w-[20vw] sm:min-w-80">
           <div className="flex flex-col items-center">
             <Image
               src={bannerImage}
