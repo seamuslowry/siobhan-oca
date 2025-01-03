@@ -35,7 +35,7 @@ export default async function Home() {
         <Image
           src={heroImage}
           alt={heroDescription}
-          className="object-cover hidden h-full row-start-1 col-start-1 col-span-3 sm:block"
+          className="object-cover hidden h-full w-full row-start-1 col-start-1 col-span-3 sm:block"
           placeholder="blur"
           unoptimized
         />
