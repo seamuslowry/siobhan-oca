@@ -21,8 +21,6 @@ The text content for this page is stored in `/assets/home/content.yaml`. The fie
     - `email`: The email address below the title. The site will attempt to structure this as a `mailto:${email}` link in addition to displaying the text.
     - `content`: An array of strings. Each string will be displayed under the banner in a separate paragraph tag. This was tested with 2 elements. An excessively long list may cause the banner content to compress, overflow, or extend beyond the hero image.
 
-Under the metadata section, any [NextJS metadata fields](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadata-fields) assignable through YAML syntax may be set in this object.
-
 ### Hero Image
 
 The hero image for the site is stored in `/assets/home/hero.png`. This image should be large and high-quality with a focus on the center horizontal.
