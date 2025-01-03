@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-[auto_auto_auto] sm:grid-cols-[10%_auto_auto] min-h-fit h-[80vh] max-h-[56rem]">
+      <div className="grid grid-cols-[auto_auto_auto] sm:grid-cols-[10%_auto_auto] min-h-fit h-[80vh] max-h-[56rem] w-full">
         <Image
           src={heroImage}
           alt={heroDescription}
