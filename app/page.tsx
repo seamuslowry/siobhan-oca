@@ -2,7 +2,7 @@ import Image from 'next/image';
 import heroImage from '@/assets/home/hero.png';
 import bannerImage from '@/assets/home/banner.png';
 import { readFile } from 'fs/promises';
-import json5 from 'json5';
+import { parse } from 'yaml';
 
 interface ContentConfiguration {
   hero?: {
@@ -25,8 +25,8 @@ export default async function Home() {
       email = '',
       content: bannerContent = [],
     } = {},
-  } = json5.parse<ContentConfiguration>(
-    await readFile(`./public/home/content.json5`, 'utf-8'),
+  }: ContentConfiguration = parse(
+    await readFile(`./public/home/content.yaml`, 'utf-8'),
   );
 
   return (

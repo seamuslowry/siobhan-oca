@@ -1,6 +1,6 @@
 {
     "recommendations": [
         "dbaeumer.vscode-eslint",
-        "mrmlnc.vscode-json5"
+        "redhat.vscode-yaml"
     ]
 }
