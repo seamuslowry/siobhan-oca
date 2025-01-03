@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-[auto_auto_auto] sm:grid-cols-[10%_auto_auto] min-h-fit h-[80vh] max-h-[56rem] w-full">
+      <div className="grid grid-cols-[1fr_auto_1fr] sm:grid-cols-[10%_auto_1fr] min-h-fit h-[80vh] max-h-[56rem] w-full">
         <Image
           src={heroImage}
           alt={heroDescription}
@@ -39,7 +39,7 @@ export default async function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-sky-700/30 row-start-1 col-start-2 h-full grid grid-rows-[auto_auto_auto] gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:w-[20vw] sm:min-w-80">
+        <div className="bg-sky-700/30 row-start-1 col-start-2 h-full grid gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:w-[20vw] sm:min-w-80">
           <div className="flex flex-col items-center">
             <Image
               src={bannerImage}
