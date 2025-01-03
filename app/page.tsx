@@ -30,7 +30,7 @@ export default async function Home() {
   );
 
   return (
-    <div>
+    <main>
       <div className="grid grid-cols-[1fr_auto_1fr] sm:grid-cols-[10%_auto_1fr] min-h-fit h-[80vh] max-h-[56rem] w-full">
         <Image
           src={heroImage}
@@ -60,6 +60,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
