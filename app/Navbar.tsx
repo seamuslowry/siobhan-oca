@@ -10,7 +10,7 @@ export function Navbar() {
         </div>
         <div id="desktop-nav-links" className="hidden md:flex space-x-3">
           <ButtonLink href="/">Research</ButtonLink>
-          <ButtonLink href="/">Teaching</ButtonLink>
+          <ButtonLink href="/courses">Teaching</ButtonLink>
           <ButtonLink href="/">News</ButtonLink>
           <ButtonLink href="/">Who</ButtonLink>
         </div>

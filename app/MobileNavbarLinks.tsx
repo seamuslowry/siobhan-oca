@@ -50,7 +50,7 @@ export function MobileNavbarLinks() {
           <ButtonLink onClick={handleClose} href="/">
             Research
           </ButtonLink>
-          <ButtonLink onClick={handleClose} href="/">
+          <ButtonLink onClick={handleClose} href="/courses">
             Teaching
           </ButtonLink>
           <ButtonLink onClick={handleClose} href="/">
