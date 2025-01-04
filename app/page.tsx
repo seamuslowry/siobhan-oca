@@ -39,7 +39,6 @@ export default async function Home() {
           placeholder="blur"
           unoptimized
         />
-        {/* cast iron was good */}
         <div className="bg-limestone/80 text-duke-light dark:text-duke-dark row-start-1 col-start-2 h-full grid gap-3 py-8 px-4 mx-auto w-10/12 sm:animate-slideInFromLeft sm:w-[20vw] sm:min-w-80">
           <div className="flex flex-col items-center">
             <Image
