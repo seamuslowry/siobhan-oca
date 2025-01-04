@@ -3,7 +3,7 @@ import { MobileNavbarLinks } from './MobileNavbarLinks';
 
 export function Navbar() {
   return (
-    <nav className="bg-sky-700 sticky top-0">
+    <nav className="bg-duke-light text-white dark:bg-duke-dark sticky top-0">
       <div className="container mx-auto flex items-center justify-between p-2">
         <div className="flex text-lg font-bold rounded">
           <ButtonLink href="/">Siobhan Oca</ButtonLink>

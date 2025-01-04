@@ -9,7 +9,10 @@ export default function ButtonLink({
   return (
     <Link
       {...rest}
-      className={clsx('hover:bg-sky-900 p-2 rounded', className)}
+      className={clsx(
+        'hover:bg-duke-dark dark:hover:bg-duke-light p-2 rounded',
+        className,
+      )}
     />
   );
 }
