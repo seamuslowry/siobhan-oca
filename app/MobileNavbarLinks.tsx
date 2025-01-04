@@ -43,7 +43,7 @@ export function MobileNavbarLinks() {
         ref={ref}
         onClose={handleClose}
         onClick={handleClick}
-        className="backdrop:bg-gray-100/50 fixed top-0 left-full m-0 p-0 w-full max-w-xs h-screen max-h-screen bg-duke-light text-white dark:bg-duke-dark shadow-lg rounded-l-lg flex flex-col z-50 transition-transform open:-translate-x-full"
+        className="backdrop:bg-gray-100/50 fixed top-0 left-full m-0 p-0 w-full max-w-xs h-screen max-h-screen text-white bg-duke-dark shadow-lg rounded-l-lg flex flex-col z-50 transition-transform open:-translate-x-full"
       >
         {/* ensure that the dialog contents always fill the whole clickable area; this is so we can treat 'DIALOG' clicks (the backdrop) as requests to close */}
         <div className="w-full h-full flex flex-col p-4">
