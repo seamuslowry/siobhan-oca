@@ -11,6 +11,7 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        // reference: https://brand.duke.edu/colors/
         'duke-dark': '#012169',
         'duke-light': '#00539B',
         limestone: '#E5E5E5',
