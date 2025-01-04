@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/ButtonLink';
-import { MobileNavbarLinks } from './MobileNavbarLinks';
+import { MobileNavbarLinks } from './moblie-navbar';
 
 export function Navbar() {
   return (

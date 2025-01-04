@@ -15,6 +15,8 @@ export default {
         'duke-dark': '#012169',
         'duke-light': '#00539B',
         limestone: '#E5E5E5',
+        // use for dark cards
+        graphite: '#666666',
       },
       keyframes: {
         slideInFromLeft: {

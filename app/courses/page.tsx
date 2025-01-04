@@ -1,8 +1,9 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
+import { type Course as CourseType, Course } from './course';
 
 interface ContentConfiguration {
-  courses?: string[];
+  courses?: CourseType[];
 }
 
 export default async function Courses() {
@@ -12,9 +13,11 @@ export default async function Courses() {
 
   return (
     <main>
-      {courses.map((c, i) => (
-        <p key={i}>{c}</p>
-      ))}
+      <div className="mx-[10%] mt-20 flex flex-col gap-8">
+        {courses.map((c, i) => (
+          <Course key={i} course={c} />
+        ))}
+      </div>
     </main>
   );
 }
