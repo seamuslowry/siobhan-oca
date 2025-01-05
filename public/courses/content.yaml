@@ -6,10 +6,7 @@ metadata:
     Assistant Director of Masters in Robotics at Duke University
 courses:
   - name: Course One
-    syllabus: one.pdf
-    image:
-      src: course1.png
-      alt: Course One
+    syllabus: test.pdf
     abstract:
       - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
       - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
@@ -23,10 +20,4 @@ courses:
           - type: ACADEMIC
             name: Academic One
   - name: Course Two
-    image:
-      src: course2.png
-      alt: Course Two
   - name: Course Three
-    image:
-      src: course3.png
-      alt: Course Three
