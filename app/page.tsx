@@ -3,6 +3,10 @@ import heroImage from '@/assets/home/hero.png';
 import bannerImage from '@/assets/home/banner.png';
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
+import {
+  type TextContent as TextContentType,
+  TextContent,
+} from '@/components/text-content';
 
 interface ContentConfiguration {
   hero?: {
@@ -12,8 +16,9 @@ interface ContentConfiguration {
     alt?: string;
     title?: string;
     email?: string;
-    content?: string[];
+    content?: TextContentType[];
   };
+  summary?: TextContentType[];
 }
 
 export default async function Home() {
@@ -25,13 +30,14 @@ export default async function Home() {
       email = '',
       content: bannerContent = [],
     } = {},
+    summary = [],
   }: ContentConfiguration = parse(
     await readFile(`./public/home/content.yaml`, 'utf-8'),
   );
 
   return (
     <main>
-      <div className="grid grid-cols-[1fr_auto_1fr] sm:grid-cols-[10%_auto_1fr] min-h-fit h-[80vh] max-h-[56rem] w-full">
+      <div className="grid grid-cols-[1fr_auto_1fr] sm:grid-cols-[10%_auto_1fr] w-full">
         <Image
           src={heroImage}
           alt={heroDescription}
@@ -54,12 +60,19 @@ export default async function Home() {
             </a>
           </div>
           {bannerContent.map((p, index) => (
-            <p key={index} className="text-xl text-center">
-              {p}
-            </p>
+            <TextContent
+              key={index}
+              className="text-xl text-center"
+              value={p}
+            />
           ))}
         </div>
       </div>
+      <section className="mx-[10%] my-10">
+        {summary.map((s, i) => (
+          <TextContent key={i} value={s} className="py-1" />
+        ))}
+      </section>
     </main>
   );
 }

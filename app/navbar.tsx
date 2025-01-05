@@ -1,11 +1,11 @@
-import ButtonLink from '@/components/ButtonLink';
+import ButtonLink from '@/components/button-link';
 import { MobileNavbarLinks } from './moblie-navbar';
 
 export function Navbar() {
   return (
-    <nav className="bg-duke-dark text-white sticky top-0">
+    <nav className="bg-duke-dark text-white text-lg sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between p-2">
-        <div className="flex text-lg font-bold rounded">
+        <div className="flex text-2xl font-bold rounded">
           <ButtonLink href="/">Siobhan Oca</ButtonLink>
         </div>
         <div id="desktop-nav-links" className="hidden md:flex space-x-3">

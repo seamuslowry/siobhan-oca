@@ -13,3 +13,17 @@ banner:
   content:
     - Assistant Professor of Mechanical Engineering and Materials Science at Duke University
     - Assistant Director of Masters in Robotics at Duke University
+summary:
+  - text: Why do I want to be a professor?
+    tag: h2
+    size: 3xl
+  - It's the lightbulb moments I have witnessed and experienced, when the material transforms from a set of rules to clarity and confidence.
+  - text: |
+      I hear and I forget, I see and I remember, I do and I understand
+      - Confucius
+    align: center
+    whitespace: pre-wrap
+    italic: true
+  - "This quote exemplifies my goal as an educator: to put students in the driver's seat of practicing engineering as early and often as possible."
+  - "I see students thrive with three basic things: simple structures to tackle complex problems, example applications, and opportunities to practice and apply this. I have learned that students engage when they are expected to solve difficult problems after the basics have been covered. They asked more insightful questions when the task is challenging. Students can memorize equations, but they struggle when the inputs or outputs are less clear, which requires multiple examples and sometimes multiple methods to solve a problem."
+  - "I am passionate about robotics, specifically applied robotic systems, and my goal is to teach robotics and related courses at the undergraduate and graduate level. Using my masters in translational medicine and work in industry, I have the rare qualifications to teach interdisciplinary courses including regulatory, design, ethics, biomedical applications and entrepreneurship."
