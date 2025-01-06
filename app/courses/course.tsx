@@ -1,3 +1,4 @@
+import Slider from '@/components/slider';
 import Link from 'next/link';
 
 export interface Course {
@@ -44,6 +45,7 @@ export async function Course({
       {abstract.map((piece, index) => (
         <p key={index}>{piece}</p>
       ))}
+      <Slider />
     </section>
   );
 }
