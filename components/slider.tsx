@@ -46,7 +46,7 @@ const ArrowButton = ({
     onClick={onClick}
     disabled={disabled}
     // TODO: need to handle disabled and hover states (light and dark)
-    className=" p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 rounded-full"
+    className={`p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 rounded-full hover:bg-limestone hover:dark:bg-graphite`}
   >
     {children}
   </button>
