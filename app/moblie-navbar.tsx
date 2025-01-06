@@ -1,6 +1,7 @@
 'use client';
 
 import ButtonLink from '@/components/button-link';
+import { ROUTES } from '@/utils/constants';
 import { MouseEventHandler, useRef } from 'react';
 
 function MenuIcon() {
@@ -47,18 +48,11 @@ export function MobileNavbarLinks() {
       >
         {/* ensure that the dialog contents always fill the whole clickable area; this is so we can treat 'DIALOG' clicks (the backdrop) as requests to close */}
         <div className="w-full h-full flex flex-col p-4">
-          <ButtonLink onClick={handleClose} href="/">
-            Research
-          </ButtonLink>
-          <ButtonLink onClick={handleClose} href="/courses">
-            Teaching
-          </ButtonLink>
-          <ButtonLink onClick={handleClose} href="/">
-            News
-          </ButtonLink>
-          <ButtonLink onClick={handleClose} href="/">
-            Who
-          </ButtonLink>
+          {ROUTES.map(({ text, href }) => (
+            <ButtonLink onClick={handleClose} key={text} href={href}>
+              {text}
+            </ButtonLink>
+          ))}
         </div>
       </dialog>
     </>

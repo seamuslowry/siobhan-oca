@@ -1,5 +1,6 @@
 import ButtonLink from '@/components/button-link';
 import { MobileNavbarLinks } from './moblie-navbar';
+import { ROUTES } from '@/utils/constants';
 
 export function Navbar() {
   return (
@@ -9,10 +10,11 @@ export function Navbar() {
           <ButtonLink href="/">Siobhan Oca</ButtonLink>
         </div>
         <div id="desktop-nav-links" className="hidden md:flex space-x-3">
-          <ButtonLink href="/">Research</ButtonLink>
-          <ButtonLink href="/courses">Teaching</ButtonLink>
-          <ButtonLink href="/">News</ButtonLink>
-          <ButtonLink href="/">Who</ButtonLink>
+          {ROUTES.map(({ text, href }) => (
+            <ButtonLink key={text} href={href}>
+              {text}
+            </ButtonLink>
+          ))}
         </div>
         <div id="mobile-nav-links" className="flex md:hidden">
           <MobileNavbarLinks />
