@@ -45,8 +45,7 @@ const ArrowButton = ({
   <button
     onClick={onClick}
     disabled={disabled}
-    // TODO: need to handle disabled and hover states (light and dark)
-    className={`p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 rounded-full hover:bg-limestone hover:dark:bg-graphite`}
+    className={`p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 rounded-full enabled:hover:bg-limestone enabled:hover:dark:bg-graphite disabled:opacity-25`}
   >
     {children}
   </button>
@@ -76,7 +75,7 @@ export default function Slider() {
 
   return (
     <div className="grid grid-cols-[min-content_1fr_min-content] gap-x-4 md:gap-x-12 h-full">
-      <ArrowButton onClick={moveLeft}>
+      <ArrowButton onClick={moveLeft} disabled={index <= 0}>
         <ArrowLeft />
       </ArrowButton>
       <div
@@ -92,7 +91,10 @@ export default function Slider() {
           </div>
         ))}
       </div>
-      <ArrowButton onClick={moveRight}>
+      <ArrowButton
+        onClick={moveRight}
+        disabled={index >= testChildren.length - 1}
+      >
         <ArrowRight />
       </ArrowButton>
     </div>
