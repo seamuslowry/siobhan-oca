@@ -45,7 +45,11 @@ export async function Course({
       {abstract.map((piece, index) => (
         <p key={index}>{piece}</p>
       ))}
-      <Slider />
+      <Slider>
+        {['test1', 'test2', 'test3', 'test4'].map(t => (
+          <p key={t}>{t}</p>
+        ))}
+      </Slider>
     </section>
   );
 }
