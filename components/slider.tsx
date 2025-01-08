@@ -53,7 +53,7 @@ const ArrowButton = ({
       variant === 'left' &&
         'enabled:hover:from-limestone enabled:hover:dark:from-graphite enabled:hover:to-transparent rounded-l-xl',
       variant === 'right' &&
-        'enabled:hover:to-limesone enabled:hover:dark:to-graphite enabled:hover:from-transparent rounded-r-xl',
+        'enabled:hover:to-limestone enabled:hover:dark:to-graphite enabled:hover:from-transparent rounded-r-xl',
       className,
     )}
   >
