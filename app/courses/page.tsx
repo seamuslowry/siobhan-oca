@@ -2,9 +2,15 @@ import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
 import { type Course as CourseType, Course } from './course';
 import { Fragment } from 'react';
+import type { Metadata } from 'next';
+import { retrieveMetadata } from '@/utils/metadata';
 
 interface ContentConfiguration {
   courses?: CourseType[];
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return retrieveMetadata('courses');
 }
 
 export default async function Courses() {

@@ -2,7 +2,7 @@ import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
 import type { Metadata } from 'next';
 
-type DefinedMetadata = 'home';
+type DefinedMetadata = 'home' | 'courses';
 
 export async function retrieveMetadata(
   page: DefinedMetadata,

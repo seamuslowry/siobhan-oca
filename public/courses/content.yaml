@@ -1,5 +1,5 @@
 metadata:
-  title: Courses - Siobhan Oca
+  title: Teaching - Siobhan Oca
   description: |
     Siobhan Oca, PhD
     Assistant Professor of Mechanical Engineering and Materials Science at Duke University
@@ -11,7 +11,15 @@ courses:
       - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
       - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
     projects:
-      - name: Project name
+      - name: Conveyor Belt Robot
+        collaborators:
+          - type: STUDENT
+            name: Student One
+          - type: STUDENT
+            name: Student Two
+          - type: ACADEMIC
+            name: Academic One
+      - name: TicToc Robot
         collaborators:
           - type: STUDENT
             name: Student One

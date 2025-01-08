@@ -1,10 +1,12 @@
-import Slider from '@/components/slider';
+import { TextContent } from '@/components/text-content';
 import Link from 'next/link';
+import { Project } from './project';
 
 export interface Course {
   name?: string;
   abstract?: string[];
   syllabus?: string;
+  projects?: Project[];
 }
 
 function ExternalLinkIcon() {
@@ -23,7 +25,7 @@ function ExternalLinkIcon() {
 }
 
 export async function Course({
-  course: { name = '', abstract = [], syllabus = '' },
+  course: { name = '', abstract = [], syllabus = '', projects = [] },
   className,
 }: {
   course: Course;
@@ -43,13 +45,11 @@ export async function Course({
         </Link>
       </div>
       {abstract.map((piece, index) => (
-        <p key={index}>{piece}</p>
+        <TextContent key={index} value={piece} />
       ))}
-      <Slider>
-        {['test1', 'test2', 'test3', 'test4'].map(t => (
-          <p key={t}>{t}</p>
-        ))}
-      </Slider>
+      {projects.map((p, i) => (
+        <Project key={i} project={p} />
+      ))}
     </section>
   );
 }
