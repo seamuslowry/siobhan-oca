@@ -16,7 +16,7 @@ export async function Project({
   );
 
   return (
-    <div className="grid grid-cols-2 align-center mt-10">
+    <div className="grid grid-rows-2 sm:grid-cols-2 lg:grid-cols-[3fr_7fr] gap-10 align-center mt-10">
       <div>
         <p className="text-2xl mb-3">{name}</p>
         {studentCollaborators.length > 0 && (
