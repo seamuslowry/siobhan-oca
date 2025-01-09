@@ -100,7 +100,7 @@ export default function Slider({ children }: { children: ReactNode }) {
           <div
             key={i}
             className={clsx(
-              'row-start-1 col-start-1 p-8 w-full text-center transition-transform duration-500',
+              'row-start-1 col-start-1 px-4 w-full text-center transition-transform duration-500',
               i > index && 'translate-x-full',
               i < index && '-translate-x-full',
             )}

@@ -19,6 +19,13 @@ courses:
             name: Student Two
           - type: ACADEMIC
             name: Academic One
+        media:
+          - type: mp4
+            location: conveyor.mp4
+          - type: mp4
+            location: tic-tac-tobot.mp4
+          - type: image
+            location: demo.png
       - name: TicToc Robot
         collaborators:
           - type: STUDENT
@@ -27,6 +34,9 @@ courses:
             name: Student Two
           - type: ACADEMIC
             name: Academic One
+        media:
+          - type: mp4
+            location: tic-tac-tobot.mp4
   - name: Medical Robotics and Surgical Technologies
     syllabus: medical-robotics.pdf
     abstract:

@@ -13,6 +13,8 @@ function MenuIcon() {
       strokeWidth="2"
       stroke="currentColor"
       className="w-6 h-6"
+      width={24}
+      height={24}
     >
       <path
         strokeLinecap="round"
