@@ -25,13 +25,23 @@ export async function Project({
         {studentCollaborators.length > 0 && (
           <p>
             Student Collaborators:{' '}
-            {studentCollaborators.map(sc => sc.name).join(', ')}
+            {studentCollaborators.map((sc, i) => (
+              <Fragment key={i}>
+                <span className="italic">{sc.name}</span>
+                {i < studentCollaborators.length - 1 && ', '}
+              </Fragment>
+            ))}
           </p>
         )}
         {academicCollaborators.length > 0 && (
           <p>
             Academic Collaborators:{' '}
-            {academicCollaborators.map(sc => sc.name).join(', ')}
+            {academicCollaborators.map((sc, i) => (
+              <Fragment key={i}>
+                <span className="italic">{sc.name}</span>
+                {i < academicCollaborators.length - 1 && ', '}
+              </Fragment>
+            ))}
           </p>
         )}
       </div>
