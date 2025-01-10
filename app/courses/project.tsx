@@ -5,6 +5,7 @@ import {
   type TextContent as TextContentType,
   TextContent,
 } from '@/components/text-content';
+import Video from '@/components/video';
 
 export interface Project {
   name?: string;
@@ -65,14 +66,14 @@ export async function Project({
         {media.map(async ({ type, filename = '', alt = '' }, i) => (
           <Fragment key={i}>
             {type === 'mp4' && (
-              <video
+              <Video
                 controls
                 preload="metadata"
                 className="w-full aspect-video"
               >
                 <source src={`/courses/${filename}`} type="video/mp4" />
                 {alt ?? 'Your browser does not support the video tag.'}
-              </video>
+              </Video>
             )}
             {type === 'image' && (
               <Image
