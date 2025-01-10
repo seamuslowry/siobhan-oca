@@ -52,7 +52,7 @@ export function TextContent({
       className={clsx(
         className,
         italic && 'italic',
-        bold && 'bold',
+        bold && 'font-bold',
         underline && 'underline',
         align === 'left' && 'text-left',
         align === 'right' && 'text-right',
