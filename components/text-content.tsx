@@ -7,7 +7,7 @@ interface TextContentConfiguration {
   underline?: boolean;
   align?: 'left' | 'right' | 'center';
   whitespace?: 'normal' | 'pre-wrap';
-  tag?: 'p' | 'h1' | 'h2' | 'h3';
+  tag?: 'p' | 'h1' | 'h2' | 'h3' | 'span';
   size?:
     | 'xs'
     | 'sm'

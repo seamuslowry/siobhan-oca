@@ -94,7 +94,7 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
             - `type`: The type of collaborator. Valid values are
                 - `STUDENT`
                 - `ACADEMIC`
-            - `name`: The name of the collaborator. This is not stylable and will always display in italics. Future work intends to support linking these names to same-site or external pages.
+            - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
         - `media`: An array of objects describing media to display for this project
             - `type`: The type of media. Valid values are
                 - `mp4`

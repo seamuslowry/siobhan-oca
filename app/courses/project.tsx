@@ -30,9 +30,12 @@ export async function Project({
         {studentCollaborators.length > 0 && (
           <p>
             Student Collaborators:{' '}
-            {studentCollaborators.map((sc, i) => (
+            {studentCollaborators.map(({ name = '' }, i) => (
               <Fragment key={i}>
-                <span className="italic">{sc.name}</span>
+                <TextContent
+                  value={name}
+                  desired={{ italic: true, tag: 'span' }}
+                />
                 {i < studentCollaborators.length - 1 && ', '}
               </Fragment>
             ))}
@@ -41,9 +44,12 @@ export async function Project({
         {academicCollaborators.length > 0 && (
           <p>
             Academic Collaborators:{' '}
-            {academicCollaborators.map((sc, i) => (
+            {academicCollaborators.map(({ name = '' }, i) => (
               <Fragment key={i}>
-                <span className="italic">{sc.name}</span>
+                <TextContent
+                  value={name}
+                  desired={{ italic: true, tag: 'span' }}
+                />
                 {i < academicCollaborators.length - 1 && ', '}
               </Fragment>
             ))}
