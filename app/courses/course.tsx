@@ -45,7 +45,10 @@ export async function Course({
           rel="noopener noreferrer"
           className="grid grid-cols-[1fr_min-content] gap-3 items-center pb-8"
         >
-          <h2 className="text-5xl underline">{name}</h2>
+          <TextContent
+            value={name}
+            desired={{ size: '5xl', underline: true, tag: 'h2' }}
+          />
           <ExternalLinkIcon />
         </Link>
       </div>

@@ -23,11 +23,11 @@ courses:
             name: Academic One
         media:
           - type: mp4
-            location: conveyor.mp4
+            filename: conveyor.mp4
           - type: mp4
-            location: tic-tac-tobot.mp4
+            filename: tic-tac-tobot.mp4
           - type: image
-            location: demo.png
+            filename: demo.png
       - name: TicToc Robot
         description:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
@@ -40,7 +40,7 @@ courses:
             name: Academic One
         media:
           - type: mp4
-            location: tic-tac-tobot.mp4
+            filename: tic-tac-tobot.mp4
   - name: Medical Robotics and Surgical Technologies
     syllabus: medical-robotics.pdf
     abstract:
@@ -57,7 +57,7 @@ courses:
             name: Student Three
         media:
           - type: image
-            location: demo.png
+            filename: demo.png
   - name: Advanced Elephants
     syllabus: test.pdf
     abstract:

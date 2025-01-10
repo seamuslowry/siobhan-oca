@@ -9,7 +9,7 @@ import {
 export interface Project {
   name?: string;
   collaborators?: { type?: 'STUDENT' | 'ACADEMIC'; name?: string }[];
-  media?: { type?: 'mp4' | 'image'; location?: string; alt?: string }[];
+  media?: { type?: 'mp4' | 'image'; filename?: string; alt?: string }[];
   description?: TextContentType[];
 }
 
@@ -26,7 +26,7 @@ export async function Project({
   return (
     <div className="grid grid-rows-[min-content_1fr] sm:grid-cols-2 lg:grid-cols-[3fr_7fr] gap-10 align-center mt-10">
       <div>
-        <p className="text-2xl mb-3">{name}</p>
+        <TextContent desired={{ size: '2xl' }} value={name} />
         {studentCollaborators.length > 0 && (
           <p>
             Student Collaborators:{' '}
@@ -56,7 +56,7 @@ export async function Project({
         </div>
       </div>
       <Slider>
-        {media.map(async ({ type, location = '', alt = '' }, i) => (
+        {media.map(async ({ type, filename = '', alt = '' }, i) => (
           <Fragment key={i}>
             {type === 'mp4' && (
               <video
@@ -64,13 +64,13 @@ export async function Project({
                 preload="metadata"
                 className="w-full aspect-video"
               >
-                <source src={`/courses/${location}`} type="video/mp4" />
+                <source src={`/courses/${filename}`} type="video/mp4" />
                 {alt ?? 'Your browser does not support the video tag.'}
               </video>
             )}
             {type === 'image' && (
               <Image
-                src={(await import(`@/assets/courses/${location}`)).default}
+                src={(await import(`@/assets/courses/${filename}`)).default}
                 alt={alt}
                 placeholder="blur"
                 unoptimized
