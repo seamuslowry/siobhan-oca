@@ -54,7 +54,11 @@ export default async function Home() {
               className="object-cover w-[80%] aspect-square rounded-full"
               unoptimized
             />
-            <p className="text-3xl pt-3">{title}</p>
+            <TextContent
+              className="pt-3"
+              desired={{ size: '3xl' }}
+              value={title}
+            />
             <a href={`mailto:${email}`} className="underline text-xl pt-3">
               {email}
             </a>

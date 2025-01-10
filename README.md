@@ -6,16 +6,17 @@ Many aspects of this site are designed to configurable through `.yaml` file chan
 
 ## Cross-Page Configuration
 
-### Text Content
+### Stylable Text
 
 Some displayed text is configurable in its sizing and position. Those fields will be flagged as stylable and will link to this section. Fields defined like this may be either a raw string
 ```yaml
-text: just a yaml string
+field: just a yaml string
 ```
 or they can be a yaml object that specifies the text and any styling to apply to the text.
 ```yaml
-- text: this is a yaml object
-  size: 3xl
+field:
+    text: this is a yaml object
+    size: 3xl
 ``` 
 
 The configurable values are
@@ -54,9 +55,9 @@ The text for this page is stored in `/assets/home/content.yaml`. The fields are:
     - `alt`: The alt text for the hero image.
 - `banner`: This section contains configuration for the banner above the hero image.
     - `alt`: The alt text for the banner image.
-    - `title`: The extra large text just below the image.
+    - `title` ([stylable](#stylable-text)): The extra large text just below the image.
     - `email`: The email address below the title. The site will attempt to structure this as a `mailto:${email}` link in addition to displaying the text.
-    - `content`: An array of strings. Each string will be displayed under the banner in a separate paragraph tag. This was tested with 2 elements. An excessively long list may cause the banner content to compress, overflow, or extend beyond the hero image.
+    - `content`: An array of ([stylable](#stylable-text)) strings. Each string will be displayed under the banner in a separate paragraph tag. This was tested with 2 elements. An excessively long list may cause the banner content to compress, overflow, or extend beyond the hero image.
 
 ### Hero Image
 

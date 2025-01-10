@@ -25,9 +25,11 @@ export type TextContent = string | TextContentConfiguration;
 export function TextContent({
   className,
   value,
+  desired = {},
 }: {
   className?: string;
   value: TextContent;
+  desired?: Omit<TextContentConfiguration, 'text'>;
 }) {
   const standardizedValue = typeof value === 'string' ? { text: value } : value;
   const {
@@ -38,7 +40,10 @@ export function TextContent({
     whitespace = 'normal',
     tag: Tag = 'p',
     size = 'base',
-  } = standardizedValue;
+  } = {
+    ...desired,
+    ...standardizedValue,
+  };
 
   return (
     <Tag
