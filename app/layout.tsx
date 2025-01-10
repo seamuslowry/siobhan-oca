@@ -18,7 +18,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.className} ${geistSans.variable} ${geistMono.variable} antialiased [&:has(dialog[open])]:overflow-hidden`}
       >
-        <script>0</script>
         <Navbar />
         {children}
       </body>
