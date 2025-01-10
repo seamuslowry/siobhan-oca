@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { geistMono, geistSans } from '@/utils/fonts';
 import { retrieveMetadata } from '@/utils/metadata';
-import { Navbar } from './Navbar';
+import { Navbar } from './navbar';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('home');

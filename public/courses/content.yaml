@@ -1,0 +1,65 @@
+metadata:
+  title: Teaching - Siobhan Oca
+  description: |
+    Siobhan Oca, PhD
+    Assistant Professor of Mechanical Engineering and Materials Science at Duke University
+    Assistant Director of Masters in Robotics at Duke University
+courses:
+  - name: Introduction to Robotics
+    syllabus: intro-to-robotics.pdf
+    abstract:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
+    projects:
+      - name: Conveyor Belt Robot
+        description:
+          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+        collaborators:
+          - type: STUDENT
+            name: Student One
+          - type: STUDENT
+            name: Student Two
+          - type: ACADEMIC
+            name: Academic One
+        media:
+          - type: mp4
+            filename: conveyor.mp4
+          - type: mp4
+            filename: tic-tac-tobot.mp4
+          - type: image
+            filename: demo.png
+      - name: TicToc Robot
+        description:
+          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+        collaborators:
+          - type: STUDENT
+            name: Student One
+          - type: STUDENT
+            name: Student Two
+          - type: ACADEMIC
+            name: Academic One
+        media:
+          - type: mp4
+            filename: tic-tac-tobot.mp4
+  - name: Medical Robotics and Surgical Technologies
+    syllabus: medical-robotics.pdf
+    abstract:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
+    projects:
+      - name: Demo Project
+        description:
+          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+        collaborators:
+          - type: STUDENT
+            name: Student One
+          - type: STUDENT
+            name: Student Three
+        media:
+          - type: image
+            filename: demo.png
+  - name: Advanced Elephants
+    syllabus: test.pdf
+    abstract:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin.
