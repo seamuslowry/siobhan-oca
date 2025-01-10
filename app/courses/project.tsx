@@ -1,15 +1,20 @@
 import Image from 'next/image';
 import Slider from '@/components/slider';
 import { Fragment } from 'react';
+import {
+  type TextContent as TextContentType,
+  TextContent,
+} from '@/components/text-content';
 
 export interface Project {
   name?: string;
   collaborators?: { type?: 'STUDENT' | 'ACADEMIC'; name?: string }[];
   media?: { type?: 'mp4' | 'image'; location?: string; alt?: string }[];
+  description?: TextContentType[];
 }
 
 export async function Project({
-  project: { name = '', collaborators = [], media = [] },
+  project: { name = '', collaborators = [], media = [], description = [] },
 }: {
   project: Project;
 }) {
@@ -44,6 +49,11 @@ export async function Project({
             ))}
           </p>
         )}
+        <div className="mt-4">
+          {description.map((piece, index) => (
+            <TextContent key={index} value={piece} />
+          ))}
+        </div>
       </div>
       <Slider>
         {media.map(async ({ type, location = '', alt = '' }, i) => (

@@ -20,7 +20,7 @@ export default async function Courses() {
 
   return (
     <main>
-      <div className="mx-[8%] mt-10 flex flex-col gap-8">
+      <div className="mx-[8%] my-10 flex flex-col gap-8">
         {courses.map((c, i) => (
           <Fragment key={i}>
             <Course course={c} className="mx-[2%]" />

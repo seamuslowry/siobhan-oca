@@ -84,12 +84,14 @@ export default function Slider({ children }: { children: ReactNode }) {
 
   return (
     <div className="grid grid-cols-[min-content_1fr_min-content] gap-x-4 md:gap-x-12 h-full">
-      <ArrowButton
-        onClick={moveLeft}
-        disabled={index <= 0}
-        variant="left"
-        className="col-start-1 row-start-1 z-10"
-      />
+      {totalSlides > 1 && (
+        <ArrowButton
+          onClick={moveLeft}
+          disabled={index <= 0}
+          variant="left"
+          className="col-start-1 row-start-1 z-10"
+        />
+      )}
       <div
         {...handlers}
         className={
@@ -109,12 +111,14 @@ export default function Slider({ children }: { children: ReactNode }) {
           </div>
         ))}
       </div>
-      <ArrowButton
-        onClick={moveRight}
-        disabled={index >= totalSlides - 1}
-        variant="right"
-        className="col-start-3 row-start-1 z-10"
-      />
+      {totalSlides > 1 && (
+        <ArrowButton
+          onClick={moveRight}
+          disabled={index >= totalSlides - 1}
+          variant="right"
+          className="col-start-3 row-start-1 z-10"
+        />
+      )}
     </div>
   );
 }

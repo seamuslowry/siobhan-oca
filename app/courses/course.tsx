@@ -1,10 +1,13 @@
-import { TextContent } from '@/components/text-content';
+import {
+  type TextContent as TextContentType,
+  TextContent,
+} from '@/components/text-content';
 import Link from 'next/link';
 import { Project } from './project';
 
 export interface Course {
   name?: string;
-  abstract?: string[];
+  abstract?: TextContentType[];
   syllabus?: string;
   projects?: Project[];
 }
