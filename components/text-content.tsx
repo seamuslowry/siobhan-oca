@@ -4,6 +4,7 @@ interface TextContentConfiguration {
   text: string;
   bold?: boolean;
   italic?: boolean;
+  underline?: boolean;
   align?: 'left' | 'right' | 'center';
   whitespace?: 'normal' | 'pre-wrap';
   tag?: 'p' | 'h1' | 'h2' | 'h3';
@@ -36,6 +37,7 @@ export function TextContent({
     text,
     italic,
     bold,
+    underline,
     align = 'left',
     whitespace = 'normal',
     tag: Tag = 'p',
@@ -51,6 +53,7 @@ export function TextContent({
         className,
         italic && 'italic',
         bold && 'bold',
+        underline && 'underline',
         align === 'left' && 'text-left',
         align === 'right' && 'text-right',
         align === 'center' && 'text-center',

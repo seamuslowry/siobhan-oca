@@ -23,6 +23,7 @@ The configurable values are
 - `text`: The text to display.
 - `bold`: A boolean value. If true, the text will be bolded.
 - `italic`: A boolean value. If true, the text will be italicized.
+- `underline`: A boolean value. If true, the text will be underlined.
 - `align`: The alignment of the text. Valid values are
     - `left`
     - `center`
