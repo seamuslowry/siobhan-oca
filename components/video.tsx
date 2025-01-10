@@ -18,33 +18,37 @@ export default function Video(
 ) {
   const [loaded, setLoaded] = useState(false);
   const [waiting, setWaiting] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { className, ...rest } = props;
 
+  // track hydration because events won't fire properly with SSR on refresh
   useEffect(() => {
-    setLoaded((videoRef.current?.readyState ?? 0) >= 1);
-  }, [videoRef.current?.readyState]);
+    setHydrated(true);
+  }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setWaiting(false), 500);
+    const timeout = setTimeout(() => setWaiting(false), 100);
 
     return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div className="grid grid-rows-1 grid-cols-1">
-      {!waiting && !loaded && (
-        <div className="aspect-video rounded-lg w-full animate-pulse bg-graphite/30 row-start-1 col-start-1" />
+    <div
+      className={clsx(
+        className,
+        !waiting && !loaded && 'rounded-lg w-full animate-pulse bg-graphite/30',
       )}
-      <video
-        {...rest}
-        ref={videoRef}
-        className={clsx(
-          className,
-          !loaded && 'opacity-0',
-          'row-start-1 col-start-1',
-        )}
-      />
+    >
+      {/* don't attempt to render the video until hydration */}
+      {hydrated && (
+        <video
+          {...rest}
+          ref={videoRef}
+          onLoadedMetadata={() => setLoaded(true)}
+          className={clsx('h-full w-full', !loaded && 'opacity-0')}
+        />
+      )}
     </div>
   );
 }
