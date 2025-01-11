@@ -9,7 +9,10 @@ export default function ButtonLink({
   return (
     <Link
       {...rest}
-      className={clsx('hover:bg-duke-light p-2 rounded', className)}
+      className={clsx(
+        'supports-[hover:hoer]:hover:bg-duke-light p-2 rounded',
+        className,
+      )}
     />
   );
 }
