@@ -10,10 +10,7 @@ export default function ButtonLink({
     <Link
       draggable={false}
       {...rest}
-      className={clsx(
-        'hover:bg-duke-light active:bg-duke-light p-2 rounded select-none',
-        className,
-      )}
+      className={clsx('hover:bg-duke-light p-2 rounded select-none', className)}
     />
   );
 }
