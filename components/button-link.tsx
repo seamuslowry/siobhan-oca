@@ -8,8 +8,9 @@ export default function ButtonLink({
 }: LinkProps & { className?: string } & { children: ReactNode }) {
   return (
     <Link
+      draggable={false}
       {...rest}
-      className={clsx('hover:bg-duke-light p-2 rounded', className)}
+      className={clsx('hover:bg-duke-light p-2 rounded select-none', className)}
     />
   );
 }
