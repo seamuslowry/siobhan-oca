@@ -1,6 +1,6 @@
 import ButtonLink from '@/components/button-link';
 import { MobileNavbarLinks } from './moblie-navbar';
-import { ROUTES } from '@/utils/constants';
+import { ROUTES } from '@/utils/routes';
 
 export function Navbar() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import ButtonLink from '@/components/button-link';
-import { ROUTES } from '@/utils/constants';
+import { ROUTES } from '@/utils/routes';
 import { MouseEventHandler, useRef } from 'react';
 
 function MenuIcon() {
