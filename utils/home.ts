@@ -16,18 +16,5 @@ interface HomePageData {
 }
 
 export async function retrieveData(): Promise<HomePageData> {
-  const rawData = parse(await readFile(`./public/home/content.yaml`, 'utf-8'));
-
-  return {
-    hero: {
-      alt: rawData?.hero?.alt ?? '',
-    },
-    banner: {
-      alt: rawData?.banner?.alt ?? '',
-      title: rawData?.banner?.title ?? '',
-      email: rawData?.banner?.email ?? '',
-      content: rawData?.content ?? [],
-    },
-    summary: rawData?.summary ?? [],
-  };
+  return parse(await readFile(`./public/home/content.yaml`, 'utf-8'));
 }

@@ -1,21 +1,12 @@
 import Image from 'next/image';
 import Slider from '@/components/slider';
 import { Fragment } from 'react';
-import {
-  type TextContent as TextContentType,
-  TextContent,
-} from '@/components/text-content';
+import { type Project } from '@/utils/courses';
+import { TextContent } from '@/components/text-content';
 import Video from '@/components/video';
 
-export interface Project {
-  name?: string;
-  collaborators?: { type?: 'STUDENT' | 'ACADEMIC'; name?: string }[];
-  media?: { type?: 'mp4' | 'image'; filename?: string; alt?: string }[];
-  description?: TextContentType[];
-}
-
 export async function Project({
-  project: { name = '', collaborators = [], media = [], description = [] },
+  project: { name, collaborators = [], media = [], description = [] },
 }: {
   project: Project;
 }) {
