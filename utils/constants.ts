@@ -1,6 +1,6 @@
 export const ROUTES = [
-  { text: 'Research', href: '/' },
+  { text: 'The Oca Lab', href: '/' },
   { text: 'Teaching', href: '/courses' },
   { text: 'News', href: '/' },
-  { text: 'Who', href: '/' },
+  { text: 'Team', href: '/' },
 ] as const;
