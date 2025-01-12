@@ -1,39 +1,15 @@
 import Image from 'next/image';
 import heroImage from '@/assets/home/hero.png';
 import bannerImage from '@/assets/home/banner.png';
-import { readFile } from 'fs/promises';
-import { parse } from 'yaml';
-import {
-  type TextContent as TextContentType,
-  TextContent,
-} from '@/components/text-content';
-
-interface ContentConfiguration {
-  hero?: {
-    alt?: string;
-  };
-  banner: {
-    alt?: string;
-    title?: string;
-    email?: string;
-    content?: TextContentType[];
-  };
-  summary?: TextContentType[];
-}
+import { TextContent } from '@/components/text-content';
+import { retrieveData } from '@/utils/home';
 
 export default async function Home() {
   const {
-    hero: { alt: heroDescription = '' } = {},
-    banner: {
-      alt: bannerDescription = '',
-      title = '',
-      email = '',
-      content: bannerContent = [],
-    } = {},
-    summary = [],
-  }: ContentConfiguration = parse(
-    await readFile(`./public/home/content.yaml`, 'utf-8'),
-  );
+    hero: { alt: heroDescription },
+    banner: { alt: bannerDescription, title, email, content: bannerContent },
+    summary,
+  } = await retrieveData();
 
   return (
     <main>
