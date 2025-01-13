@@ -1,27 +1,23 @@
 import clsx from 'clsx';
+import { z } from 'zod';
 
-interface TextContentConfiguration {
-  text: string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
-  align?: 'left' | 'right' | 'center';
-  whitespace?: 'normal' | 'pre-wrap';
-  tag?: 'p' | 'h1' | 'h2' | 'h3' | 'span';
-  size?:
-    | 'xs'
-    | 'sm'
-    | 'base'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | '6xl';
-}
+const richConfigurationSchema = z.object({
+  text: z.string(),
+  bold: z.coerce.boolean().default(false),
+  italic: z.coerce.boolean().default(false),
+  underline: z.coerce.boolean().default(false),
+  align: z.enum(['left', 'right', 'center']).default('left'),
+  whitespace: z.enum(['normal', 'pre-wrap']).default('normal'),
+  tag: z.enum(['p', 'h1', 'h2', 'h3', 'span']).default('p'),
+  size: z
+    .enum(['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'])
+    .default('base'),
+});
 
-export type TextContent = string | TextContentConfiguration;
+export const schema = z.union([z.string(), richConfigurationSchema]);
+
+type RichConfiguration = z.infer<typeof richConfigurationSchema>;
+export type TextContent = z.infer<typeof schema>;
 
 export function TextContent({
   className,
@@ -30,7 +26,7 @@ export function TextContent({
 }: {
   className?: string;
   value: TextContent;
-  desired?: Omit<TextContentConfiguration, 'text'>;
+  desired?: Partial<Omit<RichConfiguration, 'text'>>;
 }) {
   const standardizedValue = typeof value === 'string' ? { text: value } : value;
   const {
@@ -38,14 +34,14 @@ export function TextContent({
     italic,
     bold,
     underline,
-    align = 'left',
-    whitespace = 'normal',
-    tag: Tag = 'p',
-    size = 'base',
-  } = {
+    align,
+    whitespace,
+    tag: Tag,
+    size,
+  } = richConfigurationSchema.parse({
     ...desired,
     ...standardizedValue,
-  };
+  });
 
   return (
     <Tag

@@ -28,6 +28,7 @@ courses:
             filename: tic-tac-tobot.mp4
           - type: image
             filename: demo.png
+            alt: A demo image for this project
       - name: TicToc Robot
         description:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
@@ -58,6 +59,7 @@ courses:
         media:
           - type: image
             filename: demo.png
+            alt: A demo image for this project
   - name: Advanced Elephants
     syllabus: test.pdf
     summary:

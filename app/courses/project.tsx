@@ -6,7 +6,7 @@ import { TextContent } from '@/components/text-content';
 import Video from '@/components/video';
 
 export async function Project({
-  project: { name, collaborators = [], media = [], description = [] },
+  project: { name, collaborators, media, description },
 }: {
   project: Project;
 }) {
@@ -22,7 +22,7 @@ export async function Project({
         {studentCollaborators.length > 0 && (
           <p>
             Student Collaborators:{' '}
-            {studentCollaborators.map(({ name = '' }, i) => (
+            {studentCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
                 <TextContent
                   value={name}
@@ -36,7 +36,7 @@ export async function Project({
         {academicCollaborators.length > 0 && (
           <p>
             Academic Collaborators:{' '}
-            {academicCollaborators.map(({ name = '' }, i) => (
+            {academicCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
                 <TextContent
                   value={name}
@@ -54,7 +54,7 @@ export async function Project({
         </div>
       </div>
       <Slider>
-        {media.map(async ({ type, filename = '', alt = '' }, i) => (
+        {media.map(async ({ type, filename, alt }, i) => (
           <Fragment key={i}>
             {type === 'mp4' && (
               <Video

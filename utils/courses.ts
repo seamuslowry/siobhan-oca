@@ -1,25 +1,53 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
-import { type TextContent } from '@/components/text-content';
+import { schema as textContentSchema } from '@/components/text-content';
+import { z } from 'zod';
 
-export interface Project {
-  name: string;
-  collaborators?: { type: 'STUDENT' | 'ACADEMIC'; name: string }[];
-  media?: { type: 'mp4' | 'image'; filename: string; alt: string }[];
-  description?: TextContent[];
-}
+const projectSchema = z.object({
+  name: z.string(),
+  description: z.array(textContentSchema),
+  collaborators: z.array(
+    z.object({
+      type: z.enum(['STUDENT', 'ACADEMIC']),
+      name: z.string(),
+    }),
+  ),
+  media: z
+    .array(
+      z.discriminatedUnion('type', [
+        z.object({
+          type: z.literal('mp4'),
+          filename: z.string(),
+          alt: z.string().optional(),
+        }),
+        z.object({
+          type: z.literal('image'),
+          filename: z.string(),
+          alt: z.string(),
+        }),
+      ]),
+    )
+    .default([]),
+});
 
-export interface Course {
-  name: string;
-  summary?: TextContent[];
-  syllabus: string;
-  projects?: Project[];
-}
+const courseSchema = z.object({
+  name: z.string(),
+  syllabus: z.string(),
+  summary: z.array(textContentSchema),
+  projects: z.array(projectSchema).default([]),
+});
 
-interface CoursePageData {
-  courses: Course[];
-}
+const schema = z.object({
+  courses: z.array(courseSchema),
+});
+
+export type Project = z.infer<typeof projectSchema>;
+export type Course = z.infer<typeof courseSchema>;
+
+type CoursePageData = z.infer<typeof schema>;
 
 export async function retrieveData(): Promise<CoursePageData> {
-  return parse(await readFile(`./public/courses/content.yaml`, 'utf-8'));
+  return schema.parse(
+    parse(await readFile(`./public/courses/content.yaml`, 'utf-8')),
+  );
 }

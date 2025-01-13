@@ -21,7 +21,7 @@ function ExternalLinkIcon() {
 }
 
 export async function Course({
-  course: { name, summary = [], syllabus, projects = [] },
+  course: { name, summary, syllabus, projects },
   className,
 }: {
   course: Course;
