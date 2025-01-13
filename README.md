@@ -30,7 +30,7 @@ field:
     align: center
 ``` 
 
-The configurable values are
+All configurable values are optional except for the `text` to display. The configurable values are
 - `text`: The text to display.
 - `bold`: A boolean value. If true, the text will be bolded.
 - `italic`: A boolean value. If true, the text will be italicized.
@@ -42,7 +42,12 @@ The configurable values are
 - `whitespace`: A value to use for CSS whitespace. This is useful if linebreaks in the raw text shoud be preserved. Valid values are
     - `normal`
     - `pre-wrap`
-- `tag`: The actual HTML tag to render on the page. This won't affect display, but may help screen readers semantically. This is unvalidated. Valid values are any HTML tag, but this should be `p` or heading tags.
+- `tag`: The actual HTML tag to render on the page. This won't affect display, but may help screen readers semantically. Valid values are
+    - `p`
+    - `h1`
+    - `h2`
+    - `h3`
+    - `span`
 - `size`: The size of the text to display. Valid values are
     - `xs`
     - `sm`
@@ -87,21 +92,24 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
 - `courses`: An array of objects describing the courses on this page. Each element is an object described below.
     - `name` ([stylable](#stylable-text)): The name of the course. Without explicit styling, this will default to `size: 5xl`, `underline: true`, and `tag: h2`.
     - `syllabus`: The filename to link to as the syllabus. This file _must_ be in the same directory as the `content.yaml` file. This will be linked from the name of the course.
-    - `content`: An array of ([stylable](#stylable-text)) strings. This will display immediately under the course title.
-    - `projects`: An array of objects describing the projects associated to this course. Each element is an object described below.
+    - `summary`: An array of ([stylable](#stylable-text)) strings. This will display immediately under the course title.
+    - `projects`: An array of objects describing the projects associated to this course. Each element is an object described below. This field is optional.
         - `name`: ([stylable](#stylable-text)): The name of the project. Without explicit styling, this will default to `size: 2xl`.
-        - `collaborators`: An array of objects describing the collaborators on this project.
+        - `collaborators`: An array of objects describing the collaborators on this project. This field is optional.
             - `type`: The type of collaborator. Valid values are
                 - `STUDENT`
                 - `ACADEMIC`
             - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
-        - `media`: An array of objects describing media to display for this project
+        - `media`: An array of objects describing media to display for this project. This field is optional.
             - `type`: The type of media. Valid values are
                 - `mp4`
                 - `image`
             - `filename`: The name of the media file. Where the file must be found depends on the type.
                 - For type `mp4`, the file must be found in same directory as the `content.yaml` file.
                 - For type `image`, the file must be found in the `/assets/courses` directory.
+            - `alt`: The alt text for the media.
+                - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
+                - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
 
 
 ## Local Development

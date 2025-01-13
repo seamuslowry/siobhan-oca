@@ -1,16 +1,7 @@
-import {
-  type TextContent as TextContentType,
-  TextContent,
-} from '@/components/text-content';
+import { TextContent } from '@/components/text-content';
+import { type Course } from '@/utils/courses';
 import Link from 'next/link';
 import { Project } from './project';
-
-export interface Course {
-  name?: string;
-  abstract?: TextContentType[];
-  syllabus?: string;
-  projects?: Project[];
-}
 
 function ExternalLinkIcon() {
   return (
@@ -30,7 +21,7 @@ function ExternalLinkIcon() {
 }
 
 export async function Course({
-  course: { name = '', abstract = [], syllabus = '', projects = [] },
+  course: { name, summary, syllabus, projects },
   className,
 }: {
   course: Course;
@@ -52,7 +43,7 @@ export async function Course({
           <ExternalLinkIcon />
         </Link>
       </div>
-      {abstract.map((piece, index) => (
+      {summary.map((piece, index) => (
         <TextContent key={index} value={piece} />
       ))}
       {projects.map((p, i) => (
