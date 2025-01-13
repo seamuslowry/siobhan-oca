@@ -10,7 +10,7 @@ const projectSchema = z.object({
     .array(
       z.object({
         type: z.enum(['STUDENT', 'ACADEMIC']),
-        name: z.string(),
+        name: textContentSchema,
       }),
     )
     .default([]),
