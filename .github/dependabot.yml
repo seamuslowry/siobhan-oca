@@ -16,14 +16,9 @@ updates:
           - "react*"
           - "@types/react*"
           - "next"
-      non-major-development-dependencies:
-        dependency-type: "development"
+      non-major-dependencies:
         update-types:
           - minor
-          - patch
-      production-patch-dependencies:
-        dependency-type: "production"
-        update-types:
           - patch
   - package-ecosystem: "github-actions"
     directory: "/"
