@@ -92,7 +92,7 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
 - `courses`: An array of objects describing the courses on this page. Each element is an object described below.
     - `name` ([stylable](#stylable-text)): The name of the course. Without explicit styling, this will default to `size: 5xl`, `underline: true`, and `tag: h2`.
     - `syllabus`: The filename to link to as the syllabus. This file _must_ be in the same directory as the `content.yaml` file. This will be linked from the name of the course.
-    - `content`: An array of ([stylable](#stylable-text)) strings. This will display immediately under the course title.
+    - `summary`: An array of ([stylable](#stylable-text)) strings. This will display immediately under the course title.
     - `projects`: An array of objects describing the projects associated to this course. Each element is an object described below. This field is optional.
         - `name`: ([stylable](#stylable-text)): The name of the project. Without explicit styling, this will default to `size: 2xl`.
         - `collaborators`: An array of objects describing the collaborators on this project.
