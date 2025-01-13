@@ -95,7 +95,7 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
     - `summary`: An array of ([stylable](#stylable-text)) strings. This will display immediately under the course title.
     - `projects`: An array of objects describing the projects associated to this course. Each element is an object described below. This field is optional.
         - `name`: ([stylable](#stylable-text)): The name of the project. Without explicit styling, this will default to `size: 2xl`.
-        - `collaborators`: An array of objects describing the collaborators on this project.
+        - `collaborators`: An array of objects describing the collaborators on this project. This field is optional.
             - `type`: The type of collaborator. Valid values are
                 - `STUDENT`
                 - `ACADEMIC`

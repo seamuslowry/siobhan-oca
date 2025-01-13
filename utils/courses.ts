@@ -6,12 +6,14 @@ import { z } from 'zod';
 const projectSchema = z.object({
   name: z.string(),
   description: z.array(textContentSchema),
-  collaborators: z.array(
-    z.object({
-      type: z.enum(['STUDENT', 'ACADEMIC']),
-      name: z.string(),
-    }),
-  ),
+  collaborators: z
+    .array(
+      z.object({
+        type: z.enum(['STUDENT', 'ACADEMIC']),
+        name: z.string(),
+      }),
+    )
+    .default([]),
   media: z
     .array(
       z.discriminatedUnion('type', [
