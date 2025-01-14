@@ -111,6 +111,10 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
                 - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
                 - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
 
+## Research Page (The Oca Lab)
+
+The text for this page is stored in `/assets/research/content.yaml`. The fields are:
+- `metadata`: See [metadata](#metadata).
 
 ## Local Development
 
