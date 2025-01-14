@@ -32,7 +32,7 @@ jobs:
           ###### Repository/Build Configurations ######
           app_location: "." # App source code path relative to repository root - optional
           output_location: "out" # Built app content directory, relative to app_location - optional
-          ###### End of Repository/Build Configurations ######
+          ###### End of Repository/Build Configurations ###### am i insane
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
