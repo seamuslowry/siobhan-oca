@@ -21,7 +21,7 @@ export default function Accordion({
       </button>
       <div
         className={clsx(
-          'grid transition-all duration-300 ease-in-out',
+          'grid transition-[grid-template-rows] duration-300 ease-in-out',
           open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
         )}
       >
