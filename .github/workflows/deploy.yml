@@ -14,10 +14,27 @@ permissions:
   pull-requests: write
 
 jobs:
+  get_environment_name:
+    runs-on: ubuntu-latest
+    name: Get Environment name from ref
+    env:
+      REF_NAME: ${{ github.event_name == 'pull_request' && github.head_ref || 'production' }}
+    outputs:
+      environmentName: ${{ steps.extravt_env.outputs.env_name }}
+    steps:
+      - id: extravt_env
+        run: |
+          sanitized=${REF_NAME//'/'/'-'}
+          echo "env_name=${sanitized:0:255}" >> "$GITHUB_OUTPUT"
+
   build_and_deploy_job:
+    needs: [get_environment_name]
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    environment:
+      name: ${{ needs.get_environment_name.outputs.environmentName }}
+      url: ${{ steps.builddeploy.outputs.static_web_app_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,6 +52,7 @@ jobs:
           ###### End of Repository/Build Configurations ###### am i insane
 
   close_pull_request_job:
+    needs: [get_environment_name]
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Job
