@@ -17,7 +17,6 @@ export default function Video(
   >,
 ) {
   const [loaded, setLoaded] = useState(false);
-  const [waiting, setWaiting] = useState(true);
   const [hydrated, setHydrated] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const { className, ...rest } = props;
@@ -27,17 +26,12 @@ export default function Video(
     setHydrated(true);
   }, []);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setWaiting(false), 100);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
   return (
     <div
       className={clsx(
         className,
-        !waiting && !loaded && 'rounded-lg w-full animate-pulse bg-graphite/30',
+        !loaded &&
+          'rounded-lg w-full animate-pulse bg-limestone/60 dark:bg-graphite/30',
       )}
     >
       {/* don't attempt to render the video until hydration */}
