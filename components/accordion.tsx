@@ -23,7 +23,7 @@ export default function Accordion({
       >
         <span
           className={clsx(
-            'transition-transform duration-300 aspect-square',
+            'transition-transform duration-300',
             open && 'rotate-90',
           )}
         >
