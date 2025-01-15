@@ -38,24 +38,15 @@ const ArrowButton = ({
   disabled,
   variant,
   onClick,
-  className,
 }: {
   disabled?: boolean;
   onClick: () => void;
   variant: 'left' | 'right';
-  className?: string;
 }) => (
   <button
     onClick={onClick}
     disabled={disabled}
-    className={clsx(
-      'p-1 self-center flex items-center justify-center transition duration-500 enabled:hover:bg-gradient-to-r disabled:opacity-25 h-full',
-      variant === 'left' &&
-        'enabled:hover:from-limestone enabled:hover:dark:from-graphite enabled:hover:to-transparent rounded-l-xl',
-      variant === 'right' &&
-        'enabled:hover:to-limestone enabled:hover:dark:to-graphite enabled:hover:from-transparent rounded-r-xl',
-      className,
-    )}
+    className="p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 disabled:opacity-25 enabled:hover:bg-limestone enabled:dark:hover:bg-graphite rounded-full"
   >
     {variant === 'right' && <ArrowRight />}
     {variant === 'left' && <ArrowLeft />}
@@ -83,19 +74,14 @@ export default function Slider({ children }: { children: ReactNode }) {
   if (!totalSlides) return null;
 
   return (
-    <div className="grid grid-cols-[min-content_1fr_min-content] gap-x-4 md:gap-x-12 h-full">
+    <div className="grid grid-cols-[min-content_1fr_min-content] gap-x-4 h-full">
       {totalSlides > 1 && (
-        <ArrowButton
-          onClick={moveLeft}
-          disabled={index <= 0}
-          variant="left"
-          className="col-start-1 row-start-1 z-10"
-        />
+        <ArrowButton onClick={moveLeft} disabled={index <= 0} variant="left" />
       )}
       <div
         {...handlers}
         className={
-          'h-full w-full rounded overflow-hidden row-start-1 col-start-1 col-span-3 grid grid-cols-1 grid-rows-1 place-items-center'
+          'h-full w-full rounded overflow-hidden col-start-2 grid grid-cols-1 grid-rows-1 place-items-center'
         }
       >
         {Children.map(children, (c, i) => (
@@ -116,7 +102,6 @@ export default function Slider({ children }: { children: ReactNode }) {
           onClick={moveRight}
           disabled={index >= totalSlides - 1}
           variant="right"
-          className="col-start-3 row-start-1 z-10"
         />
       )}
     </div>
