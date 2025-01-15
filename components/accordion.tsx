@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { ReactNode, useCallback, useState } from 'react';
+import { ArrowRight } from './icons';
 
 export default function Accordion({
   children,
@@ -15,9 +16,20 @@ export default function Accordion({
   const toggle = useCallback(() => setOpen(o => !o), []);
 
   return (
-    <div className="w-full">
-      <button className="w-full" onClick={toggle}>
-        {summary}
+    <div className="w-full bg-limestone dark:bg-graphite rounded-md">
+      <button
+        className="w-full p-3 text-left text-4xl flex items-center gap-2"
+        onClick={toggle}
+      >
+        <span
+          className={clsx(
+            'transition-transform duration-300 aspect-square',
+            open && 'rotate-90',
+          )}
+        >
+          <ArrowRight className="size-8" />
+        </span>
+        <span>{summary}</span>
       </button>
       <div
         className={clsx(
@@ -25,7 +37,7 @@ export default function Accordion({
           open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
         )}
       >
-        <div className="overflow-hidden">{children}</div>
+        <div className="overflow-scroll">{children}</div>
       </div>
     </div>
   );

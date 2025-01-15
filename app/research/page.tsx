@@ -17,7 +17,7 @@ export default async function Research() {
         {topics.map(({ name }, i) => (
           <Accordion key={i} summary={name}>
             <Fragment key={i}>
-              {Array(10)
+              {Array(100)
                 .fill(0)
                 .map((_, i) => (
                   <p key={i}>test</p>
