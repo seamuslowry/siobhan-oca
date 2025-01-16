@@ -4,6 +4,7 @@ import { retrieveData } from '@/utils/research';
 import Accordion from '@/components/accordion';
 import { Fragment } from 'react';
 import { TextContent } from '@/components/text-content';
+import Link from 'next/link';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('research');
@@ -23,10 +24,16 @@ export default async function Research() {
                 .map((_, i, arr) => (
                   <Fragment key={i}>
                     <div className="px-10">
-                      <TextContent
-                        value="Really Scientific Sounding Paper Name, AI, ML, MD, PhD"
-                        desired={{ bold: true }}
-                      />
+                      <Link
+                        href="/courses/test.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <TextContent
+                          value="Really Scientific Sounding Paper Name, AI, ML, MD, PhD"
+                          desired={{ bold: true, underline: true }}
+                        />
+                      </Link>
                       {['Student One', 'Student Two', 'Academic One'].map(
                         (name, i, arr) => (
                           <Fragment key={i}>
