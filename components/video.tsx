@@ -7,7 +7,6 @@ import {
   type DetailedHTMLProps,
   type VideoHTMLAttributes,
 } from 'react';
-import 'clsx';
 import clsx from 'clsx';
 
 export default function Video(

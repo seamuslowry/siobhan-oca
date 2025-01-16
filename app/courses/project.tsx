@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import Slider from '@/components/slider';
 import { Fragment } from 'react';
 import { type Project } from '@/utils/courses';
 import { TextContent } from '@/components/text-content';
-import Video from '@/components/video';
+import MediaContent from '@/components/media-content';
 
 export async function Project({
   project: { name, collaborators, media, description },
@@ -54,27 +53,8 @@ export async function Project({
         </div>
       </div>
       <Slider>
-        {media.map(async ({ type, filename, alt }, i) => (
-          <Fragment key={i}>
-            {type === 'mp4' && (
-              <Video
-                controls
-                preload="metadata"
-                className="w-full aspect-video"
-              >
-                <source src={`/courses/${filename}`} type="video/mp4" />
-                {alt ?? 'Your browser does not support the video tag.'}
-              </Video>
-            )}
-            {type === 'image' && (
-              <Image
-                src={(await import(`@/assets/courses/${filename}`)).default}
-                alt={alt}
-                placeholder="blur"
-                unoptimized
-              />
-            )}
-          </Fragment>
+        {media.map(async (value, i) => (
+          <MediaContent value={value} key={i} />
         ))}
       </Slider>
     </div>
