@@ -16,9 +16,9 @@ export default function Accordion({
   const toggle = useCallback(() => setOpen(o => !o), []);
 
   return (
-    <div className="w-full bg-limestone dark:bg-graphite rounded-md">
+    <div className="w-full bg-limestone dark:bg-graphite rounded-md overflow-clip">
       <button
-        className="w-full p-3 text-left text-4xl flex items-center gap-2"
+        className="w-full p-3 bg-duke-dark text-white dark:bg-transparent text-left text-4xl flex items-center gap-2"
         onClick={toggle}
       >
         <span
