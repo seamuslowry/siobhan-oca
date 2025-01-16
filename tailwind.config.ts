@@ -19,6 +19,7 @@ export default {
         'duke-light': '#00539B',
         limestone: '#E5E5E5',
         persimmon: '#E89923',
+        'whisper-gray': '#F3F2F1',
         // use for dark cards
         graphite: '#666666',
       },
