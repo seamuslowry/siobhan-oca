@@ -17,7 +17,9 @@ export default async function Courses() {
         {courses.map((c, i) => (
           <Fragment key={i}>
             <Course course={c} className="mx-[2%]" />
-            {i < courses.length - 1 && <hr className="my-4" />}
+            {i < courses.length - 1 && (
+              <hr className="my-4 border-graphite dark:border-whisper-gray" />
+            )}
           </Fragment>
         ))}
       </div>
