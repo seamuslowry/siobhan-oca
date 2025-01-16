@@ -23,9 +23,10 @@ export default async function Research() {
                 .map((_, i, arr) => (
                   <Fragment key={i}>
                     <div className="px-10">
-                      <p>
-                        Really Scientific Sounding Paper Name, AI, ML, MD, PhD
-                      </p>
+                      <TextContent
+                        value="Really Scientific Sounding Paper Name, AI, ML, MD, PhD"
+                        desired={{ bold: true }}
+                      />
                       {['Student One', 'Student Two', 'Academic One'].map(
                         (name, i, arr) => (
                           <Fragment key={i}>
