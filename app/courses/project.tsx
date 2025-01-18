@@ -15,7 +15,7 @@ export async function Project({
   );
 
   return (
-    <div className="grid grid-rows-[min-content_1fr] sm:grid-cols-2 lg:grid-cols-[3fr_7fr] gap-10 align-center mt-10">
+    <div className="grid grid-rows-[min-content_1fr] xl:grid-cols-[3fr_7fr] gap-10 align-center mt-10">
       <div>
         <TextContent className="mb-3" desired={{ size: '2xl' }} value={name} />
         {studentCollaborators.length > 0 && (

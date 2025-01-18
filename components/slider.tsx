@@ -45,7 +45,7 @@ export default function Slider({ children }: { children: ReactNode }) {
   if (!totalSlides) return null;
 
   return (
-    <div className="grid grid-cols-[min-content_1fr_min-content] gap-x-4 h-full">
+    <div className="grid grid-cols-[min-content_1fr_min-content] md:gap-x-4 h-full">
       {totalSlides > 1 && (
         <ArrowButton onClick={moveLeft} disabled={index <= 0} variant="left" />
       )}
