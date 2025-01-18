@@ -47,17 +47,17 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
 
 export function AnimatedExpandIcon({ open }: { open?: boolean }) {
   return (
-    <div className="grid aspect-square w-8 h-8 items-center justify-items-center">
+    <div className="grid aspect-square w-8 items-center justify-items-center">
       <div
         className={clsx(
-          'row-start-1 col-start-1 w-8/12 bg-current h-1 transition-transform origin-center duration-300 rounded-sm',
-          !open && '-rotate-180',
+          'row-start-1 col-start-1 h-2/3 bg-current w-1 transition-transform origin-center duration-300 rounded-sm',
+          open && 'rotate-[270deg]',
         )}
       />
       <div
         className={clsx(
           'row-start-1 col-start-1 w-8/12 bg-current h-1 transition-transform origin-center duration-300 rounded-sm',
-          !open && '-rotate-[270deg]',
+          open && 'rotate-180',
         )}
       />
     </div>
