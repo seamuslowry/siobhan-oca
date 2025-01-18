@@ -46,13 +46,32 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
 );
 
 export function AnimatedExpandIcon({ open }: { open?: boolean }) {
-  const shared =
-    'row-start-1 col-start-1 bg-current motion-safe:transition-transform origin-center motion-safe:duration-300 rounded-sm ease-linear';
-
   return (
-    <div className="grid aspect-square w-8 items-center justify-items-center">
-      <div className={clsx(shared, 'h-2/3 w-1', open && 'rotate-[270deg]')} />
-      <div className={clsx(shared, 'w-8/12 h-1', open && 'rotate-180')} />
-    </div>
+    <svg viewBox="0 0 24 24" width="24" height="24" className="size-9">
+      <line
+        x1="5"
+        y1="12"
+        x2="19"
+        y2="12"
+        stroke="currentColor"
+        strokeWidth="2"
+        className={clsx(
+          'transition-transform origin-center duration-300',
+          open && 'rotate-180',
+        )}
+      />
+      <line
+        x1="12"
+        y1="5"
+        x2="12"
+        y2="19"
+        stroke="currentColor"
+        strokeWidth="2"
+        className={clsx(
+          'transition-transform origin-center duration-300',
+          open && 'rotate-[270deg]',
+        )}
+      ></line>
+    </svg>
   );
 }
