@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { ReactNode, useCallback, useState } from 'react';
-import { ArrowRight } from './icons';
+import { AnimatedExpandIcon } from './icons';
 
 export default function Accordion({
   children,
@@ -11,24 +11,17 @@ export default function Accordion({
   children: ReactNode;
   summary: ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const toggle = useCallback(() => setOpen(o => !o), []);
 
   return (
-    <div className="w-full bg-limestone dark:bg-graphite rounded-md overflow-clip">
+    <div className="w-full rounded-md overflow-clip">
       <button
-        className="w-full p-3 bg-duke-dark text-white dark:bg-transparent text-left text-4xl flex items-center gap-2"
+        className="w-full p-3 text-left flex items-center gap-2"
         onClick={toggle}
       >
-        <span
-          className={clsx(
-            'transition-transform duration-300',
-            open && 'rotate-90',
-          )}
-        >
-          <ArrowRight className="size-8" />
-        </span>
+        <AnimatedExpandIcon open={open} />
         <span>{summary}</span>
       </button>
       <div
