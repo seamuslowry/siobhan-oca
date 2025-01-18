@@ -48,30 +48,32 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
 export function AnimatedExpandIcon({ open }: { open?: boolean }) {
   return (
     <svg viewBox="0 0 24 24" width="24" height="24" className="size-9">
-      <line
-        x1="5"
-        y1="12"
-        x2="19"
-        y2="12"
-        stroke="currentColor"
-        strokeWidth="2"
+      <rect
+        x="5"
+        y="11"
+        width="14"
+        height="2"
+        rx="1"
+        ry="1"
+        fill="currentColor"
         className={clsx(
           'transition-transform origin-center duration-300',
           open && 'rotate-180',
         )}
       />
-      <line
-        x1="12"
-        y1="5"
-        x2="12"
-        y2="19"
-        stroke="currentColor"
-        strokeWidth="2"
+      <rect
+        x="11"
+        y="5"
+        width="2"
+        height="14"
+        rx="1"
+        ry="1"
+        fill="currentColor"
         className={clsx(
           'transition-transform origin-center duration-300',
           open && 'rotate-[270deg]',
         )}
-      ></line>
+      />
     </svg>
   );
 }
