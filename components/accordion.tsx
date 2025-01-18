@@ -18,7 +18,7 @@ export default function Accordion({
   return (
     <div className="w-full rounded-md overflow-clip">
       <button
-        className="w-full p-3 text-left flex items-center gap-2"
+        className="w-full p-3 text-left grid grid-cols-[min-content_auto] items-center gap-4 md:gap-2"
         onClick={toggle}
       >
         <AnimatedExpandIcon open={open} />
