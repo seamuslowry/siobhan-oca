@@ -49,8 +49,8 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
   return (
     <svg viewBox="0 0 24 24" width="24" height="24" className="size-9">
       <rect
-        x="5"
-        y="11"
+        x="6"
+        y="12"
         width="14"
         height="2"
         rx="1"
@@ -62,15 +62,15 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
         )}
       />
       <rect
-        x="11"
-        y="5"
+        x="12"
+        y="6"
         width="2"
         height="14"
         rx="1"
         ry="1"
         fill="currentColor"
         className={clsx(
-          'transition-transform origin-center duration-300',
+          'transition origin-center duration-300',
           open && 'rotate-[270deg]',
         )}
       />
