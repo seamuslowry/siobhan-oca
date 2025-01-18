@@ -120,6 +120,10 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
 
 The text for this page is stored in `/assets/research/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
+- `topics`: An array of objects describing the research topics on this page. Each element is an object described below.
+    - `name` ([stylable](#stylable-text)): The name of the topic. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
+    - `description`: An array of objects comprising a description of the topic. This may contain either [text](#stylable-text) or [media](#media) elements. They will be displayed in the order they are specified. MP4 files must be in the same directory as the `content.yml` file. Image files must be found under the `/assets/research` directory.
+
 
 ## Local Development
 
