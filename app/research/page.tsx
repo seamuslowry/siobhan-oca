@@ -28,18 +28,19 @@ export default async function Research() {
                   />
                 }
               >
-                <div className="grid grid-cols-[7fr_auto_3fr]">
+                <div className="grid grid-rows-[auto_auto_auto] md:grid-cols-[7fr_auto_3fr]">
                   <div className="mx-8 my-4 flex flex-col gap-4">
                     {description.map((v, i) => (
                       <AnyContent key={i} value={v} />
                     ))}
                   </div>
-                  <div className="h-full w-px bg-graphite dark:bg-whisper-gray" />
+                  <div className="h-full w-px bg-graphite dark:bg-whisper-gray hidden md:block" />
+                  <hr className="my-4 mx-5 border-graphite dark:border-whisper-gray md:hidden" />
                   <div className="my-4">
                     {Array(5)
                       .fill(0)
                       .map((_, i) => (
-                        <div className="px-10 my-6" key={i}>
+                        <div className="px-10 py-3" key={i}>
                           <Link
                             href="/courses/test.pdf"
                             target="_blank"
