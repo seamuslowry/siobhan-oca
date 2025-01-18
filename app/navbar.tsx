@@ -1,5 +1,5 @@
 import ButtonLink from '@/components/button-link';
-import { MobileNavbarLinks } from './mobile-navbar';
+import { MobileNavbarLinks } from '@/app/mobile-navbar';
 import { retrieveRoutes } from '@/utils/routes';
 
 export async function Navbar() {

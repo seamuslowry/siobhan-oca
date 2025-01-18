@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import Video from './video';
+import Video from '@/components/video';
 import Image from 'next/image';
 
 export const schema = z.discriminatedUnion('type', [

@@ -1,4 +1,4 @@
-import { Course } from './course';
+import { Course } from '@/app/courses/course';
 import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';

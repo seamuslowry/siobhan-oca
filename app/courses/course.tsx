@@ -1,7 +1,7 @@
 import { TextContent } from '@/components/text-content';
 import { type Course } from '@/utils/courses';
 import Link from 'next/link';
-import { Project } from './project';
+import { Project } from '@/app/courses/project';
 import { ExternalLinkIcon } from '@/components/icons';
 
 export async function Course({

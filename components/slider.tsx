@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { Children, ReactNode, useCallback, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { ArrowLeft, ArrowRight } from './icons';
+import { ArrowLeft, ArrowRight } from '@/components/icons';
 
 const ArrowButton = ({
   disabled,

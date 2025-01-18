@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { ReactNode, useCallback, useState } from 'react';
-import { AnimatedExpandIcon } from './icons';
+import { AnimatedExpandIcon } from '@/components/icons';
 
 export default function Accordion({
   children,

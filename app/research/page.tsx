@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/research';
 import { Fragment } from 'react';
-import { Topic } from './topic';
+import { Topic } from '@/app/research/topic';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('research');
