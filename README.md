@@ -62,17 +62,16 @@ All configurable values are optional except for the `text` to display. The confi
 
 ### Media
 
-Media on pages can be either an image or an mp4 video. They must be configured with the below fields
-
+Media on pages can be either an image or an mp4 video. The fields are:
 - `type`: The type of media. Valid values are
     - `mp4`
     - `image`
 - `filename`: The name of the media file. Where the file must be found depends on the type.
-    - For type `mp4`, the file must be found in same directory as the `content.yaml` file.
+    - For type `mp4`, the file must be found in same directory as the defining `content.yaml` file.
     - For type `image`, the file must be found in the corresponding `/assets` directory.
 - `alt`: The alt text for the media.
     - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
-    - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
+    - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required.
 
 ## Home Page
 
@@ -99,9 +98,7 @@ The banner image for the site is stored in `/assets/home/banner.png`. This image
 
 ## Teaching Page
 
-### Text
-
-The text for this page is stored in `/assets/courses/content.yaml`. The fields are:
+The content for this page is stored in `/assets/courses/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
 - `courses`: An array of objects describing the courses on this page. Each element is an object described below.
     - `name` ([stylable](#stylable-text)): The name of the course. Without explicit styling, this will default to `size: 5xl`, `underline: true`, and `tag: h2`.
