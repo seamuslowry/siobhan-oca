@@ -47,7 +47,7 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
 
 export function AnimatedExpandIcon({ open }: { open?: boolean }) {
   const shared =
-    'row-start-1 col-start-1 bg-current motion-safe:transition-transform origin-center motion-safe:duration-300 rounded-sm';
+    'row-start-1 col-start-1 bg-current motion-safe:transition-transform origin-center motion-safe:duration-300 rounded-sm ease-linear';
 
   return (
     <div className="grid aspect-square w-8 items-center justify-items-center">
