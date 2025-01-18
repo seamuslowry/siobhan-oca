@@ -57,7 +57,7 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
         ry="1"
         fill="currentColor"
         className={clsx(
-          'transition-transform origin-center duration-300',
+          'motion-safe:transition-transform origin-center motion-safe:duration-300',
           open && 'rotate-180',
         )}
         style={{
@@ -73,7 +73,7 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
         ry="1"
         fill="currentColor"
         className={clsx(
-          'transition-transform origin-center duration-300',
+          'motion-safe:transition-transform origin-center motion-safe:duration-300',
           open && 'rotate-[270deg]',
         )}
         style={{
