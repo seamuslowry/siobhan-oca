@@ -9,7 +9,9 @@ const topicSchema = z.object({
     .array(anyContentSchema)
     .transform(arr =>
       arr.map(o =>
-        'filename' in o ? { ...o, filename: `research/${o.filename}` } : o,
+        typeof o === 'object' && 'filename' in o
+          ? { ...o, filename: `research/${o.filename}` }
+          : o,
       ),
     )
     .default([]),

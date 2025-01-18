@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { z } from 'zod';
 
-export const richConfigurationSchema = z.object({
-  type: z.literal('text').default('text'),
+const richConfigurationSchema = z.object({
   text: z.string(),
   bold: z.coerce.boolean().default(false),
   italic: z.coerce.boolean().default(false),
