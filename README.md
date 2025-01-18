@@ -60,6 +60,20 @@ All configurable values are optional except for the `text` to display. The confi
     - `5xl`
     - `6xl`
 
+### Media
+
+Media on pages can be either an image or an mp4 video. They must be configured with the below fields
+
+- `type`: The type of media. Valid values are
+    - `mp4`
+    - `image`
+- `filename`: The name of the media file. Where the file must be found depends on the type.
+    - For type `mp4`, the file must be found in same directory as the `content.yaml` file.
+    - For type `image`, the file must be found in the corresponding `/assets` directory.
+- `alt`: The alt text for the media.
+    - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
+    - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
+
 ## Home Page
 
 ### Text
@@ -100,16 +114,7 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
                 - `STUDENT`
                 - `ACADEMIC`
             - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
-        - `media`: An array of objects describing media to display for this project. This field is optional.
-            - `type`: The type of media. Valid values are
-                - `mp4`
-                - `image`
-            - `filename`: The name of the media file. Where the file must be found depends on the type.
-                - For type `mp4`, the file must be found in same directory as the `content.yaml` file.
-                - For type `image`, the file must be found in the `/assets/courses` directory.
-            - `alt`: The alt text for the media.
-                - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
-                - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
+        - `media`: An array of [media objects](#media) describing media to display for this project. This field is optional. Images must be found in the `/assets/courses` directory.
 
 ## Research Page (The Oca Lab)
 
