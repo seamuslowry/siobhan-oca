@@ -1,9 +1,18 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
+import { schema as anyContentSchema } from '@/components/any-content';
 import { z } from 'zod';
 
 const topicSchema = z.object({
   name: z.string(),
+  description: z
+    .array(anyContentSchema)
+    .transform(arr =>
+      arr.map(o =>
+        'filename' in o ? { ...o, filename: `research/${o.filename}` } : o,
+      ),
+    )
+    .default([]),
 });
 
 const schema = z.object({
