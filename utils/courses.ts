@@ -15,7 +15,12 @@ const projectSchema = z.object({
       }),
     )
     .default([]),
-  media: z.array(mediaSchema).default([]),
+  media: z
+    .array(mediaSchema)
+    .transform(arr =>
+      arr.map(o => ({ ...o, filename: `courses/${o.filename}` })),
+    )
+    .default([]),
 });
 
 const courseSchema = z.object({

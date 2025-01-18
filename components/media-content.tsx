@@ -25,14 +25,14 @@ export default async function MediaContent({
   if (type === 'mp4') {
     return (
       <Video controls preload="metadata" className="w-full aspect-video">
-        <source src={`/courses/${filename}`} type="video/mp4" />
+        <source src={`/${filename}`} type="video/mp4" />
         {alt ?? 'Your browser does not support the video tag.'}
       </Video>
     );
   } else if (type === 'image') {
     return (
       <Image
-        src={(await import(`@/assets/courses/${filename}`)).default}
+        src={(await import(`@/assets/${filename}`)).default}
         alt={alt}
         placeholder="blur"
         unoptimized

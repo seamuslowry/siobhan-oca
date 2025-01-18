@@ -51,7 +51,7 @@ export default async function Research() {
                       key={i}
                       value={{
                         type: 'image',
-                        filename: 'demo.png',
+                        filename: 'courses/demo.png',
                         alt: 'demo',
                       }}
                     />
