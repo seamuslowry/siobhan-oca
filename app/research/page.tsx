@@ -4,6 +4,7 @@ import { retrieveData } from '@/utils/research';
 import { Fragment } from 'react';
 import { TextContent } from '@/components/text-content';
 import Link from 'next/link';
+import { AnyContent } from '@/components/any-content';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('research');
@@ -25,12 +26,52 @@ export default async function Research() {
                 />
               </div>
               <div className="mx-8 my-4">
-                {Array(5)
+                {Array(2)
                   .fill(0)
                   .map((_, i) => (
-                    <TextContent
+                    <AnyContent
                       key={i}
-                      value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas."
+                      value={{
+                        type: 'text',
+                        underline: false,
+                        bold: false,
+                        italic: false,
+                        align: 'left',
+                        whitespace: 'normal',
+                        tag: 'p',
+                        size: 'base',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.',
+                      }}
+                    />
+                  ))}
+                {Array(1)
+                  .fill(0)
+                  .map((_, i) => (
+                    <AnyContent
+                      key={i}
+                      value={{
+                        type: 'image',
+                        filename: 'demo.png',
+                        alt: 'demo',
+                      }}
+                    />
+                  ))}
+                {Array(2)
+                  .fill(0)
+                  .map((_, i) => (
+                    <AnyContent
+                      key={i}
+                      value={{
+                        type: 'text',
+                        underline: false,
+                        bold: false,
+                        italic: false,
+                        align: 'left',
+                        whitespace: 'normal',
+                        tag: 'p',
+                        size: 'base',
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.',
+                      }}
                     />
                   ))}
               </div>
