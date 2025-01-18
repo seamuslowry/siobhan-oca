@@ -70,7 +70,7 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
         ry="1"
         fill="currentColor"
         className={clsx(
-          'transition origin-center duration-300',
+          'transition-transform origin-center duration-300',
           open && 'rotate-[270deg]',
         )}
       />
