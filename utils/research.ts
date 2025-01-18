@@ -1,10 +1,11 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
 import { schema as anyContentSchema } from '@/components/any-content';
+import { schema as textContentSchema } from '@/components/text-content';
 import { z } from 'zod';
 
 const topicSchema = z.object({
-  name: z.string(),
+  name: textContentSchema,
   description: z
     .array(anyContentSchema)
     .transform(arr =>

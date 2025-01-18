@@ -5,7 +5,7 @@ import { schema as mediaSchema } from '@/components/media-content';
 import { z } from 'zod';
 
 const projectSchema = z.object({
-  name: z.string(),
+  name: textContentSchema,
   description: z.array(textContentSchema),
   collaborators: z
     .array(
