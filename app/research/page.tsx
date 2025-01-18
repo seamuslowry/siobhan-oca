@@ -16,29 +16,30 @@ export default async function Research() {
     <main>
       <div className="mx-[8%] my-10 flex flex-col gap-8">
         {topics.map(({ name }, i) => (
-          <section
-            key={i}
-            className="grid grid-rows-[auto_min-content] grid-cols-[7fr_3fr]"
-          >
-            <div className="col-span-2">
-              <TextContent value={name} desired={{ size: '5xl', tag: 'h2' }} />
-            </div>
-            <div>
-              {Array(10)
-                .fill(0)
-                .map((_, i) => (
-                  <TextContent
-                    key={i}
-                    value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas."
-                  />
-                ))}
-            </div>
-            <div className="py-4 max-h-screen overflow-scroll">
-              {Array(20)
-                .fill(0)
-                .map((_, i, arr) => (
-                  <Fragment key={i}>
-                    <div className="px-10">
+          <Fragment key={i}>
+            <section className="grid grid-rows-[auto_min-content] grid-cols-[7fr_auto_3fr]">
+              <div className="col-span-3 mb-5">
+                <TextContent
+                  value={name}
+                  desired={{ size: '5xl', tag: 'h2' }}
+                />
+              </div>
+              <div className="mx-8 my-4">
+                {Array(5)
+                  .fill(0)
+                  .map((_, i) => (
+                    <TextContent
+                      key={i}
+                      value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas."
+                    />
+                  ))}
+              </div>
+              <div className="h-full w-px bg-graphite dark:bg-whisper-gray" />
+              <div className="my-4">
+                {Array(5)
+                  .fill(0)
+                  .map((_, i) => (
+                    <div className="px-10 my-6" key={i}>
                       <Link
                         href="/courses/test.pdf"
                         target="_blank"
@@ -61,11 +62,13 @@ export default async function Research() {
                         ),
                       )}
                     </div>
-                    {i < arr.length - 1 && <hr className="my-4 mx-6" />}
-                  </Fragment>
-                ))}
-            </div>
-          </section>
+                  ))}
+              </div>
+            </section>
+            {i < topics.length - 1 && (
+              <hr className="my-4 border-graphite dark:border-whisper-gray" />
+            )}
+          </Fragment>
         ))}
       </div>
     </main>
