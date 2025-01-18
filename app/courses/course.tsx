@@ -19,6 +19,7 @@ export async function Course({
           target="_blank"
           rel="noopener noreferrer"
           className="grid grid-cols-[1fr_min-content] gap-3 items-center pb-8"
+          prefetch={false}
         >
           <TextContent
             value={name}

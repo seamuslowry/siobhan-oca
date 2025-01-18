@@ -34,6 +34,7 @@ export async function Topic({
                     href="/courses/test.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
+                    prefetch={false}
                   >
                     <TextContent
                       value="Really Scientific Sounding Paper Name, AI, ML, MD, PhD"
