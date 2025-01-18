@@ -47,39 +47,19 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
 
 export function AnimatedExpandIcon({ open }: { open?: boolean }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      className="size-8"
-    >
-      {/* Horizontal Line */}
-      <line
-        x1="5"
-        y1="12"
-        x2="19"
-        y2="12"
-        stroke="currentColor"
-        strokeWidth="2"
+    <div className="grid aspect-square w-8 h-8 items-center justify-items-center">
+      <div
         className={clsx(
-          'transition-transform origin-center duration-300',
-          open && 'rotate-180',
+          'row-start-1 col-start-1 w-8/12 bg-current h-1 transition-transform origin-center duration-300 rounded-sm',
+          !open && '-rotate-180',
         )}
       />
-      {/* Vertical Line with Rotation Animation */}
-      <line
-        x1="12"
-        y1="5"
-        x2="12"
-        y2="19"
-        stroke="currentColor"
-        strokeWidth="2"
+      <div
         className={clsx(
-          'transition-transform origin-center duration-300',
-          open && 'rotate-[270deg]',
+          'row-start-1 col-start-1 w-8/12 bg-current h-1 transition-transform origin-center duration-300 rounded-sm',
+          !open && '-rotate-[270deg]',
         )}
-      ></line>
-    </svg>
+      />
+    </div>
   );
 }
