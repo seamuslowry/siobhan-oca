@@ -22,6 +22,7 @@ const schema = z.object({
   topics: z.array(topicSchema),
 });
 
+export type Topic = z.infer<typeof topicSchema>;
 type ResearchPageData = z.infer<typeof schema>;
 
 export async function retrieveData(): Promise<ResearchPageData> {
