@@ -60,6 +60,9 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
           'transition-transform origin-center duration-300',
           open && 'rotate-180',
         )}
+        style={{
+          transformBox: 'fill-box',
+        }}
       />
       <rect
         x="12"
@@ -73,6 +76,9 @@ export function AnimatedExpandIcon({ open }: { open?: boolean }) {
           'transition-transform origin-center duration-300',
           open && 'rotate-[270deg]',
         )}
+        style={{
+          transformBox: 'fill-box',
+        }}
       />
     </svg>
   );
