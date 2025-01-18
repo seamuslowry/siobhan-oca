@@ -30,7 +30,7 @@ export default function Accordion({
           open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
         )}
       >
-        <div className="overflow-scroll">{children}</div>
+        <div className="overflow-hidden">{children}</div>
       </div>
     </div>
   );
