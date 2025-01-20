@@ -7,7 +7,7 @@ const ROUTES: Route[] = [
   { text: 'The Oca Lab', href: '/research' },
   { text: 'Teaching', href: '/courses' },
   { text: 'News', href: '/' },
-  { text: 'Team', href: '/' },
+  { text: 'Team', href: '/team' },
 ];
 
 export async function retrieveRoutes() {
