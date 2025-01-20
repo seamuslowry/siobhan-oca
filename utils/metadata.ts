@@ -3,7 +3,7 @@ import { parse } from 'yaml';
 import type { Metadata } from 'next';
 import { z } from 'zod';
 
-type DefinedMetadata = 'home' | 'courses';
+type DefinedMetadata = 'home' | 'courses' | 'research';
 
 const schema = z.object({
   metadata: z

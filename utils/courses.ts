@@ -1,10 +1,11 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
 import { schema as textContentSchema } from '@/components/text-content';
+import { schema as mediaSchema } from '@/components/media-content';
 import { z } from 'zod';
 
 const projectSchema = z.object({
-  name: z.string(),
+  name: textContentSchema,
   description: z.array(textContentSchema),
   collaborators: z
     .array(
@@ -15,19 +16,9 @@ const projectSchema = z.object({
     )
     .default([]),
   media: z
-    .array(
-      z.discriminatedUnion('type', [
-        z.object({
-          type: z.literal('mp4'),
-          filename: z.string(),
-          alt: z.string().optional(),
-        }),
-        z.object({
-          type: z.literal('image'),
-          filename: z.string(),
-          alt: z.string(),
-        }),
-      ]),
+    .array(mediaSchema)
+    .transform(arr =>
+      arr.map(o => ({ ...o, filename: `courses/${o.filename}` })),
     )
     .default([]),
 });

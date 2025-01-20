@@ -4,7 +4,7 @@ export type Route = {
 };
 
 const ROUTES: Route[] = [
-  { text: 'The Oca Lab', href: '/' },
+  { text: 'The Oca Lab', href: '/research' },
   { text: 'Teaching', href: '/courses' },
   { text: 'News', href: '/' },
   { text: 'Team', href: '/' },

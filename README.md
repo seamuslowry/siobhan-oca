@@ -60,6 +60,19 @@ All configurable values are optional except for the `text` to display. The confi
     - `5xl`
     - `6xl`
 
+### Media
+
+Media on pages can be either an image or an mp4 video. The fields are:
+- `type`: The type of media. Valid values are
+    - `mp4`
+    - `image`
+- `filename`: The name of the media file. Where the file must be found depends on the type.
+    - For type `mp4`, the file must be found in same directory as the defining `content.yaml` file.
+    - For type `image`, the file must be found in the corresponding `/assets` directory.
+- `alt`: The alt text for the media.
+    - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
+    - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required.
+
 ## Home Page
 
 ### Text
@@ -85,9 +98,7 @@ The banner image for the site is stored in `/assets/home/banner.png`. This image
 
 ## Teaching Page
 
-### Text
-
-The text for this page is stored in `/assets/courses/content.yaml`. The fields are:
+The content for this page is stored in `/assets/courses/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
 - `courses`: An array of objects describing the courses on this page. Each element is an object described below.
     - `name` ([stylable](#stylable-text)): The name of the course. Without explicit styling, this will default to `size: 5xl`, `underline: true`, and `tag: h2`.
@@ -100,16 +111,15 @@ The text for this page is stored in `/assets/courses/content.yaml`. The fields a
                 - `STUDENT`
                 - `ACADEMIC`
             - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
-        - `media`: An array of objects describing media to display for this project. This field is optional.
-            - `type`: The type of media. Valid values are
-                - `mp4`
-                - `image`
-            - `filename`: The name of the media file. Where the file must be found depends on the type.
-                - For type `mp4`, the file must be found in same directory as the `content.yaml` file.
-                - For type `image`, the file must be found in the `/assets/courses` directory.
-            - `alt`: The alt text for the media.
-                - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
-                - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required for this type.
+        - `media`: An array of [media objects](#media) describing media to display for this project. This field is optional. Images must be found in the `/assets/courses` directory.
+
+## Research Page (The Oca Lab)
+
+The text for this page is stored in `/assets/research/content.yaml`. The fields are:
+- `metadata`: See [metadata](#metadata).
+- `topics`: An array of objects describing the research topics on this page. Each element is an object described below.
+    - `name` ([stylable](#stylable-text)): The name of the topic. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
+    - `description`: An array of objects comprising a description of the topic. This may contain either [text](#stylable-text) or [media](#media) elements. They will be displayed in the order they are specified. MP4 files must be in the same directory as the `content.yml` file. Image files must be found under the `/assets/research` directory.
 
 
 ## Local Development
