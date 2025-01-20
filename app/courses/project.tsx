@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { type Project } from '@/utils/courses';
 import { TextContent } from '@/components/text-content';
 import MediaContent from '@/components/media-content';
+import { TeamMemberLink } from '@/components/team-member-link';
 
 export async function Project({
   project: { name, collaborators, media, description },
@@ -23,10 +24,7 @@ export async function Project({
             Student Collaborators:{' '}
             {studentCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
-                <TextContent
-                  value={name}
-                  desired={{ italic: true, tag: 'span' }}
-                />
+                <TeamMemberLink name={name} desired={{ tag: 'span' }} />
                 {i < studentCollaborators.length - 1 && ', '}
               </Fragment>
             ))}
@@ -37,10 +35,7 @@ export async function Project({
             Academic Collaborators:{' '}
             {academicCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
-                <TextContent
-                  value={name}
-                  desired={{ italic: true, tag: 'span' }}
-                />
+                <TeamMemberLink name={name} desired={{ tag: 'span' }} />
                 {i < academicCollaborators.length - 1 && ', '}
               </Fragment>
             ))}

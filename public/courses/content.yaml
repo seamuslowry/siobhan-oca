@@ -19,6 +19,8 @@ courses:
             name: Student One
           - type: STUDENT
             name: Student Two
+          - type: STUDENT
+            name: Unknown Student
           - type: ACADEMIC
             name: Academic One
         media:

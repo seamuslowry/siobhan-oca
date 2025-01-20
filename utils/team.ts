@@ -2,9 +2,10 @@ import { z } from 'zod';
 import { readdir, readFile } from 'fs/promises';
 import { parse } from 'yaml';
 import path from 'path';
+import { schema as textContentSchema } from '@/components/text-content';
 
 const rawTeamMemberSchema = z.object({
-  name: z.string(),
+  name: textContentSchema,
 });
 
 const teamMemberSchema = rawTeamMemberSchema.extend({
