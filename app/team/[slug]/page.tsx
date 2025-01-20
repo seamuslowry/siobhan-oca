@@ -6,6 +6,7 @@ import {
   type TeamMember,
   retrieveTeamMemberData,
 } from '@/utils/team';
+import { TextContent } from '@/components/text-content';
 
 export async function generateMetadata({
   params,
@@ -30,7 +31,7 @@ export default async function TeamMember({
     <main>
       <div className="mx-[8%] my-10 flex flex-col gap-8">
         <p>{member.slug}</p>
-        <p>{member.name}</p>
+        <TextContent value={member.name} />
       </div>
     </main>
   );
