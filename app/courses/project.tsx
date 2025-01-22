@@ -1,6 +1,6 @@
 import Slider from '@/components/slider';
 import { Fragment } from 'react';
-import { type Project } from '@/utils/courses';
+import { type Project as ProjectType } from '@/utils/courses';
 import { TextContent } from '@/components/text-content';
 import MediaContent from '@/components/media-content';
 import { TeamMemberLink } from '@/components/team-member-link';
@@ -8,7 +8,7 @@ import { TeamMemberLink } from '@/components/team-member-link';
 export async function Project({
   project: { name, collaborators, media, description },
 }: {
-  project: Project;
+  project: ProjectType;
 }) {
   const studentCollaborators = collaborators.filter(c => c.type === 'STUDENT');
   const academicCollaborators = collaborators.filter(
