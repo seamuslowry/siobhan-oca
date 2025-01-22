@@ -66,7 +66,7 @@ export class Course {
 
   constructor(rawCourse: RawCourseType) {
     this.name = rawCourse.name;
-    this.syllabus = rawCourse.name;
+    this.syllabus = rawCourse.syllabus;
     this.summary = rawCourse.summary;
     this.projects = rawCourse.projects.map(p => new Project(p));
     this.id = kebabCase(this.name);
