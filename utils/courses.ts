@@ -9,6 +9,7 @@ import {
   schema as mediaSchema,
 } from '@/components/media-content';
 import { z } from 'zod';
+import kebabCase from 'lodash.kebabcase';
 
 const collaboratorSchema = z.object({
   type: z.enum(['STUDENT', 'ACADEMIC']),
@@ -57,6 +58,7 @@ export class Project {
 }
 
 export class Course {
+  id: string;
   name: string;
   syllabus: string;
   summary: TextContent[];
@@ -67,6 +69,7 @@ export class Course {
     this.syllabus = rawCourse.name;
     this.summary = rawCourse.summary;
     this.projects = rawCourse.projects.map(p => new Project(p));
+    this.id = kebabCase(this.name);
   }
 }
 
