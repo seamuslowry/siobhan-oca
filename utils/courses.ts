@@ -1,20 +1,24 @@
 import { readFile } from 'fs/promises';
 import { parse } from 'yaml';
-import { schema as textContentSchema } from '@/components/text-content';
-import { schema as mediaSchema } from '@/components/media-content';
+import {
+  type TextContent,
+  schema as textContentSchema,
+} from '@/components/text-content';
+import {
+  type MediaContent,
+  schema as mediaSchema,
+} from '@/components/media-content';
 import { z } from 'zod';
+
+const collaboratorSchema = z.object({
+  type: z.enum(['STUDENT', 'ACADEMIC']),
+  name: textContentSchema,
+});
 
 const projectSchema = z.object({
   name: textContentSchema,
   description: z.array(textContentSchema),
-  collaborators: z
-    .array(
-      z.object({
-        type: z.enum(['STUDENT', 'ACADEMIC']),
-        name: textContentSchema,
-      }),
-    )
-    .default([]),
+  collaborators: z.array(collaboratorSchema).default([]),
   media: z
     .array(mediaSchema)
     .transform(arr =>
@@ -34,13 +38,49 @@ const schema = z.object({
   courses: z.array(courseSchema),
 });
 
-export type Project = z.infer<typeof projectSchema>;
-export type Course = z.infer<typeof courseSchema>;
+type RawCollaboratorType = z.infer<typeof collaboratorSchema>;
+type RawProjectType = z.infer<typeof projectSchema>;
+type RawCourseType = z.infer<typeof courseSchema>;
 
-type CoursePageData = z.infer<typeof schema>;
+export class Project {
+  name: TextContent;
+  description: TextContent[];
+  collaborators: RawCollaboratorType[];
+  media: MediaContent[];
+
+  constructor(rawProject: RawProjectType) {
+    this.name = rawProject.name;
+    this.description = rawProject.description;
+    this.collaborators = rawProject.collaborators;
+    this.media = rawProject.media;
+  }
+}
+
+export class Course {
+  name: string;
+  syllabus: string;
+  summary: TextContent[];
+  projects: Project[];
+
+  constructor(rawCourse: RawCourseType) {
+    this.name = rawCourse.name;
+    this.syllabus = rawCourse.name;
+    this.summary = rawCourse.summary;
+    this.projects = rawCourse.projects.map(p => new Project(p));
+  }
+}
+
+type CoursePageData = {
+  courses: Course[];
+};
 
 export async function retrieveData(): Promise<CoursePageData> {
-  return schema.parse(
+  const rawData = schema.parse(
     parse(await readFile(`./public/courses/content.yaml`, 'utf-8')),
   );
+
+  return {
+    ...rawData,
+    courses: rawData.courses.map(c => new Course(c)),
+  };
 }

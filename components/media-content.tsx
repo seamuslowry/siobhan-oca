@@ -15,7 +15,7 @@ export const schema = z.discriminatedUnion('type', [
   }),
 ]);
 
-type MediaContent = z.infer<typeof schema>;
+export type MediaContent = z.infer<typeof schema>;
 
 export default async function MediaContent({
   value: { type, filename, alt },

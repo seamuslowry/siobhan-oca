@@ -1,5 +1,5 @@
 import { TextContent } from '@/components/text-content';
-import { type Course } from '@/utils/courses';
+import { type Course as CourseType } from '@/utils/courses';
 import Link from 'next/link';
 import { Project } from '@/app/courses/project';
 import { ExternalLinkIcon } from '@/components/icons';
@@ -8,7 +8,7 @@ export async function Course({
   course: { name, summary, syllabus, projects },
   className,
 }: {
-  course: Course;
+  course: CourseType;
   className?: string;
 }) {
   return (
