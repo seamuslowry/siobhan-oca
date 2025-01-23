@@ -121,6 +121,12 @@ The text for this page is stored in `/assets/research/content.yaml`. The fields 
     - `name` ([stylable](#stylable-text)): The name of the topic. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
     - `description`: An array of objects comprising a description of the topic. This may contain either [text](#stylable-text) or [media](#media) elements. They will be displayed in the order they are specified. MP4 files must be in the same directory as the `content.yml` file. Image files must be found under the `/assets/research` directory.
 
+Siobhan Edit: for the CSV to edit, I would recommend this order (one paper per row)
+topic, paper title, conference/journal/independent study title, conference/journal/independent study type (for colored tag), author 1, author 2, .. Author n
+
+## Team Page
+Siobhan Edit: Siobhan can provide CSV with one collaberator per row
+collaberator type (student, professor, etc), collaberator name, current or past (member of lab), years in lab, portfolio link (if exists), where are they now (if past member of lab)
 
 ## Local Development
 
