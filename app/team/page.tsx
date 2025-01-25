@@ -21,6 +21,7 @@ export default async function Team() {
             <p>Start Date: {member.start.toDateString()}</p>
             <p>End Date: {member.end?.toDateString()}</p>
             <p>
+              {/* TODO: this should be client. so it's actually calculated dynamically */}
               Time:{' '}
               {formatDistanceStrict(member.end ?? new Date(), member.start)}
             </p>
