@@ -11,7 +11,7 @@ const richConfigurationSchema = z.object({
   tag: z.enum(['p', 'h1', 'h2', 'h3', 'span']).default('p'),
   size: z
     .enum(['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'])
-    .default('base'),
+    .optional(),
 });
 
 export const schema = z.union([z.string(), richConfigurationSchema]);

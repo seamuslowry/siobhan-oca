@@ -18,15 +18,14 @@ export async function Topic({
           <TextContent value={name} desired={{ size: '5xl', tag: 'h2' }} />
         }
       >
-        <div className="grid grid-rows-[auto_auto_auto] md:grid-cols-[7fr_auto_3fr]">
-          <div className="mx-8 my-4 flex flex-col gap-4">
+        <div className="grid grid-rows-[auto_auto] md:grid-cols-[7fr_auto_3fr]">
+          <div className="ml-2 md:mx-8 my-4 flex flex-col gap-4">
             {description.map((v, i) => (
               <AnyContent key={i} value={v} />
             ))}
           </div>
           <div className="h-full w-px bg-graphite dark:bg-whisper-gray hidden md:block" />
-          <hr className="my-4 mx-5 border-graphite dark:border-whisper-gray md:hidden" />
-          <div className="my-4">
+          <div className="my-4 text-sm md:text-base">
             {Array(5)
               .fill(0)
               .map((_, i) => (

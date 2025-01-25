@@ -45,9 +45,20 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export function AnimatedExpandIcon({ open }: { open?: boolean }) {
+export function AnimatedExpandIcon({
+  open,
+  className,
+}: {
+  open?: boolean;
+  className?: string;
+}) {
   return (
-    <svg viewBox="0 0 24 24" width="24" height="24" className="size-9">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      className={clsx('size-9', className)}
+    >
       <rect
         x="6"
         y="12"
