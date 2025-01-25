@@ -1,5 +1,4 @@
 import { retrieveTeamMemberData } from '@/utils/team';
-import kebabCase from 'lodash.kebabcase';
 import Link from 'next/link';
 import {
   type DesiredTextContent,
@@ -16,20 +15,14 @@ export async function TeamMemberLink({
   name: TextContentType;
   desired?: DesiredTextContent;
 }) {
-  const evaluatedSlug =
-    slug ?? kebabCase(typeof name === 'string' ? name : name.text);
-  try {
-    const retrievedData = await retrieveTeamMemberData(evaluatedSlug);
-
+  const retrievedData = await retrieveTeamMemberData(slug ?? '');
+  if (retrievedData?.link) {
     return (
-      <Link key={retrievedData.slug} href={`team/${retrievedData.slug}`}>
-        <TextContent
-          value={retrievedData.name}
-          desired={{ underline: true, ...desired }}
-        />
+      <Link key={slug} href={retrievedData?.link} target="_blank">
+        <TextContent value={name} desired={{ underline: true, ...desired }} />
       </Link>
     );
-  } catch {
+  } else {
     return <TextContent value={name} desired={{ italic: true, ...desired }} />;
   }
 }

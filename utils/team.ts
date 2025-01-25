@@ -1,49 +1,61 @@
 import { z } from 'zod';
-import { readdir, readFile } from 'fs/promises';
-import { parse } from 'yaml';
-import path from 'path';
-import { schema as textContentSchema } from '@/components/text-content';
+import { readFile } from 'fs/promises';
+import { parse } from 'csv-parse';
+import {
+  type TextContent,
+  schema as textContentSchema,
+} from '@/components/text-content';
+import { parseISO } from 'date-fns';
 
-const rawTeamMemberSchema = z.object({
-  name: textContentSchema,
-});
-
-const teamMemberSchema = rawTeamMemberSchema.extend({
+const teamMemberSchema = z.object({
   slug: z.string(),
+  name: textContentSchema,
+  type: z.literal('student').or(z.literal('faculty')),
+  start: z.string().date(),
+  end: z.string().date().or(z.literal('')),
+  link: z.string().url().or(z.literal('')),
+  current: z.string().optional(),
 });
 
 const schema = z.array(teamMemberSchema);
 
-export type TeamMember = z.infer<typeof teamMemberSchema>;
+type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 
-export type TeamPageData = z.infer<typeof schema>;
+export class TeamMember {
+  slug: string;
+  name: TextContent;
+  type: 'student' | 'faculty';
+  start: Date;
+  end?: Date;
+  link?: string;
+  current?: string;
+
+  constructor(rawTeamMember: RawTeamMemberType) {
+    this.slug = rawTeamMember.slug;
+    this.name = rawTeamMember.name;
+    this.type = rawTeamMember.type;
+    this.start = parseISO(rawTeamMember.start);
+    this.end = rawTeamMember.end ? parseISO(rawTeamMember.end) : undefined;
+    this.link = rawTeamMember.link;
+    this.current = rawTeamMember.current;
+  }
+}
+
+export type TeamPageData = TeamMember[];
 
 export async function retrieveData(): Promise<TeamPageData> {
-  return schema.parse(
-    await Promise.all(
-      (
-        await readdir('./public/team/[slug]', {
-          withFileTypes: true,
-        })
-      )
-        .filter(e => e.isFile())
-        .map(e => e.name)
-        .map(filename =>
-          retrieveTeamMemberData(
-            path.basename(filename, path.extname(filename)),
-          ),
-        ),
-    ),
-  );
+  return schema
+    .parse(
+      await parse(await readFile('./public/team/members.csv', 'utf8'), {
+        columns: true,
+        skip_empty_lines: true,
+      }).toArray(),
+    )
+    .map(rawMember => new TeamMember(rawMember));
 }
 
 export async function retrieveTeamMemberData(
   slug: string,
-): Promise<TeamMember> {
-  return teamMemberSchema.parse({
-    slug,
-    ...rawTeamMemberSchema.parse(
-      parse(await readFile(`./public/team/[slug]/${slug}.yaml`, 'utf-8')),
-    ),
-  });
+): Promise<TeamMember | undefined> {
+  return (await retrieveData()).find(m => m.slug === slug);
 }
