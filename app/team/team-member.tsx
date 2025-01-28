@@ -10,7 +10,7 @@ export default async function TeamMember({
   member: TeamMemberType;
 }) {
   return (
-    <div className="bg-white px-8 pb-8 pt-4 rounded-lg">
+    <div className="bg-white dark:bg-graphite px-8 pb-8 pt-4 rounded-lg">
       <div className="flex justify-between items-center mb-3">
         {member.link ? (
           <ExternalLink href={member.link} className="text-3xl">
