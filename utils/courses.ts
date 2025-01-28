@@ -49,12 +49,16 @@ export class Project {
   description: TextContent[];
   collaborators: RawCollaboratorType[];
   media: MediaContent[];
+  id: string;
 
   constructor(rawProject: RawProjectType) {
     this.name = rawProject.name;
     this.description = rawProject.description;
     this.collaborators = rawProject.collaborators;
     this.media = rawProject.media;
+    this.id = kebabCase(
+      typeof this.name === 'string' ? this.name : this.name.text,
+    );
   }
 }
 

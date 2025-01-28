@@ -11,6 +11,9 @@ export default {
   ],
   theme: {
     extend: {
+      scrollMargin: {
+        'below-header': '8rem',
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',

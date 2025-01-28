@@ -12,7 +12,7 @@ export async function Course({
   className?: string;
 }) {
   return (
-    <section className={clsx(className, 'scroll-mt-32')} id={id}>
+    <section className={clsx(className, 'scroll-mt-below-header')} id={id}>
       <ExternalLink
         href={`/courses/${syllabus}`}
         prefetch={false}
