@@ -1,15 +1,11 @@
 import { z } from 'zod';
 import { readFile } from 'fs/promises';
 import { parse } from 'csv-parse';
-import {
-  type TextContent,
-  schema as textContentSchema,
-} from '@/components/text-content';
 import { parseISO } from 'date-fns';
 
 const teamMemberSchema = z.object({
   slug: z.string(),
-  name: textContentSchema,
+  name: z.string(),
   type: z.literal('student').or(z.literal('faculty')),
   start: z.string().date(),
   end: z.string().date().or(z.literal('')),
@@ -23,7 +19,7 @@ type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 
 export class TeamMember {
   slug: string;
-  name: TextContent;
+  name: string;
   type: 'student' | 'faculty';
   start: Date;
   end?: Date;

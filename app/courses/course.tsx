@@ -1,9 +1,8 @@
 import { TextContent } from '@/components/text-content';
 import { type Course as CourseType } from '@/utils/courses';
-import Link from 'next/link';
 import { Project } from '@/app/courses/project';
-import { ExternalLinkIcon } from '@/components/icons';
 import clsx from 'clsx';
+import { ExternalLink } from '@/components/external-link';
 
 export async function Course({
   course: { name, summary, syllabus, projects, id },
@@ -14,21 +13,16 @@ export async function Course({
 }) {
   return (
     <section className={clsx(className, 'scroll-mt-32')} id={id}>
-      <div className="flex items-center gap-2">
-        <Link
-          href={`/courses/${syllabus}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="grid grid-cols-[1fr_min-content] gap-3 items-center pb-8"
-          prefetch={false}
-        >
-          <TextContent
-            value={name}
-            desired={{ size: '5xl', underline: true, tag: 'h2' }}
-          />
-          <ExternalLinkIcon className="size-8" />
-        </Link>
-      </div>
+      <ExternalLink
+        href={`/courses/${syllabus}`}
+        prefetch={false}
+        className="pb-8 text-5xl"
+      >
+        <TextContent
+          value={name}
+          desired={{ size: '5xl', underline: true, tag: 'h2' }}
+        />
+      </ExternalLink>
       {summary.map((piece, index) => (
         <TextContent key={index} value={piece} />
       ))}
