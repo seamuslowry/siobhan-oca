@@ -4,7 +4,6 @@ import { TextContent } from '@/components/text-content';
 import Link from 'next/link';
 import { AnyContent } from '@/components/any-content';
 import Accordion from '@/components/accordion';
-import { TeamMemberLink } from '@/components/team-member-link';
 
 export async function Topic({
   topic: { name, description },
@@ -44,7 +43,7 @@ export async function Topic({
                   {['Student One', 'Student Two', 'Academic One'].map(
                     (name, i, arr) => (
                       <Fragment key={i}>
-                        <TeamMemberLink name={name} desired={{ tag: 'span' }} />
+                        <TextContent value={name} desired={{ tag: 'span' }} />
                         {i < arr.length - 1 && ', '}
                       </Fragment>
                     ),

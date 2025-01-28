@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/team';
-import { TeamMemberLink } from '@/components/team-member-link';
 import { Duration } from '@/components/duration';
+import { TextContent } from '@/components/text-content';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('team');
@@ -17,7 +17,7 @@ export default async function Team() {
         <h2 className="text-5xl">Team Page</h2>
         {members.map(member => (
           <div key={member.slug}>
-            <TeamMemberLink slug={member.slug} name={member.name} />
+            <TextContent value={member.name} />
             <p>Start Date: {member.start.toDateString()}</p>
             <p>End Date: {member.end?.toDateString()}</p>
             <p>
