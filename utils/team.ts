@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { readFile } from 'fs/promises';
 import { parse } from 'csv-parse';
 import { parseISO } from 'date-fns';
+import { Course, retrieveData as retrieveCourseData } from '@/utils/courses';
 
 const teamMemberSchema = z.object({
   slug: z.string(),
@@ -34,6 +35,20 @@ export class TeamMember {
     this.end = rawTeamMember.end ? parseISO(rawTeamMember.end) : undefined;
     this.link = rawTeamMember.link;
     this.current = rawTeamMember.current;
+  }
+
+  async getCoursework(): Promise<Course[]> {
+    return (await retrieveCourseData()).courses
+      .map(
+        c =>
+          new Course({
+            ...c,
+            projects: c.projects.filter(p =>
+              p.collaborators.some(c => c.slug === this.slug),
+            ),
+          }),
+      )
+      .filter(c => !!c.projects.length);
   }
 }
 

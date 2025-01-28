@@ -14,6 +14,7 @@ import kebabCase from 'lodash.kebabcase';
 const collaboratorSchema = z.object({
   type: z.enum(['STUDENT', 'ACADEMIC']),
   name: textContentSchema,
+  slug: z.string().optional(),
 });
 
 const projectSchema = z.object({
