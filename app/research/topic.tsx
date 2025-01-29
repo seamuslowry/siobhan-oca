@@ -1,4 +1,4 @@
-import { type Topic } from '@/utils/research';
+import { type Topic as TopicType } from '@/utils/research';
 import { Fragment } from 'react';
 import { TextContent } from '@/components/text-content';
 import Link from 'next/link';
@@ -6,12 +6,12 @@ import { AnyContent } from '@/components/any-content';
 import Accordion from '@/components/accordion';
 
 export async function Topic({
-  topic: { name, description },
+  topic: { name, description, id },
 }: {
-  topic: Topic;
+  topic: TopicType;
 }) {
   return (
-    <section>
+    <section id={id} className="scroll-mt-below-header">
       <Accordion
         summary={
           <TextContent value={name} desired={{ size: '5xl', tag: 'h2' }} />
