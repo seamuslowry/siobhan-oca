@@ -30,7 +30,6 @@ const schema = z.object({
 });
 
 type RawTopicType = z.infer<typeof topicSchema>;
-type ResearchPageData = z.infer<typeof schema>;
 
 export class Topic {
   id: string;
@@ -45,6 +44,10 @@ export class Topic {
     );
   }
 }
+
+type ResearchPageData = {
+  topics: Topic[];
+};
 
 export async function retrieveData(): Promise<ResearchPageData> {
   const rawData = schema.parse(
