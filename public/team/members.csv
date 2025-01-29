@@ -1,5 +1,5 @@
-slug,type,name,start,end,link,current
-john-smith-1,student,John Smith,2022-01-01,2024-01-01,,John Hopkins
+slug,type,name,start,end,link,summary
+john-smith-1,student,John Smith,2022-01-01,2024-01-01,,"After working in the lab to earn his PhD, John accepted an offer to teach at John Hopkins University where he continues his work on prosthetics."
 emily-harrington,student,Emily Harrington,2023-01-01,,,
 billy-mayes,faculty,Billy Mayes,2020-04-01,,https://duckduckgo.com,
-jenny-mcafee,faculty,Jenny McAfee,2021-05-02,2022-12-12,https://google.com,At her home in New Jersey
+jenny-mcafee,faculty,Jenny McAfee,2021-05-02,2022-12-12,https://google.com,"Jenny finished her lucrative career in academics in two short years and now lives at her mansion in New Jersey."

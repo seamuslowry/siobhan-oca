@@ -16,13 +16,16 @@ courses:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
-            name: Student One
+            name: John Smith
+            slug: john-smith-1
           - type: STUDENT
-            name: Student Two
+            name: Emily Harrigton
+            slug: emily-harrington
           - type: STUDENT
             name: Unknown Student
           - type: ACADEMIC
-            name: Academic One
+            name: Billy Mayes
+            slug: billy-mayes
         media:
           - type: mp4
             filename: conveyor.mp4
@@ -36,11 +39,14 @@ courses:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
-            name: Student One
+            name: John Smith
+            slug: john-smith-1
           - type: STUDENT
-            name: Student Two
+            name: Emily Harrington
+            slug: emily-harrington
           - type: ACADEMIC
-            name: Academic One
+            name: Billy Mayes
+            slug: billy-mayes
         media:
           - type: mp4
             filename: tic-tac-tobot.mp4
@@ -55,9 +61,10 @@ courses:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
-            name: Student One
+            name: John Smith
+            slug: john-smith-1
           - type: STUDENT
-            name: Student Three
+            name: Unknown Student
         media:
           - type: image
             filename: demo.png

@@ -11,7 +11,7 @@ const teamMemberSchema = z.object({
   start: z.string().date(),
   end: z.string().date().or(z.literal('')),
   link: z.string().url().or(z.literal('')),
-  current: z.string().optional(),
+  summary: z.string().optional(),
 });
 
 const schema = z.array(teamMemberSchema);
@@ -25,7 +25,7 @@ export class TeamMember {
   start: Date;
   end?: Date;
   link?: string;
-  current?: string;
+  summary?: string;
 
   constructor(rawTeamMember: RawTeamMemberType) {
     this.slug = rawTeamMember.slug;
@@ -34,7 +34,7 @@ export class TeamMember {
     this.start = parseISO(rawTeamMember.start);
     this.end = rawTeamMember.end ? parseISO(rawTeamMember.end) : undefined;
     this.link = rawTeamMember.link;
-    this.current = rawTeamMember.current;
+    this.summary = rawTeamMember.summary;
   }
 
   async getCoursework(): Promise<Course[]> {
