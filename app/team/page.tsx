@@ -3,7 +3,8 @@ import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/team';
 import TeamMember from './team-member';
 import partition from 'lodash.partition';
-import { TextContent } from '@/components/text-content';
+import { Fragment } from 'react';
+import Divider from '@/components/divider';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('team');
@@ -16,22 +17,19 @@ export default async function Team() {
 
   return (
     <main>
-      <div className="mx-[8%] my-10 grid grid-cols-2 gap-8">
-        <TextContent
-          value="Current Members"
-          desired={{ size: '4xl', tag: 'h2' }}
-          className="col-span-2"
-        />
-        {current.map(member => (
-          <TeamMember key={member.slug} member={member} />
+      <div className="mx-[8%] my-10 grid grid-cols-1 gap-4">
+        {current.map((member, i) => (
+          <Fragment key={member.slug}>
+            <TeamMember member={member} />
+            {i < current.length - 1 && <Divider />}
+          </Fragment>
         ))}
-        <TextContent
-          value="Former Members"
-          desired={{ size: '4xl', tag: 'h2' }}
-          className="col-span-2"
-        />
-        {former.map(member => (
-          <TeamMember key={member.slug} member={member} />
+        {current.length > 0 && <Divider />}
+        {former.map((member, i) => (
+          <Fragment key={member.slug}>
+            <TeamMember member={member} />
+            {i < current.length - 1 && <Divider />}
+          </Fragment>
         ))}
       </div>
     </main>

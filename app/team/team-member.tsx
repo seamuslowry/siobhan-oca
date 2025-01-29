@@ -13,7 +13,7 @@ export default async function TeamMember({
   const coursework = await member.getCoursework();
 
   return (
-    <div className="bg-white dark:bg-graphite px-8 pb-8 pt-4 rounded-lg">
+    <div>
       <div className="flex justify-between items-center mb-3">
         {member.link ? (
           <ExternalLink href={member.link} className="text-4xl">
@@ -31,10 +31,10 @@ export default async function TeamMember({
           <Duration earlierDate={member.start} laterDate={member.end} />
         </p>
       </div>
-      {member.summary && <p className="my-3">{member.summary}</p>}
+      {member.summary && <p className="mt-5">{member.summary}</p>}
       <div className="ml-4">
         {coursework.map(c => (
-          <div key={c.id} className="my-3">
+          <div key={c.id} className="mt-5">
             <TextContent
               value={c.name}
               desired={{ size: '2xl', italic: true }}
