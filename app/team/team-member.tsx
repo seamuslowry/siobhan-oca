@@ -4,6 +4,7 @@ import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
 import { format } from 'date-fns';
 import Link from 'next/link';
+import Divider from '@/components/divider';
 
 export default async function TeamMember({
   member,
@@ -11,6 +12,7 @@ export default async function TeamMember({
   member: TeamMemberType;
 }) {
   const coursework = await member.getCoursework();
+  const topics = await member.getTopics();
 
   return (
     <div>
@@ -32,24 +34,50 @@ export default async function TeamMember({
         </p>
       </div>
       {member.summary && <p className="mt-5">{member.summary}</p>}
-      <div className="ml-4">
-        {coursework.map(c => (
-          <div key={c.id} className="mt-5">
-            <TextContent
-              value={c.name}
-              desired={{ size: '2xl', italic: true }}
-            />
-            <ul>
-              {c.projects.map(p => (
-                <li key={p.id} className="pl-4 my-1">
-                  <Link href={`/courses#${p.id}`}>
-                    <TextContent value={p.name} desired={{ underline: true }} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="m-4 grid grid-cols-[1fr_auto_1fr] gap-8">
+        <div>
+          {coursework.map(c => (
+            <div key={c.id} className="mt-5">
+              <TextContent
+                value={c.name}
+                desired={{ size: '2xl', italic: true }}
+              />
+              <ul>
+                {c.projects.map(p => (
+                  <li key={p.id} className="pl-4 my-1">
+                    <Link href={`/courses#${p.id}`}>
+                      <TextContent
+                        value={p.name}
+                        desired={{ underline: true }}
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <Divider vertical />
+        <div>
+          {topics.map(t => (
+            <div key={t.id} className="mt-5">
+              <Link href={`/research#${t.id}`}>
+                <TextContent
+                  value={t.name}
+                  desired={{ size: '2xl', underline: true }}
+                />
+              </Link>
+              <ul>
+                {t.papers.map((p, i) => (
+                  <li key={i} className="pl-4 my-1">
+                    {/* TODO: maybe share the research paper component? */}
+                    <TextContent value={p.title} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

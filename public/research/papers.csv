@@ -1,16 +1,15 @@
-topic,title,altTitle,type,authors
-Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,emily-harrington
-Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-hayes
-Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-hayes,emily-harrington
-Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington,jenny-mcafee
-Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington
-Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-hayes,jenny-mcafee
-Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,jenny-mcafee,emily-harrington
-Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-hayes,jenny-mcafee,emily-harrington
-Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-hayes,jenny-mcafee,emily-harrington
-Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,emily-harrington
-Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-hayes,emily-harrington
-Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-hayes,jenny-mcafee
-Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington
-Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,jenny-mcafee,emily-harrington
-Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit."," Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-hayes,jenny-mcafee
+Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,emily-harrington
+Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-mayes
+Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-mayes,emily-harrington
+Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington,jenny-mcafee
+Phantom Topic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington
+Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-mayes,jenny-mcafee
+Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,jenny-mcafee,emily-harrington
+Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-mayes,jenny-mcafee,emily-harrington
+Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,billy-mayes,jenny-mcafee,emily-harrington
+Topic 2,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,john-smith-1,emily-harrington
+Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-mayes,emily-harrington
+Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-mayes,jenny-mcafee
+Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,emily-harrington
+Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,jenny-mcafee,emily-harrington
+Topic 3,"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Ut consectetur enim sit amet dolor sollicitudin vestibulum",conference,billy-mayes,jenny-mcafee

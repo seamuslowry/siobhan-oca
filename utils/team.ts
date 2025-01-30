@@ -3,6 +3,7 @@ import { readFile } from 'fs/promises';
 import { parse } from 'csv-parse';
 import { parseISO } from 'date-fns';
 import { Course, retrieveData as retrieveCourseData } from '@/utils/courses';
+import { Topic, retrieveData as retrieveResearchData } from '@/utils/research';
 
 const teamMemberSchema = z.object({
   slug: z.string(),
@@ -49,6 +50,18 @@ export class TeamMember {
           }),
       )
       .filter(c => !!c.projects.length);
+  }
+
+  async getTopics(): Promise<Topic[]> {
+    return (await retrieveResearchData()).topics
+      .map(
+        t =>
+          new Topic(
+            t,
+            t.papers.filter(p => p.getRawAuthors().includes(this.slug)),
+          ),
+      )
+      .filter(t => !!t.papers.length);
   }
 }
 
