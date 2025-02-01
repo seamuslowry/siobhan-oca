@@ -15,7 +15,7 @@ export default async function Team() {
 
   return (
     <main>
-      <div className="mx-[8%] my-10 grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-8">
+      <div className="mx-[8%] my-10 grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-24">
         {current.map(member => (
           <TeamMember member={member} key={member.slug} />
         ))}

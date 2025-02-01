@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
+import startCase from 'lodash.startcase';
 
 export default async function TeamMember({
   member,
@@ -24,7 +25,7 @@ export default async function TeamMember({
 
   return (
     <div>
-      <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-3">
+      <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-8">
         <Image
           src={svg}
           alt={member.name}
@@ -49,15 +50,16 @@ export default async function TeamMember({
             {member.end ? format(member.end, 'MMM yyyy') : 'Current'} /{' '}
             <Duration earlierDate={member.start} laterDate={member.end} />
           </p>
+          <p className="italic">{startCase(member.type)}</p>
         </span>
       </div>
       {member.summary && (
-        <p className="mt-5 text-lg font-medium">{member.summary}</p>
+        <p className="my-5 text-lg font-medium">{member.summary}</p>
       )}
-      <div className="my-5 mx-4 flex flex-col gap-8">
+      <div className="mx-4 flex flex-col gap-8">
         {topics.length > 0 &&
           topics.map(t => (
-            <div key={t.id} className="mt-5">
+            <div key={t.id}>
               <Link href={`/research#${t.id}`}>
                 <TextContent
                   value={t.name}
@@ -75,7 +77,7 @@ export default async function TeamMember({
           ))}
         {coursework.length > 0 &&
           coursework.map(c => (
-            <div key={c.id} className="mt-5">
+            <div key={c.id}>
               <TextContent
                 value={c.name}
                 desired={{ size: '2xl', italic: true }}
