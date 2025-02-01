@@ -51,7 +51,7 @@ export default async function TeamMember({
         </p>
       </div>
       {member.summary && <p className="mt-5">{member.summary}</p>}
-      <div className="m-4 grid grid-cols-[1fr_auto_1fr] gap-8">
+      <div className="m-4 grid grid-rows-[1fr-auto-1fr] sm:grid-cols-[1fr_auto_1fr] gap-8">
         {topics.length > 0 && (
           <div>
             {topics.map(t => (
@@ -73,7 +73,9 @@ export default async function TeamMember({
             ))}
           </div>
         )}
-        {topics.length > 0 && coursework.length > 0 && <Divider vertical />}
+        {topics.length > 0 && coursework.length > 0 && (
+          <Divider vertical className="hidden sm:block" />
+        )}
         {coursework.length > 0 && (
           <div>
             {coursework.map(c => (
