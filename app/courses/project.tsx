@@ -5,7 +5,7 @@ import { TextContent } from '@/components/text-content';
 import MediaContent from '@/components/media-content';
 
 export async function Project({
-  project: { name, collaborators, media, description },
+  project: { name, collaborators, media, description, id },
 }: {
   project: ProjectType;
 }) {
@@ -15,7 +15,10 @@ export async function Project({
   );
 
   return (
-    <div className="grid grid-rows-[min-content_1fr] xl:grid-cols-[3fr_7fr] gap-10 align-center mt-10">
+    <div
+      id={id}
+      className="grid grid-rows-[min-content_1fr] xl:grid-cols-[3fr_7fr] gap-10 align-center mt-10 scroll-mt-below-header"
+    >
       <div>
         <TextContent className="mb-3" desired={{ size: '2xl' }} value={name} />
         {studentCollaborators.length > 0 && (
@@ -23,10 +26,7 @@ export async function Project({
             Student Collaborators:{' '}
             {studentCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
-                <TextContent
-                  value={name}
-                  desired={{ italic: true, tag: 'span' }}
-                />
+                <TextContent value={name} desired={{ tag: 'span' }} />
                 {i < studentCollaborators.length - 1 && ', '}
               </Fragment>
             ))}
@@ -37,10 +37,7 @@ export async function Project({
             Academic Collaborators:{' '}
             {academicCollaborators.map(({ name }, i) => (
               <Fragment key={i}>
-                <TextContent
-                  value={name}
-                  desired={{ italic: true, tag: 'span' }}
-                />
+                <TextContent value={name} desired={{ tag: 'span' }} />
                 {i < academicCollaborators.length - 1 && ', '}
               </Fragment>
             ))}

@@ -18,6 +18,7 @@ export const schema = z.union([z.string(), richConfigurationSchema]);
 
 type RichConfiguration = z.infer<typeof richConfigurationSchema>;
 export type TextContent = z.infer<typeof schema>;
+export type DesiredTextContent = Partial<Omit<RichConfiguration, 'text'>>;
 
 export function TextContent({
   className,
@@ -26,7 +27,7 @@ export function TextContent({
 }: {
   className?: string;
   value: TextContent;
-  desired?: Partial<Omit<RichConfiguration, 'text'>>;
+  desired?: DesiredTextContent;
 }) {
   const standardizedValue = typeof value === 'string' ? { text: value } : value;
   const {

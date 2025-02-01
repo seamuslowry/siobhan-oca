@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/courses';
+import Divider from '@/components/divider';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('courses');
@@ -17,9 +18,7 @@ export default async function Courses() {
         {courses.map((c, i) => (
           <Fragment key={i}>
             <Course course={c} className="mx-[2%]" />
-            {i < courses.length - 1 && (
-              <hr className="my-4 border-graphite dark:border-whisper-gray" />
-            )}
+            {i < courses.length - 1 && <Divider />}
           </Fragment>
         ))}
       </div>

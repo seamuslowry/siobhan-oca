@@ -3,6 +3,7 @@ import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/research';
 import { Fragment } from 'react';
 import { Topic } from '@/app/research/topic';
+import Divider from '@/components/divider';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('research');
@@ -17,9 +18,7 @@ export default async function Research() {
         {topics.map((topic, i) => (
           <Fragment key={i}>
             <Topic topic={topic} />
-            {i < topics.length - 1 && (
-              <hr className="my-4 border-graphite dark:border-whisper-gray" />
-            )}
+            {i < topics.length - 1 && <Divider />}
           </Fragment>
         ))}
       </div>
