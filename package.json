@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.partition": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
@@ -39,7 +40,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "postcss": "^8",
     "prettier": "^3.4.2",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
 }

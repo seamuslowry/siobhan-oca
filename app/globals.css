@@ -1,6 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --scroll-margin-below-header: 8rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-duke-dark: #012169;
+  --color-duke-light: #00539b;
+  --color-limestone: #e5e5e5;
+  --color-persimmon: #e89923;
+  --color-whisper-gray: #f3f2f1;
+  --color-graphite: #666666;
+
+  --animate-slide-in-from-left: slideInFromLeft 1.5s ease-out;
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    25% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 :root {
   --background: #F3F2F1;

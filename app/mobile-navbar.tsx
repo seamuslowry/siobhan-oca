@@ -39,7 +39,7 @@ export function MobileNavbarLinks({ routes }: { routes: Route[] }) {
 
   return (
     <>
-      <button onClick={handleOpen}>
+      <button className="cursor-pointer" onClick={handleOpen}>
         <MenuIcon />
       </button>
       <dialog
