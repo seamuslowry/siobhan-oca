@@ -17,7 +17,7 @@ const ArrowButton = ({
   <button
     onClick={onClick}
     disabled={disabled}
-    className="p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 disabled:opacity-25 enabled:hover:bg-limestone enabled:dark:hover:bg-graphite rounded-full"
+    className="p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 disabled:opacity-25 enabled:hover:bg-limestone dark:enabled:hover:bg-graphite rounded-full"
   >
     {variant === 'right' && <ArrowRight />}
     {variant === 'left' && <ArrowLeft />}
@@ -52,7 +52,7 @@ export default function Slider({ children }: { children: ReactNode }) {
       <div
         {...handlers}
         className={
-          'h-full w-full rounded overflow-hidden col-start-2 grid grid-cols-1 grid-rows-1 place-items-center'
+          'h-full w-full rounded-sm overflow-hidden col-start-2 grid grid-cols-1 grid-rows-1 place-items-center'
         }
       >
         {Children.map(children, (c, i) => (
