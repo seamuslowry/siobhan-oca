@@ -4,7 +4,10 @@ import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
 import { format } from 'date-fns';
 import Link from 'next/link';
+import { createAvatar } from '@dicebear/core';
+import * as thumbs from '@dicebear/thumbs';
 import Divider from '@/components/divider';
+import Image from 'next/image';
 
 export default async function TeamMember({
   member,
@@ -14,9 +17,23 @@ export default async function TeamMember({
   const coursework = await member.getCoursework();
   const topics = await member.getTopics();
 
+  const avatar = createAvatar(thumbs, {
+    seed: member.slug,
+  });
+
+  const svg = avatar.toDataUri();
+
   return (
     <div>
-      <div className="flex justify-between items-center mb-3">
+      <div className="grid grid-cols-[auto_1fr] grid-rows-[auto-auto] gap-x-4 gap-y-0 items-center mb-3">
+        <Image
+          src={svg}
+          alt={member.name}
+          className="object-cover min-w-24 h-auto rounded-full row-span-2"
+          width={24}
+          height={24}
+          unoptimized
+        />
         {member.link ? (
           <ExternalLink href={member.link} className="text-4xl">
             <TextContent
@@ -48,7 +65,6 @@ export default async function TeamMember({
                 <ul>
                   {t.papers.map((p, i) => (
                     <li key={i} className="pl-4 my-1">
-                      {/* TODO: maybe share the research paper component? */}
                       <TextContent value={p.title} />
                     </li>
                   ))}
