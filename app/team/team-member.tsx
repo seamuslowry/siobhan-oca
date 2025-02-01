@@ -45,7 +45,7 @@ export default async function TeamMember({
         />
         <span>
           {member.link ? (
-            <ExternalLink href={member.link} className="text-4xl">
+            <ExternalLink href={member.link} className="text-3xl">
               <TextContent
                 value={member.name}
                 desired={{ size: '3xl', underline: true }}
