@@ -1,9 +1,6 @@
 import type { Config } from 'tailwindcss';
 
 export default {
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,13 +14,11 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        // reference: https://brand.duke.edu/colors/
         'duke-dark': '#012169',
         'duke-light': '#00539B',
         limestone: '#E5E5E5',
         persimmon: '#E89923',
         'whisper-gray': '#F3F2F1',
-        // use for dark cards
         graphite: '#666666',
       },
       keyframes: {
