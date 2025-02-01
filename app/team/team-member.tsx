@@ -9,6 +9,18 @@ import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
 
+async function getImage(slug: string) {
+  try {
+    // this import won't fail in local dev if the file doesn't exist
+    // the import only fails when actually building the project
+    return (await import(`@/assets/team/${slug}.png`)).default;
+  } catch {
+    return createAvatar(thumbs, {
+      seed: slug,
+    }).toDataUri();
+  }
+}
+
 export default async function TeamMember({
   member,
 }: {
@@ -17,17 +29,13 @@ export default async function TeamMember({
   const coursework = await member.getCoursework();
   const topics = await member.getTopics();
 
-  const avatar = createAvatar(thumbs, {
-    seed: member.slug,
-  });
-
-  const svg = avatar.toDataUri();
+  const avatarImg = await getImage(member.slug);
 
   return (
     <div>
       <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-8">
         <Image
-          src={svg}
+          src={avatarImg}
           alt={member.name}
           className="object-cover min-w-24 h-auto rounded-full"
           width={24}
