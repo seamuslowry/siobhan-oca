@@ -111,9 +111,12 @@ The content for this page is stored in `/assets/courses/content.yaml`. The field
                 - `STUDENT`
                 - `ACADEMIC`
             - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
+            - `slug`: A slug corresponding to a team member. This field is optional. If present, a link to this project will appear under the team member on the [Team Page](#team-page).
         - `media`: An array of [media objects](#media) describing media to display for this project. This field is optional. Images must be found in the `/assets/courses` directory.
 
 ## Research Page (The Oca Lab)
+
+### Text
 
 The text for this page is stored in `/assets/research/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
@@ -121,12 +124,46 @@ The text for this page is stored in `/assets/research/content.yaml`. The fields 
     - `name` ([stylable](#stylable-text)): The name of the topic. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
     - `description`: An array of objects comprising a description of the topic. This may contain either [text](#stylable-text) or [media](#media) elements. They will be displayed in the order they are specified. MP4 files must be in the same directory as the `content.yml` file. Image files must be found under the `/assets/research` directory.
 
-Siobhan Edit: for the CSV to edit, I would recommend this order (one paper per row)
-topic, paper title, conference/journal/independent study title, conference/journal/independent study type (for colored tag), author 1, author 2, .. Author n
+### Papers
+
+The papers on this page come from a CSV stored in `/assets/research/papers.csv`. This CSV must contain columns in the following order.
+1. The name of the topic this paper is associated with. If this value does not _exactly_ match the name of a topic listed in the `content.yaml` file, the paper will not appear on the site.
+2. The title of the paper.
+3. An alternate title for the paper.
+4. The type of the paper. The only valid values are: `conference`, `journal`, or `independent`.
+
+All following columns will be interperted as the names of the authors on the paper. These names may instead be provided as slugs corresponding to team members. In that case, the team member's name will show under the paper on the research page and the paper will show under that team member on the [Team Page](#team-page). If the author name does not correspond to a team member slug, it will be shown exactly as provided.
+
+This file must _not_ contain column header names. They are not compatible with the variable number of author columns. Any column headers provided will be interpreted as a paper.
 
 ## Team Page
-Siobhan Edit: Siobhan can provide CSV with one collaberator per row
-collaberator type (student, professor, etc), collaberator name, current or past (member of lab), years in lab, portfolio link (if exists), where are they now (if past member of lab)
+
+### Text
+
+The text for this page is stored in `/assets/team/content.yaml`. The fields are:
+- `metadata`: See [metadata](#metadata).
+
+### Team Members
+
+The members on this page come from a CSV stored in `/assets/team/members.csv`. This CSV must contain columns in the following order.
+1. A unique slug to identify the team member and correlate their contributions across pages.
+2. The type of the team member. Valid values are `team` and `faculty`.
+3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
+4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided, the team member will be treated as a current member.
+5. A link to a personal page for the team member. This field is optional.
+6. A summary or description of the team member. This is optional free text and will display above their contributions.
+
+This CSV expects a column row defining these columns exactly as below:
+
+`slug,type,name,start,end,link,summary`
+
+### Contributions
+
+Team members' contributions are shown beneath them as long as those contributions have the team member's slug associated.
+
+To associate a team member with a project, the team member's slug must appear under on of the collaborators on that project.
+
+To associate a team member with a paper, the team member's slug must appear as an author of the paper.
 
 ## Local Development
 
