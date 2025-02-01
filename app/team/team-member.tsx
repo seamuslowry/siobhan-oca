@@ -32,7 +32,7 @@ export default async function TeamMember({
   const avatarImg = await getImage(member.slug);
 
   return (
-    <div>
+    <section>
       <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-8">
         <Image
           src={avatarImg}
@@ -106,6 +106,6 @@ export default async function TeamMember({
             </div>
           ))}
       </div>
-    </div>
+    </section>
   );
 }
