@@ -17,7 +17,7 @@ const ArrowButton = ({
   <button
     onClick={onClick}
     disabled={disabled}
-    className="p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 disabled:opacity-25 enabled:hover:bg-limestone dark:enabled:hover:bg-graphite rounded-full"
+    className="p-1 sm:p-2 md:p-4 self-center flex items-center justify-center transition duration-500 disabled:opacity-25 enabled:hover:bg-limestone dark:enabled:hover:bg-graphite rounded-full cursor-pointer"
   >
     {variant === 'right' && <ArrowRight />}
     {variant === 'left' && <ArrowLeft />}

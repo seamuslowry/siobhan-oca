@@ -18,7 +18,7 @@ export default function Accordion({
   return (
     <div className="w-full rounded-md overflow-clip">
       <button
-        className="w-full py-3 text-left grid grid-cols-1 md:grid-cols-[min-content_auto] items-baseline gap-2"
+        className="w-full py-3 text-left grid grid-cols-1 md:grid-cols-[min-content_auto] cursor-pointer items-baseline gap-2"
         onClick={toggle}
       >
         <AnimatedExpandIcon open={open} className="hidden md:block" />
