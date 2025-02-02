@@ -6,10 +6,7 @@ export async function Paper({ paper }: { paper: PaperType }) {
   const authors = await paper.getAuthors();
   return (
     <div className="px-10 py-3">
-      <TextContent
-        value={paper.title}
-        desired={{ bold: true, underline: true }}
-      />
+      <TextContent value={paper.title} desired={{ bold: true }} />
       {authors.map((author, i, arr) => (
         <Fragment key={i}>
           <TextContent
