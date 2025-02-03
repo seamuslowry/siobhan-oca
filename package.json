@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
-    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.3",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.partition": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
