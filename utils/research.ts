@@ -17,6 +17,11 @@ const paperSchema = z.object({
   topic: z.string(),
   title: z.string(),
   altTitle: z.string(),
+  externalLink: z.string().url().or(z.literal('')),
+  internalLink: z
+    .string()
+    .optional()
+    .transform(l => l && `research/${l}`),
   type: z.enum(['conference', 'journal', 'independent']),
   authors: z.array(z.string()),
 });
@@ -42,11 +47,18 @@ const schema = z.object({
 type RawPaperType = z.infer<typeof paperSchema>;
 type RawTopicType = z.infer<typeof topicSchema>;
 
+type Link = {
+  href: string;
+  type: 'internal' | 'external';
+};
+
 export class Paper {
   topic: string;
   title: string;
   altTitle: string;
   type: 'conference' | 'journal' | 'independent';
+  #internalLink?: string;
+  #externalLink?: string;
   #authors: string[];
 
   constructor(rawPaper: RawPaperType) {
@@ -54,7 +66,23 @@ export class Paper {
     this.title = rawPaper.title;
     this.altTitle = rawPaper.altTitle;
     this.type = rawPaper.type;
+    this.#externalLink = rawPaper.externalLink;
+    this.#internalLink = rawPaper.internalLink;
     this.#authors = rawPaper.authors;
+  }
+
+  getLink(): Link | undefined {
+    if (this.#internalLink) {
+      return {
+        type: 'internal',
+        href: this.#internalLink,
+      };
+    } else if (this.#externalLink) {
+      return {
+        type: 'external',
+        href: this.#externalLink,
+      };
+    }
   }
 
   getRawAuthors(): string[] {
@@ -96,12 +124,22 @@ export async function retrieveData(): Promise<ResearchPageData> {
         skip_empty_lines: true,
         relax_column_count: true,
         onRecord: r => {
-          const [topic, title, altTitle, type, ...authors] = r;
+          const [
+            topic,
+            title,
+            altTitle,
+            type,
+            externalLink,
+            internalLink,
+            ...authors
+          ] = r;
           return {
             topic,
             title,
             altTitle,
             type,
+            externalLink,
+            internalLink,
             authors,
           };
         },
