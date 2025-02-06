@@ -131,6 +131,8 @@ The papers on this page come from a CSV stored in `/public/research/papers.csv`.
 2. The title of the paper.
 3. An alternate title for the paper.
 4. The type of the paper. The only valid values are: `conference`, `journal`, or `independent`.
+5. An _external_ link to the paper. This field is optional. When provided, this must be a validly formatted URL and should lead to an external site that will allow the user to read the paper. This will be linked from the name of the paper.
+6. A filename that contains the paper. This field is optional. When provided, this _must_ be the name of a file in the same directory as the `papers.csv` file. This will be linked from the name of the paper. If an external link is also provided, this will take precedence.
 
 All following columns will be interperted as the names of the authors on the paper. These names may instead be provided as slugs corresponding to team members. In that case, the team member's name will show under the paper on the research page and the paper will show under that team member on the [Team Page](#team-page). If the author name does not correspond to a team member slug, it will be shown exactly as provided.
 
