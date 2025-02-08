@@ -1,6 +1,7 @@
 import ButtonLink from '@/components/button-link';
 import { MobileNavbarLinks } from '@/app/mobile-navbar';
 import { retrieveRoutes } from '@/utils/routes';
+import { NavbarLink } from './navbar-link';
 
 export async function Navbar() {
   const routes = await retrieveRoutes();
@@ -11,11 +12,12 @@ export async function Navbar() {
         <div className="flex text-2xl font-bold rounded-sm">
           <ButtonLink href="/">Siobhan Oca</ButtonLink>
         </div>
-        <div id="desktop-nav-links" className="hidden md:flex space-x-3">
-          {routes.map(({ text, href }) => (
-            <ButtonLink key={text} href={href}>
-              {text}
-            </ButtonLink>
+        <div
+          id="desktop-nav-links"
+          className="hidden md:flex items-center space-x-3"
+        >
+          {routes.map(r => (
+            <NavbarLink key={r.text} route={r} />
           ))}
         </div>
         <div id="mobile-nav-links" className="flex md:hidden">
