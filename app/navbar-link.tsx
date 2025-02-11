@@ -1,17 +1,27 @@
 import ButtonLink from '@/components/button-link';
 import { Route } from '@/utils/routes';
 
-export async function NavbarLink({ route }: { route: Route }) {
+export async function NavbarLink({
+  route,
+  className,
+}: {
+  route: Route;
+  className?: string;
+}) {
   return 'href' in route ? (
-    <ButtonLink href={route.href}>{route.text}</ButtonLink>
+    <ButtonLink href={route.href} className={className}>
+      {route.text}
+    </ButtonLink>
   ) : (
-    <div className="flex flex-col items-center gap-y-1">
-      <p className="text-sm">{route.text}</p>
-      <div>
-        {route.routes.map(innerRoute => (
-          <NavbarLink key={innerRoute.text} route={innerRoute} />
-        ))}
-      </div>
-    </div>
+    <fieldset className="flex border border-whisper-gray px-1 pb-1 rounded-sm">
+      <legend className="text-base px-1">{route.text}</legend>
+      {route.routes.map(innerRoute => (
+        <NavbarLink
+          key={innerRoute.text}
+          route={innerRoute}
+          className="p-1! mx-1"
+        />
+      ))}
+    </fieldset>
   );
 }

@@ -14,7 +14,7 @@ export async function Navbar() {
         </div>
         <div
           id="desktop-nav-links"
-          className="hidden md:flex items-center space-x-3"
+          className="hidden md:flex items-end space-x-3"
         >
           {routes.map(r => (
             <NavbarLink key={r.text} route={r} />
