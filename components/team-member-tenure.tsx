@@ -2,7 +2,7 @@
 
 import { Duration } from '@/components/duration';
 import { format, isPast, min } from 'date-fns';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function TeamMemberTenure({
   start,
@@ -11,9 +11,10 @@ export default function TeamMemberTenure({
   end?: Date;
   start: Date;
 }) {
-  const nonFutureEnd = useMemo(() => {
+  const [nonFutureEnd, setNonFutureEnd] = useState<Date | undefined>(end);
+  useEffect(() => {
     const now = new Date();
-    return min([end, now].filter(d => !!d));
+    setNonFutureEnd(min([end, now].filter(d => !!d)));
   }, [end]);
 
   return (
