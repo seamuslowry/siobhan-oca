@@ -13,7 +13,7 @@ export async function NavbarLink({
       {route.text}
     </ButtonLink>
   ) : (
-    <fieldset className="flex border border-whisper-gray px-1 pb-1 rounded-sm">
+    <fieldset className="flex items-end border border-whisper-gray px-1 pb-1 rounded-sm">
       <legend className="text-base px-1">{route.text}</legend>
       {route.routes.map(innerRoute => (
         <NavbarLink
