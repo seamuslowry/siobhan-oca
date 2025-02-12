@@ -151,7 +151,7 @@ The members on this page come from a CSV stored in `/public/team/members.csv`. T
 1. A unique slug to identify the team member and correlate their contributions across pages.
 2. The type of the team member. Valid values are `team` and `faculty`.
 3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
-4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided, the team member will be treated as a current member.
+4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
 5. A link to a personal page for the team member. This field is optional.
 6. A summary or description of the team member. This is optional free text and will display above their contributions.
 
