@@ -1,14 +1,14 @@
 import { type TeamMember as TeamMemberType } from '@/utils/team';
 import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
+import { Duration } from '@/components/duration';
+import { MemberEndDate } from '@/components/member-end-date';
 import Link from 'next/link';
 import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
-import { Duration } from '@/components/duration';
 import { format } from 'date-fns';
-import { MemberEndDate } from '@/components/member-end-date';
 
 async function getImage(slug: string) {
   try {
