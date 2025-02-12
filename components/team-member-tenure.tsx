@@ -25,11 +25,7 @@ export default function TeamMemberTenure({
   }, [end]);
 
   if (!nonFutureEnd) {
-    return (
-      <p className="text-md font-bold">
-        {format(start, 'MMM yyyy', { locale: enUS })} -
-      </p>
-    );
+    return <p className="text-md font-bold">Counting...</p>;
   }
 
   return (
