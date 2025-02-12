@@ -1,13 +1,12 @@
 import { type TeamMember as TeamMemberType } from '@/utils/team';
-import { Duration } from '@/components/duration';
 import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
-import { format } from 'date-fns';
 import Link from 'next/link';
 import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
+import TeamMemberTenure from '@/components/team-member-tenure';
 
 async function getImage(slug: string) {
   try {
@@ -54,11 +53,7 @@ export default async function TeamMember({
           ) : (
             <TextContent value={member.name} desired={{ size: '3xl' }} />
           )}
-          <p className="text-md font-bold">
-            {format(member.start, 'MMM yyyy')} -{' '}
-            {member.end ? format(member.end, 'MMM yyyy') : 'Current'} /{' '}
-            <Duration earlierDate={member.start} laterDate={member.end} />
-          </p>
+          <TeamMemberTenure start={member.start} end={member.end} />
           <p className="italic">{startCase(member.type)}</p>
         </span>
       </div>

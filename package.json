@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@dicebear/core": "^9.2.2",
     "@dicebear/thumbs": "^9.2.2",
