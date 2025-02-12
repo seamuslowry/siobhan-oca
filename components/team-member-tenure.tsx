@@ -12,16 +12,21 @@ export default function TeamMemberTenure({
   end?: Date;
   start: Date;
 }) {
-  const [nonFutureEnd, setNonFutureEnd] = useState<Date | undefined>(undefined);
-  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
-  useEffect(() => {
-    const now = new Date();
-    setNonFutureEnd(min([end, now].filter(d => !!d)));
-  }, [end]);
+  const [{ endDate, nonFutureEnd }, setClientState] = useState<{
+    nonFutureEnd?: Date;
+    endDate?: Date;
+  }>({});
 
   useEffect(() => {
-    setEndDate(end && isPast(end) ? end : undefined);
+    const now = new Date();
+    const endDate = end && isPast(end) ? end : undefined;
+    const nonFutureEnd = min([end, now].filter(d => !!d));
+    setClientState({ endDate, nonFutureEnd });
   }, [end]);
+
+  if (!nonFutureEnd) {
+    return <p className="text-md font-bold"> </p>;
+  }
 
   return (
     <p className="text-md font-bold">
