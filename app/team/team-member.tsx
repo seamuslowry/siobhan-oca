@@ -37,7 +37,8 @@ export default async function TeamMember({
           src={avatarImg}
           alt={member.name}
           className="object-cover min-w-32 aspect-square rounded-full"
-          placeholder="blur"
+          // placeholder="blur"
+          priority
           width={24}
           height={24}
           unoptimized
