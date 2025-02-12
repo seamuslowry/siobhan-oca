@@ -2,6 +2,7 @@
 
 import { Duration } from '@/components/duration';
 import { format, isPast, min } from 'date-fns';
+import { enUS } from 'date-fns/locale/en-US';
 import { useEffect, useState } from 'react';
 
 export default function TeamMemberTenure({
@@ -24,8 +25,8 @@ export default function TeamMemberTenure({
 
   return (
     <p className="text-md font-bold">
-      {format(start, 'MMM yyyy')} -{' '}
-      {endDate ? format(endDate, 'MMM yyyy') : 'Current'} /{' '}
+      {format(start, 'MMM yyyy', { locale: enUS })} -{' '}
+      {endDate ? format(endDate, 'MMM yyyy', { locale: enUS }) : 'Current'} /{' '}
       <Duration earlierDate={start} laterDate={nonFutureEnd} />
     </p>
   );
