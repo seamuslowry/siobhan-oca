@@ -6,7 +6,9 @@ import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
-import TeamMemberTenure from '@/components/team-member-tenure';
+import { Duration } from '@/components/duration';
+import { format } from 'date-fns';
+import { MemberEndDate } from '@/components/member-end-date';
 
 async function getImage(slug: string) {
   try {
@@ -53,7 +55,11 @@ export default async function TeamMember({
           ) : (
             <TextContent value={member.name} desired={{ size: '3xl' }} />
           )}
-          <TeamMemberTenure start={member.start} end={member.end} />
+          <p className="text-md font-bold">
+            {format(member.start, 'MMM yyyy')} -{' '}
+            <MemberEndDate date={member.end} /> /{' '}
+            <Duration earlierDate={member.start} laterDate={member.end} />
+          </p>
           <p className="italic">{startCase(member.type)}</p>
         </span>
       </div>
