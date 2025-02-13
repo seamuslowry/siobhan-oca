@@ -8,7 +8,7 @@ import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
-import { format } from 'date-fns';
+import { format } from 'date-fns/format';
 
 async function getImage(slug: string) {
   try {

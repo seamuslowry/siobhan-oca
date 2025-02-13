@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { readFile } from 'fs/promises';
 import { parse } from 'csv-parse';
-import { parseISO } from 'date-fns';
+import { parseISO } from 'date-fns/parseISO';
 import { Course, retrieveData as retrieveCourseData } from '@/utils/courses';
 import { Topic, retrieveData as retrieveResearchData } from '@/utils/research';
 

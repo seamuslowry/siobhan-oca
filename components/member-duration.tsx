@@ -1,6 +1,6 @@
 'use client';
 
-import { isPast } from 'date-fns';
+import { isPast } from 'date-fns/isPast';
 import { formatDistanceStrict } from 'date-fns/formatDistanceStrict';
 import { formatDistanceToNowStrict } from 'date-fns/formatDistanceToNowStrict';
 
