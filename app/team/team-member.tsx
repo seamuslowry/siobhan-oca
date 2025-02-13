@@ -1,7 +1,7 @@
 import { type TeamMember as TeamMemberType } from '@/utils/team';
 import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
-import { Duration } from '@/components/duration';
+import { MemberDuration } from '@/components/member-duration';
 import { MemberEndDate } from '@/components/member-end-date';
 import Link from 'next/link';
 import { createAvatar } from '@dicebear/core';
@@ -58,7 +58,7 @@ export default async function TeamMember({
           <p className="text-md font-bold">
             {format(member.start, 'MMM yyyy')} -{' '}
             <MemberEndDate date={member.end} /> /{' '}
-            <Duration earlierDate={member.start} laterDate={member.end} />
+            <MemberDuration start={member.start} end={member.end} />
           </p>
           <p className="italic">{startCase(member.type)}</p>
         </span>
