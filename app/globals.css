@@ -12,9 +12,9 @@
   --color-whisper-gray: #f3f2f1;
   --color-graphite: #666666;
 
-  --animate-slide-in-from-left: slideInFromLeft 1.5s ease-out;
+  --animate-slide-in-from-left: slide-in-from-left 1.5s ease-out;
 
-  @keyframes slideInFromLeft {
+  @keyframes slide-in-from-left {
     0% {
       transform: translateX(-100%);
       opacity: 0;
