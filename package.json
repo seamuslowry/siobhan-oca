@@ -26,11 +26,11 @@
     "react-dom": "^19.1.0",
     "react-swipeable": "^7.0.2",
     "yaml": "^2.8.0",
-    "zod": "^3.25.56"
+    "zod": "^3.25.65"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/postcss": "^4.1.10",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.partition": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
