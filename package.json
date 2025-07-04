@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.partition": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
@@ -40,9 +40,9 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-prettier": "^5.5.1",
     "postcss": "^8",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.2",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
