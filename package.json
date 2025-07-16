@@ -16,7 +16,7 @@
     "@dicebear/core": "^9.2.3",
     "@dicebear/thumbs": "^9.2.3",
     "clsx": "^2.1.1",
-    "csv-parse": "^5.6.0",
+    "csv-parse": "^6.0.0",
     "date-fns": "^4.1.0",
     "lodash.kebabcase": "^4.1.1",
     "lodash.partition": "^4.6.0",
@@ -26,7 +26,7 @@
     "react-dom": "^19.1.0",
     "react-swipeable": "^7.0.2",
     "yaml": "^2.8.0",
-    "zod": "^3.25.75"
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
