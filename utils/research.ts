@@ -121,8 +121,9 @@ export async function retrieveData(): Promise<ResearchPageData> {
     .array(paperSchema)
     .parse(
       await parseCsv(await readFile('./public/research/papers.csv', 'utf8'), {
-        skip_empty_lines: true,
-        relax_column_count: true,
+        // @ts-expect-error https://github.com/adaltas/node-csv/issues/461
+        skipEmptyLines: true,
+        relaxColumnCount: true,
         onRecord: r => {
           const [
             topic,

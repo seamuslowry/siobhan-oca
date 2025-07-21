@@ -72,7 +72,7 @@ export async function retrieveData(): Promise<TeamPageData> {
     .parse(
       await parse(await readFile('./public/team/members.csv', 'utf8'), {
         columns: true,
-        skip_empty_lines: true,
+        skipEmptyLines: true,
       }).toArray(),
     )
     .map(rawMember => new TeamMember(rawMember));
