@@ -13,8 +13,8 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@dicebear/core": "^9.2.3",
-    "@dicebear/thumbs": "^9.2.3",
+    "@dicebear/core": "^9.2.4",
+    "@dicebear/thumbs": "^9.2.4",
     "clsx": "^2.1.1",
     "csv-parse": "^6.1.0",
     "date-fns": "^4.1.0",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/postcss": "^4.1.12",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/lodash.partition": "^4.6.9",
     "@types/lodash.startcase": "^4.4.9",
