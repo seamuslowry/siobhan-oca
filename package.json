@@ -21,12 +21,12 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.partition": "^4.6.0",
     "lodash.startcase": "^4.4.0",
-    "next": "15.5.2",
+    "next": "15.5.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-swipeable": "^7.0.2",
     "yaml": "^2.8.1",
-    "zod": "^4.1.5"
+    "zod": "^4.1.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
@@ -38,7 +38,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.2",
+    "eslint-config-next": "15.5.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "postcss": "^8",
