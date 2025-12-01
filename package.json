@@ -21,11 +21,11 @@
     "lodash.kebabcase": "^4.1.1",
     "lodash.partition": "^4.6.0",
     "lodash.startcase": "^4.4.0",
-    "next": "16.0.4",
+    "next": "16.0.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-swipeable": "^7.0.2",
-    "yaml": "^2.8.1",
+    "yaml": "^2.8.2",
     "zod": "^4.1.13"
   },
   "devDependencies": {
@@ -37,11 +37,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.0.4",
+    "eslint-config-next": "16.0.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "postcss": "^8",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.3",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
