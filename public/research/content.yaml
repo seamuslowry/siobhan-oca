@@ -7,11 +7,14 @@ metadata:
 topics:
   - name: Robotics and Engineering Ethics Education
     description:
+      - Synthetic Tissue for Robotic Testing
       - type: text
         text: The Oca Lab conducts research in engineering education with a focus on robotics and the integration of ethics through case-based design. The lab examines how students learn to design, build, and reason about robotic systems while engaging with complex, real-world ethical challenges. Through the development and study of case-based curricula, the Oca Lab investigates how authentic design scenarios can deepen technical understanding, strengthen ethical decision-making, and foster reflective practice. Its work aims to prepare engineers who are both technically skilled in robotics and committed to responsible, human-centered innovation.
       - type: image
         filename: demo.png
-        alt: demo alt
+        alt: demo alt text
+      - type: text
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
   - name: Human Robot Interaction
     description:
       - type: text
