@@ -13,8 +13,6 @@ topics:
       - type: image
         filename: demo.png
         alt: demo alt text
-      - type: text
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
   - name: Human Robot Interaction
     description:
       - type: text
@@ -26,10 +24,6 @@ topics:
     description: 
       - type: text
         text: The Oca Lab conducts research in medical robotics with an emphasis on translational end effector design for clinical procedures, human–robot interaction, and enabling technologies for autonomous care. The lab develops and evaluates novel end effectors that bridge engineering innovation and practical clinical application, ensuring safety, precision, and usability in real-world settings. In parallel, it advances research in human–robot interaction to support effective collaboration between clinicians and robotic systems. The lab also designs and validates synthetic tissue models to support the development and testing of autonomous robotic ultrasound, accelerating safe translation from laboratory research to bedside implementation.
-        filename: demo.png
-        alt: demo alt text
-      - type: text
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
       - type: image
         filename: demo.png
         alt: demo alt text
