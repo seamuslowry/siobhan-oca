@@ -131,6 +131,8 @@ The papers on this page come from a CSV stored in `/public/research/papers.csv`.
 2. The title of the paper.
 3. An alternate title for the paper.
 4. The type of the paper. The only valid values are: `conference`, `journal`, or `independent`.
+5. An _external_ link to the paper. This field is optional. When provided, this must be a validly formatted URL and should lead to an external site that will allow the user to read the paper. This will be linked from the name of the paper.
+6. A filename that contains the paper. This field is optional. When provided, this _must_ be the name of a file in the same directory as the `papers.csv` file. This will be linked from the name of the paper. If an external link is also provided, this will take precedence.
 
 All following columns will be interperted as the names of the authors on the paper. These names may instead be provided as slugs corresponding to team members. In that case, the team member's name will show under the paper on the research page and the paper will show under that team member on the [Team Page](#team-page). If the author name does not correspond to a team member slug, it will be shown exactly as provided.
 
@@ -149,7 +151,7 @@ The members on this page come from a CSV stored in `/public/team/members.csv`. T
 1. A unique slug to identify the team member and correlate their contributions across pages.
 2. The type of the team member. Valid values are `team` and `faculty`.
 3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
-4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided, the team member will be treated as a current member.
+4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
 5. A link to a personal page for the team member. This field is optional.
 6. A summary or description of the team member. This is optional free text and will display above their contributions.
 

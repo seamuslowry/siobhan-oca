@@ -22,6 +22,7 @@ export default function Video(
 
   // track hydration because events won't fire properly with SSR on refresh
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHydrated(true);
   }, []);
 

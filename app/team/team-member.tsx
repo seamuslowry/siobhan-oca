@@ -1,13 +1,14 @@
 import { type TeamMember as TeamMemberType } from '@/utils/team';
-import { Duration } from '@/components/duration';
 import { TextContent } from '@/components/text-content';
 import { ExternalLink } from '@/components/external-link';
-import { format } from 'date-fns';
+import { MemberDuration } from '@/components/member-duration';
+import { MemberEndDate } from '@/components/member-end-date';
 import Link from 'next/link';
 import { createAvatar } from '@dicebear/core';
 import * as thumbs from '@dicebear/thumbs';
 import Image from 'next/image';
 import startCase from 'lodash.startcase';
+import { format } from 'date-fns/format';
 
 async function getImage(slug: string) {
   try {
@@ -56,8 +57,8 @@ export default async function TeamMember({
           )}
           <p className="text-md font-bold">
             {format(member.start, 'MMM yyyy')} -{' '}
-            {member.end ? format(member.end, 'MMM yyyy') : 'Current'} /{' '}
-            <Duration earlierDate={member.start} laterDate={member.end} />
+            <MemberEndDate date={member.end} /> /{' '}
+            <MemberDuration start={member.start} end={member.end} />
           </p>
           <p className="italic">{startCase(member.type)}</p>
         </span>

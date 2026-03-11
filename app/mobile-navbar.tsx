@@ -2,7 +2,7 @@
 
 import ButtonLink from '@/components/button-link';
 import { type Route } from '@/utils/routes';
-import { MouseEventHandler, useRef } from 'react';
+import { Fragment, MouseEventHandler, useRef } from 'react';
 
 function MenuIcon() {
   return (
@@ -22,6 +22,41 @@ function MenuIcon() {
         d="M4 6h16M4 12h16M4 18h16"
       />
     </svg>
+  );
+}
+
+const firstValidHref = (r: Route): string =>
+  'href' in r ? r.href : firstValidHref(r.routes[0]);
+
+function MobileNavbarLink({
+  route,
+  onClick,
+  className,
+}: {
+  route: Route;
+  onClick: VoidFunction;
+  className?: string;
+}) {
+  return 'href' in route ? (
+    <ButtonLink onClick={onClick} href={route.href} className={className}>
+      {route.text}
+    </ButtonLink>
+  ) : (
+    <Fragment>
+      <MobileNavbarLink
+        route={{ text: route.text, href: firstValidHref(route) }}
+        onClick={onClick}
+      />
+      <div className="flex flex-col pl-4">
+        {route.routes.map(innerRoute => (
+          <MobileNavbarLink
+            key={innerRoute.text}
+            route={innerRoute}
+            onClick={onClick}
+          />
+        ))}
+      </div>
+    </Fragment>
   );
 }
 
@@ -50,10 +85,8 @@ export function MobileNavbarLinks({ routes }: { routes: Route[] }) {
       >
         {/* ensure that the dialog contents always fill the whole clickable area; this is so we can treat 'DIALOG' clicks (the backdrop) as requests to close */}
         <div className="w-full h-full flex flex-col p-4">
-          {routes.map(({ text, href }) => (
-            <ButtonLink onClick={handleClose} key={text} href={href}>
-              {text}
-            </ButtonLink>
+          {routes.map(r => (
+            <MobileNavbarLink key={r.text} route={r} onClick={handleClose} />
           ))}
         </div>
       </dialog>

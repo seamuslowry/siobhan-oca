@@ -19,9 +19,11 @@ export default async function Team() {
         {current.map(member => (
           <TeamMember member={member} key={member.slug} />
         ))}
-        {former.map(member => (
-          <TeamMember member={member} key={member.slug} />
-        ))}
+        {former
+          .toSorted((a, b) => (b.end?.getTime() ?? 0) - (a.end?.getTime() ?? 0))
+          .map(member => (
+            <TeamMember member={member} key={member.slug} />
+          ))}
       </div>
     </main>
   );
