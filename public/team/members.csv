@@ -1,9 +1,7 @@
-slug,type,name,start,end,link,summary
-richard-kim,student,Richard Kim,2022-08-01,2025-05-01,linkedin.com/in/richardhkim,"First student in the Oca Lab, worked for 4 semesters on a Autonomous IV project presented at ICRA workshop."
-allison-goehringer,student,Allison Geohringer,2023-01-01,2024-12-15, https://www.wayup.com/profile/Allison-Goehringer-7a80ab0e97/, "Controller design for IV End Effector project, ECE Undergradaute Research honorable mention and ME Graduate with Distinction"
-andre-lopez,student, Andre Lopez, 2024-08-01,2024-12-15,https://www.linkedin.com/in/humberto-lopez-049b4a233/,"Developed transformer mars rover wheels to traverse various terrains"
-amanda-smith,student,Amanda Smith,2024-08-01,2025-05-01,https://www.linkedin.com/in/amanda-smith-1204/, "Started systematic development and testing of phantom material for torso for the Oca Lab, work presented at Duke Medical Robotics Symposium 2025"
-kate-flanagan,student,Kate Flanagan, 2025-01-01, 2025-05-01,https://www.linkedin.com/in/kate-e-flanagan/,"Perforemd literature review and developed first prototype materials for multi tissue phantom, work presented at Duke Medical Robotics Symposium 2026"
-shaan-narayan, student, Shaan Narayan, 2025-01-01, 2025-05-01, https://www.linkedin.com/in/shaan-narayan-059a5521b/, "Graduate with distinction for applied human robot interaction work on robotic scrub nurse"
-dawen-huang,student, Dawen Huang, 2024-08-01,2025-04-30,,"MS Poster on Robotic Arm Manipulation Safety Envelope Device and Characterization"
-
+richard-kim,student,Richard Kim,2022-08-01,2025-05-01,https://linkedin.com/in/richardhkim,"First student in the Oca Lab, worked for 4 semesters on an Autonomous IV project presented at ICRA workshop."
+allison-goehringer,student,Allison Geohringer,2023-01-01,2024-12-15,https://www.wayup.com/profile/Allison-Goehringer-7a80ab0e97/,"Controller design for IV End Effector project, ECE Undergraduate Research honorable mention and ME Graduate with Distinction"
+andre-lopez,student,Andre Lopez,2024-08-01,2024-12-15,https://www.linkedin.com/in/humberto-lopez-049b4a233/,"Developed transformer mars rover wheels to traverse various terrains"
+amanda-smith,student,Amanda Smith,2024-08-01,2025-05-01,https://www.linkedin.com/in/amanda-smith-1204/,"Started systematic development and testing of phantom material for torso for the Oca Lab, work presented at Duke Medical Robotics Symposium 2025"
+kate-flanagan,student,Kate Flanagan,2025-01-01,2025-05-01,https://www.linkedin.com/in/kate-e-flanagan/,"Performed literature review and developed first prototype materials for multi tissue phantom, work presented at Duke Medical Robotics Symposium 2026"
+shaan-narayan,student,Shaan Narayan,2025-01-01,2025-05-01,https://www.linkedin.com/in/shaan-narayan-059a5521b/,"Graduate with distinction for applied human robot interaction work on robotic scrub nurse"
+dawen-huang,student,Dawen Huang,2024-08-01,2025-04-30,,"MS Poster on Robotic Arm Manipulation Safety Envelope Device and Characterization"
