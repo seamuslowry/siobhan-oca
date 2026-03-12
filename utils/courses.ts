@@ -37,6 +37,7 @@ const courseSchema = z.object({
 });
 
 const schema = z.object({
+  summary: z.array(textContentSchema).default([]),
   courses: z.array(courseSchema),
 });
 
@@ -79,6 +80,7 @@ export class Course {
 }
 
 type CoursePageData = {
+  summary: TextContent[];
   courses: Course[];
 };
 
@@ -88,7 +90,7 @@ export async function retrieveData(): Promise<CoursePageData> {
   );
 
   return {
-    ...rawData,
+    summary: rawData.summary,
     courses: rawData.courses.map(c => new Course(c)),
   };
 }
