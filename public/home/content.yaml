@@ -2,8 +2,10 @@ metadata:
   title: Siobhan Oca
   description: |
     Siobhan Oca, PhD
-    Assistant Professor of Mechanical Engineering and Materials Science at Duke University
+    Assistant Professor of the Practice
     Director of Masters Programs: Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
+    Department of Mecnaichal Eng and Materials Sci
+    Duke University
 hero:
   alt: Hero image
 banner:
@@ -14,16 +16,4 @@ banner:
     - Assistant Professor of Mechanical Engineering and Materials Science at Duke University
     - Director of Masters Programs- Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
 summary:
-  - text: Why am I a professor?
-    tag: h2
-    size: 3xl
-  - It's the lightbulb moments I have witnessed and experienced, when the material transforms from a set of rules to clarity and confidence.
-  - text: |
-      I hear and I forget, I see and I remember, I do and I understand
-      - Confucius
-    align: center
-    whitespace: pre-wrap
-    italic: true
-  - "This quote exemplifies my goal as an educator: to put students in the driver's seat of practicing engineering as early and often as possible."
-  - "I see students thrive with three basic things: simple structures to tackle complex problems, example applications, and opportunities to practice and apply this. I have learned that students engage when they are expected to solve difficult problems after the basics have been covered. They asked more insightful questions when the task is challenging. Students can memorize equations, but they struggle when the inputs or outputs are less clear, which requires multiple examples and sometimes multiple methods to solve a problem."
-  - I am passionate about robotics, specifically applied robotic systems, and my goal is to teach robotics and related courses at the undergraduate and graduate level. Using my masters in translational medicine and work in industry, I have the rare qualifications to teach interdisciplinary courses including regulatory, design, ethics, biomedical applications and entrepreneurship.
+  - Professor Siobhan Oca’s work focuses on applied robotics, particularly medical robotics and the development of safe, effective autonomous medical procedures. Drawing on her interdisciplinary background in engineering, translational medicine, and industry, she develops robotics curricula that integrate technical design with ethics, regulation, and entrepreneurship while studying how students build self-efficacy in robotics. Her research explores how to design and evaluate autonomous systems that are trustworthy in practice, preparing undergraduate and graduate students to responsibly develop robotics technologies that positively impact society.
