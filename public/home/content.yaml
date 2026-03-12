@@ -3,7 +3,7 @@ metadata:
   description: |
     Siobhan Oca, PhD
     Assistant Professor of Mechanical Engineering and Materials Science at Duke University
-    Assistant Director of Masters in Robotics at Duke University
+    Director of Masters Programs: Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
 hero:
   alt: Hero image
 banner:
@@ -12,9 +12,9 @@ banner:
   email: skr23@duke.edu
   content:
     - Assistant Professor of Mechanical Engineering and Materials Science at Duke University
-    - Assistant Director of Masters in Robotics at Duke University
+    - Director of Masters Programs- Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
 summary:
-  - text: Why do I want to be a professor?
+  - text: Why am I a professor?
     tag: h2
     size: 3xl
   - It's the lightbulb moments I have witnessed and experienced, when the material transforms from a set of rules to clarity and confidence.
