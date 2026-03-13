@@ -31,6 +31,7 @@ export default async function TeamMember({
   const topics = await member.getTopics();
 
   const avatarImg = await getImage(member.slug);
+  const isGeneratedAvatar = typeof avatarImg === 'string';
 
   return (
     <section>
@@ -39,9 +40,9 @@ export default async function TeamMember({
           src={avatarImg}
           alt={member.name}
           className="object-cover min-w-32 aspect-square rounded-full"
-          placeholder="blur"
-          width={24}
-          height={24}
+          placeholder={isGeneratedAvatar ? 'empty' : 'blur'}
+          width={128}
+          height={128}
           unoptimized
         />
         <span>
