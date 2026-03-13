@@ -4,7 +4,7 @@ metadata:
     Siobhan Oca, PhD
     Assistant Professor of the Practice
     Director of Masters Programs: Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
-    Department of Mecnaichal Eng and Materials Sci
+    Department of Mechanical Eng and Materials Sci
     Duke University
 hero:
   alt: Hero image
@@ -12,8 +12,11 @@ banner:
   alt: Siobhan Oca
   title: Siobhan Oca, PhD
   email: skr23@duke.edu
-  content:
-    - Assistant Professor of Mechanical Engineering and Materials Science at Duke University
-    - Director of Masters Programs- Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
+  content: 
+    - Siobhan Oca, PhD
+    - Assistant Professor of the Practice
+    - Director of Masters Programs Robotics and Autonomy, AI and Materials, Mechanical Engineering and Materials Science
+    - Department of Mechanical Eng and Materials Sci
+    - Duke University 
 summary:
   - Professor Siobhan Oca’s work focuses on applied robotics, particularly medical robotics and the development of safe, effective autonomous medical procedures. Drawing on her interdisciplinary background in engineering, translational medicine, and industry, she develops robotics curricula that integrate technical design with ethics, regulation, and entrepreneurship while studying how students build self-efficacy in robotics. Her research explores how to design and evaluate autonomous systems that are trustworthy in practice, preparing undergraduate and graduate students to responsibly develop robotics technologies that positively impact society.

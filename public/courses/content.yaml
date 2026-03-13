@@ -24,7 +24,7 @@ courses:
       - Applied robotics draws from many different fields and allows automation of products as diverse as cars, vacuum cleaners, and factories. This course is a challenging introduction to basic concepts used broadly in robotics; it is valuable for students who wish to work in the area. 
       - Topics include simulation, kinematics, control, sensing, and system integration. The mathematical basis of each area is emphasized, and concepts are motivated using common robotics applications and programming exercises. Students participate in two projects over the course of the semester, in which they will implement algorithms that apply each of the topics discussed in class to real robotics problems.
     projects:
-      - name: Conveyor Belt Robot
+      - name: Robot Arm Light Art
         description:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
@@ -36,17 +36,10 @@ courses:
             slug: emily-harrington
           - type: STUDENT
             name: Unknown Student
-          - type: ACADEMIC
-            name: Billy Mayes
-            slug: billy-mayes
         media:
           - type: mp4
-            filename: conveyor.mp4
-          - type: mp4
-            filename: tic-tac-tobot.mp4
-          - type: image
-            filename: demo.png
-            alt: A demo image for this project
+            filename: richardlight.mp4
+            alt: A demo video for art robot light
       - name: TicToc Robot
         description:
           - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
