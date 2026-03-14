@@ -149,7 +149,7 @@ The text for this page is stored in `/public/team/content.yaml`. The fields are:
 
 The members on this page come from a CSV stored in `/public/team/members.csv`. This CSV must contain columns in the following order.
 1. A unique slug to identify the team member and correlate their contributions across pages.
-2. The type of the team member. Valid values are `team` and `faculty`.
+2. The type of the team member. Valid values are `team`, `faculty`, or `collaborator`.
 3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
 4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
 5. A link to a personal page for the team member. This field is optional.
