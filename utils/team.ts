@@ -8,7 +8,10 @@ import { Topic, retrieveData as retrieveResearchData } from '@/utils/research';
 const teamMemberSchema = z.object({
   slug: z.string(),
   name: z.string(),
-  type: z.literal('student').or(z.literal('faculty')),
+  type: z
+    .literal('student')
+    .or(z.literal('faculty'))
+    .or(z.literal('collaborator')),
   start: z.string().date(),
   end: z.string().date().or(z.literal('')),
   link: z.string().url().or(z.literal('')),
@@ -22,7 +25,7 @@ type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 export class TeamMember {
   slug: string;
   name: string;
-  type: 'student' | 'faculty';
+  type: 'student' | 'faculty' | 'collaborator';
   start: Date;
   end?: Date;
   link?: string;
