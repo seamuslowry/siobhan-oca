@@ -5,7 +5,7 @@ import { TextContent } from '@/components/text-content';
 import MediaContent from '@/components/media-content';
 
 export async function Project({
-  project: { name, collaborators, media, description, id },
+  project: { name, collaborators, media, id },
 }: {
   project: ProjectType;
 }) {
@@ -43,11 +43,6 @@ export async function Project({
             ))}
           </p>
         )}
-        <div className="mt-4">
-          {description.map((piece, index) => (
-            <TextContent key={index} value={piece} />
-          ))}
-        </div>
       </div>
       <Slider>
         {media.map(async (value, i) => (

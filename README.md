@@ -70,7 +70,7 @@ Media on pages can be either an image or an mp4 video. The fields are:
     - For type `mp4`, the file must be found in same directory as the defining `content.yaml` file.
     - For type `image`, the file must be found in the corresponding `/assets` directory.
 - `alt`: The alt text for the media.
-    - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
+    - For type `mp4`, this is the text that will display if the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
     - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required.
 
 ## Home Page

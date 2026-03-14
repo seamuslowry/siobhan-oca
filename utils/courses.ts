@@ -19,7 +19,6 @@ const collaboratorSchema = z.object({
 
 const projectSchema = z.object({
   name: textContentSchema,
-  description: z.array(textContentSchema),
   collaborators: z.array(collaboratorSchema).default([]),
   media: z
     .array(mediaSchema)
@@ -47,14 +46,12 @@ type RawCourseType = z.infer<typeof courseSchema>;
 
 export class Project {
   name: TextContent;
-  description: TextContent[];
   collaborators: RawCollaboratorType[];
   media: MediaContent[];
   id: string;
 
   constructor(rawProject: RawProjectType) {
     this.name = rawProject.name;
-    this.description = rawProject.description;
     this.collaborators = rawProject.collaborators;
     this.media = rawProject.media;
     this.id = kebabCase(
