@@ -25,8 +25,6 @@ courses:
       - Topics include simulation, kinematics, control, sensing, and system integration. The mathematical basis of each area is emphasized, and concepts are motivated using common robotics applications and programming exercises. Students participate in two projects over the course of the semester, in which they will implement algorithms that apply each of the topics discussed in class to real robotics problems.
     projects:
       - name: Robot Arm Light Art
-        description:
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
             name: John Smith
@@ -41,8 +39,6 @@ courses:
             filename: richardlight.mp4
             alt: A demo video for art robot light
       - name: TicToc Robot
-        description:
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
             name: John Smith
@@ -63,8 +59,6 @@ courses:
       - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
     projects:
       - name: Stroke Prototype - Project 1
-        description:
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
             name: John Smith
