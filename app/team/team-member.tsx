@@ -16,36 +16,34 @@ export default async function TeamMember({
 
   return (
     <section>
-      <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-8">
+      <div className="grid grid-cols-[auto_1fr] gap-x-6 items-center mb-2">
         <span>
           {member.link ? (
-            <ExternalLink href={member.link} className="text-3xl">
+            <ExternalLink href={member.link} className="text-2xl">
               <TextContent
                 value={member.name}
-                desired={{ size: '3xl', underline: true }}
+                desired={{ size: '2xl', underline: true }}
               />
             </ExternalLink>
           ) : (
-            <TextContent value={member.name} desired={{ size: '3xl' }} />
+            <TextContent value={member.name} desired={{ size: '2xl' }} />
           )}
-          <p className="text-md font-bold">
+          <p className="text-md font-medium mt-1">
             {format(member.start, 'MMM yyyy')} -{' '}
             <MemberEndDate date={member.end} /> /{' '}
             <MemberDuration start={member.start} end={member.end} />
           </p>
         </span>
       </div>
-      {member.summary && (
-        <p className="my-5 text-lg font-medium">{member.summary}</p>
-      )}
-      <div className="mx-4 flex flex-col gap-8">
+      {member.summary && <p className="pl-2 my-3 text-md">{member.summary}</p>}
+      <div className="mx-2 flex flex-col gap-4">
         {topics.length > 0 &&
           topics.map(t => (
             <div key={t.id}>
               <Link href={`/research#${t.id}`}>
                 <TextContent
                   value={t.name}
-                  desired={{ size: '2xl', underline: true }}
+                  desired={{ size: 'lg', underline: true }}
                 />
               </Link>
               <ul>
@@ -62,7 +60,7 @@ export default async function TeamMember({
             <div key={c.id}>
               <TextContent
                 value={c.name}
-                desired={{ size: '2xl', italic: true }}
+                desired={{ size: 'lg', italic: true }}
               />
               <ul>
                 {c.projects.map(p => (
