@@ -70,7 +70,7 @@ Media on pages can be either an image or an mp4 video. The fields are:
     - For type `mp4`, the file must be found in same directory as the defining `content.yaml` file.
     - For type `image`, the file must be found in the corresponding `/assets` directory.
 - `alt`: The alt text for the media.
-    - For type `mp4`, this is the text that will display is the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
+    - For type `mp4`, this is the text that will display if the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
     - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required.
 
 ## Home Page
@@ -112,7 +112,7 @@ The content for this page is stored in `/public/courses/content.yaml`. The field
                 - `ACADEMIC`
             - `name` ([stylable](#stylable-text)): The name of the collaborator. Future work intends to support linking these names to same-site or external pages. Without explicit styling, this will default to `italic: true` and `tag: span`. These appear inside a `p` tag as part of a comma separated list with a label. Neither the comma nor the label is stylable.
             - `slug`: A slug corresponding to a team member. This field is optional. If present, a link to this project will appear under the team member on the [Team Page](#team-page).
-        - `media`: An array of [media objects](#media) describing media to display for this project. This field is optional. Images must be found in the `/assets/courses` directory.
+        - `media`: An array of [media objects](#media) describing media to display for this project. This field is optional. Assets must be found in the `/assets/courses` directory.
 
 ## Research Page (The Oca Lab)
 
