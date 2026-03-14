@@ -17,14 +17,16 @@ export async function Topic({
           <TextContent value={name} desired={{ size: '5xl', tag: 'h2' }} />
         }
       >
-        <div className="grid grid-rows-[auto_auto] md:grid-cols-[7fr_auto_3fr]">
+        <div className="grid grid-rows-1 md:grid-cols-[7fr_auto_3fr] max-h-[80vh] min-h-0">
           <div className="ml-2 md:mx-8 my-4 flex flex-col gap-4">
             {description.map((v, i) => (
               <AnyContent key={i} value={v} />
             ))}
           </div>
+
           <Divider vertical className="hidden md:block" />
-          <div className="my-4 text-sm md:text-base">
+
+          <div className="my-4 text-sm md:text-base min-h-0 overflow-auto">
             {papers.map((paper, i) => (
               <Paper paper={paper} key={i} />
             ))}
