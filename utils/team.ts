@@ -71,21 +71,25 @@ export class TeamMember {
   }
 }
 
-export type TeamPageData = TeamMember[];
+export type TeamPageData = {
+  members: TeamMember[];
+};
 
 export async function retrieveData(): Promise<TeamPageData> {
-  return schema
-    .parse(
-      await parse(await readFile('./public/team/members.csv', 'utf8'), {
-        columns: true,
-        skipEmptyLines: true,
-      }).toArray(),
-    )
-    .map(rawMember => new TeamMember(rawMember));
+  return {
+    members: schema
+      .parse(
+        await parse(await readFile('./public/team/members.csv', 'utf8'), {
+          columns: true,
+          skipEmptyLines: true,
+        }).toArray(),
+      )
+      .map(rawMember => new TeamMember(rawMember)),
+  };
 }
 
 export async function retrieveTeamMemberData(
   slug: string,
 ): Promise<TeamMember | undefined> {
-  return (await retrieveData()).find(m => m.slug === slug);
+  return (await retrieveData()).members.find(m => m.slug === slug);
 }

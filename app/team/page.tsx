@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Team() {
   const pageData = await retrieveData();
 
-  const grouped = mapValues(groupBy(pageData, 'group'), l =>
+  const grouped = mapValues(groupBy(pageData.members, 'group'), l =>
     sortBy(l, ['name', 'end']),
   );
 
