@@ -39,16 +39,6 @@ export default async function Team() {
           </Accordion>
         </section>
       ))}
-      {/* <div className="mx-[8%] my-10 grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10 lg:gap-x-20">
-        {current.map(member => (
-          <TeamMember member={member} key={member.slug} />
-        ))}
-        {former
-          .toSorted((a, b) => (b.end?.getTime() ?? 0) - (a.end?.getTime() ?? 0))
-          .map(member => (
-            <TeamMember member={member} key={member.slug} />
-          ))}
-      </div> */}
     </main>
   );
 }
