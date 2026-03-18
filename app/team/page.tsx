@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/team';
-import TeamMember from './team-member';
 import mapValues from 'lodash.mapvalues';
 import groupBy from 'lodash.groupby';
 import sortBy from 'lodash.sortby';
-import Accordion from '@/components/accordion';
-import { TextContent } from '@/components/text-content';
+import { Fragment } from 'react';
+import Divider from '@/components/divider';
+import TeamMemberGroup from './team-member-group';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('team');
@@ -21,24 +21,14 @@ export default async function Team() {
 
   return (
     <main>
-      {groups.map(({ id, display }) => (
-        <section key={id} className="mx-[8%] my-10 ">
-          <Accordion
-            summary={
-              <TextContent
-                value={display}
-                desired={{ size: '5xl', tag: 'h2' }}
-              />
-            }
-          >
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10 lg:gap-x-20">
-              {grouped[id].map(member => (
-                <TeamMember member={member} key={member.slug} />
-              ))}
-            </div>
-          </Accordion>
-        </section>
-      ))}
+      <div className="mx-[8%] my-10 flex flex-col gap-8">
+        {groups.map(({ id, display }, index) => (
+          <Fragment key={id}>
+            <TeamMemberGroup id={id} text={display} members={grouped[id]} />
+            {index < groups.length - 1 && <Divider />}
+          </Fragment>
+        ))}
+      </div>
     </main>
   );
 }
