@@ -144,6 +144,9 @@ This file must _not_ contain column header names. They are not compatible with t
 
 The text for this page is stored in `/public/team/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
+- `groups`: An array of objects describing the groups of team members that should be arranged on the page. The team member page will be broken into sections, one for each group. Team members in each group will be displayed alphabetically under their group section. If a team member's group does not appear in this list, they will not be displayed on the page. Each element is an object as described below.
+    - `id`: The string ID of this group. When defining team members, they must be given a group field indicating the group they are a part of. This field is freetext but members' group fields must exactly match this ID for them to be considered a part of the group.
+    - `display` ([stylable](#stylable-text)): The display name of the group. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
 
 ### Team Members
 
