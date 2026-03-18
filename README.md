@@ -150,14 +150,16 @@ The text for this page is stored in `/public/team/content.yaml`. The fields are:
 The members on this page come from a CSV stored in `/public/team/members.csv`. This CSV must contain columns in the following order.
 1. A unique slug to identify the team member and correlate their contributions across pages.
 2. The type of the team member. Valid values are `team`, `faculty`, or `collaborator`.
-3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
-4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
-5. A link to a personal page for the team member. This field is optional.
-6. A summary or description of the team member. This is optional free text and will display above their contributions.
+3. A group tag for the team member. The group tag will determine where the team member is displayed on the team page.
+4. The name of the team member.
+5. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
+6. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
+7. A link to a personal page for the team member. This field is optional.
+8. A summary or description of the team member. This is optional free text and will display above their contributions.
 
 This CSV expects a column row defining these columns exactly as below:
 
-`slug,type,name,start,end,link,summary`
+`slug,type,group,name,start,end,link,summary`
 
 ### Contributions
 

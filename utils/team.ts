@@ -12,6 +12,7 @@ const teamMemberSchema = z.object({
     .literal('student')
     .or(z.literal('faculty'))
     .or(z.literal('collaborator')),
+  group: z.string(),
   start: z.iso.date(),
   end: z.iso.date().or(z.literal('')),
   link: z.url().or(z.literal('')),
@@ -25,6 +26,7 @@ type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 export class TeamMember {
   slug: string;
   name: string;
+  group: string;
   type: 'student' | 'faculty' | 'collaborator';
   start: Date;
   end?: Date;
@@ -34,6 +36,7 @@ export class TeamMember {
   constructor(rawTeamMember: RawTeamMemberType) {
     this.slug = rawTeamMember.slug;
     this.name = rawTeamMember.name;
+    this.group = rawTeamMember.group;
     this.type = rawTeamMember.type;
     this.start = parseISO(rawTeamMember.start);
     this.end = rawTeamMember.end ? parseISO(rawTeamMember.end) : undefined;
