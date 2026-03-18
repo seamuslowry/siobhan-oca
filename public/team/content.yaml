@@ -6,6 +6,6 @@ metadata:
     Assistant Director of Masters in Robotics at Duke University
 groups:
   - id: current
-    display: Current
+    display: Current Lab Members
   - id: former
-    display: Former
+    display: Previous Years' Members
