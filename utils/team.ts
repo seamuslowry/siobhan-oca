@@ -1,9 +1,11 @@
 import { z } from 'zod';
 import { readFile } from 'fs/promises';
-import { parse } from 'csv-parse';
+import { parse as parseCsv } from 'csv-parse';
+import { parse as parseYaml } from 'yaml';
 import { parseISO } from 'date-fns/parseISO';
 import { Course, retrieveData as retrieveCourseData } from '@/utils/courses';
 import { Topic, retrieveData as retrieveResearchData } from '@/utils/research';
+import { schema as textContentSchema } from '@/components/text-content';
 
 const teamMemberSchema = z.object({
   slug: z.string(),
@@ -18,8 +20,6 @@ const teamMemberSchema = z.object({
   link: z.url().or(z.literal('')),
   summary: z.string().optional(),
 });
-
-const schema = z.array(teamMemberSchema);
 
 type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 
@@ -71,20 +71,36 @@ export class TeamMember {
   }
 }
 
+const groupSchema = z.object({
+  id: z.string(),
+  display: textContentSchema,
+});
+
+const contentSchema = z.object({
+  groups: z.array(groupSchema),
+});
+
+type Group = z.infer<typeof groupSchema>;
+
 export type TeamPageData = {
   members: TeamMember[];
+  groups: Group[];
 };
 
 export async function retrieveData(): Promise<TeamPageData> {
   return {
-    members: schema
+    members: z
+      .array(teamMemberSchema)
       .parse(
-        await parse(await readFile('./public/team/members.csv', 'utf8'), {
+        await parseCsv(await readFile('./public/team/members.csv', 'utf8'), {
           columns: true,
           skipEmptyLines: true,
         }).toArray(),
       )
       .map(rawMember => new TeamMember(rawMember)),
+    groups: contentSchema.parse(
+      parseYaml(await readFile(`./public/team/content.yaml`, `utf-8`)),
+    ).groups,
   };
 }
 

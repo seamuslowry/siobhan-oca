@@ -13,23 +13,26 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Team() {
-  const pageData = await retrieveData();
+  const { groups, members } = await retrieveData();
 
-  const grouped = mapValues(groupBy(pageData.members, 'group'), l =>
+  const grouped = mapValues(groupBy(members, 'group'), l =>
     sortBy(l, ['name', 'end']),
   );
 
   return (
     <main>
-      {Object.entries(grouped).map(([group, members]) => (
-        <section key={group} className="mx-[8%] my-10 ">
+      {groups.map(({ id, display }) => (
+        <section key={id} className="mx-[8%] my-10 ">
           <Accordion
             summary={
-              <TextContent value={group} desired={{ size: '5xl', tag: 'h2' }} />
+              <TextContent
+                value={display}
+                desired={{ size: '5xl', tag: 'h2' }}
+              />
             }
           >
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10 lg:gap-x-20">
-              {members.map(member => (
+              {grouped[id].map(member => (
                 <TeamMember member={member} key={member.slug} />
               ))}
             </div>
