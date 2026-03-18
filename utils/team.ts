@@ -12,9 +12,9 @@ const teamMemberSchema = z.object({
     .literal('student')
     .or(z.literal('faculty'))
     .or(z.literal('collaborator')),
-  start: z.string().date(),
-  end: z.string().date().or(z.literal('')),
-  link: z.string().url().or(z.literal('')),
+  start: z.iso.date(),
+  end: z.iso.date().or(z.literal('')),
+  link: z.url().or(z.literal('')),
   summary: z.string().optional(),
 });
 
