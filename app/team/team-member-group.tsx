@@ -22,7 +22,7 @@ export default async function TeamMemberGroup({
           <TextContent value={text} desired={{ size: '5xl', tag: 'h2' }} />
         }
       >
-        <div className="ml-2 md:mx-8 my-4 grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10 lg:gap-x-20">
+        <div className="ml-2 md:mx-8 my-4 md:my-6 grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10 lg:gap-x-20">
           {members.map(member => (
             <TeamMember member={member} key={member.slug} />
           ))}
