@@ -144,20 +144,25 @@ This file must _not_ contain column header names. They are not compatible with t
 
 The text for this page is stored in `/public/team/content.yaml`. The fields are:
 - `metadata`: See [metadata](#metadata).
+- `groups`: An array of objects describing the groups of team members that should be arranged on the page. The team member page will be broken into sections, one for each group. Team members in each group will be displayed alphabetically under their group section. If a team member's group does not appear in this list, they will not be displayed on the page. Each element is an object as described below.
+    - `id`: The string ID of this group. When defining team members, they must be given a group field indicating the group they are a part of. This field is freetext but members' group fields must exactly match this ID for them to be considered a part of the group.
+    - `display` ([stylable](#stylable-text)): The display name of the group. Without explicit styling, this will default to `size: 5xl` and `tag: h2`.
 
 ### Team Members
 
 The members on this page come from a CSV stored in `/public/team/members.csv`. This CSV must contain columns in the following order.
 1. A unique slug to identify the team member and correlate their contributions across pages.
 2. The type of the team member. Valid values are `team`, `faculty`, or `collaborator`.
-3. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
-4. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
-5. A link to a personal page for the team member. This field is optional.
-6. A summary or description of the team member. This is optional free text and will display above their contributions.
+3. A group tag for the team member. The group tag will determine where the team member is displayed on the team page.
+4. The name of the team member.
+5. The date the team member started with the lab. It must be in the format `YYYY-MM-DD`.
+6. The date the team member left the lab. It must be in the format `YYYY-MM-DD`. If this is not provided or a future date is provided, the team member will be treated as a current member.
+7. A link to a personal page for the team member. This field is optional.
+8. A summary or description of the team member. This is optional free text and will display above their contributions.
 
 This CSV expects a column row defining these columns exactly as below:
 
-`slug,type,name,start,end,link,summary`
+`slug,type,group,name,start,end,link,summary`
 
 ### Contributions
 

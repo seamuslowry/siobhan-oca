@@ -17,7 +17,7 @@ const paperSchema = z.object({
   topic: z.string(),
   title: z.string(),
   altTitle: z.string(),
-  externalLink: z.string().url().or(z.literal('')),
+  externalLink: z.url().or(z.literal('')),
   internalLink: z
     .string()
     .optional()

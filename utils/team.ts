@@ -1,9 +1,11 @@
 import { z } from 'zod';
 import { readFile } from 'fs/promises';
-import { parse } from 'csv-parse';
+import { parse as parseCsv } from 'csv-parse';
+import { parse as parseYaml } from 'yaml';
 import { parseISO } from 'date-fns/parseISO';
 import { Course, retrieveData as retrieveCourseData } from '@/utils/courses';
 import { Topic, retrieveData as retrieveResearchData } from '@/utils/research';
+import { schema as textContentSchema } from '@/components/text-content';
 
 const teamMemberSchema = z.object({
   slug: z.string(),
@@ -12,19 +14,19 @@ const teamMemberSchema = z.object({
     .literal('student')
     .or(z.literal('faculty'))
     .or(z.literal('collaborator')),
-  start: z.string().date(),
-  end: z.string().date().or(z.literal('')),
-  link: z.string().url().or(z.literal('')),
+  group: z.string(),
+  start: z.iso.date(),
+  end: z.iso.date().or(z.literal('')),
+  link: z.url().or(z.literal('')),
   summary: z.string().optional(),
 });
-
-const schema = z.array(teamMemberSchema);
 
 type RawTeamMemberType = z.infer<typeof teamMemberSchema>;
 
 export class TeamMember {
   slug: string;
   name: string;
+  group: string;
   type: 'student' | 'faculty' | 'collaborator';
   start: Date;
   end?: Date;
@@ -34,6 +36,7 @@ export class TeamMember {
   constructor(rawTeamMember: RawTeamMemberType) {
     this.slug = rawTeamMember.slug;
     this.name = rawTeamMember.name;
+    this.group = rawTeamMember.group;
     this.type = rawTeamMember.type;
     this.start = parseISO(rawTeamMember.start);
     this.end = rawTeamMember.end ? parseISO(rawTeamMember.end) : undefined;
@@ -68,21 +71,41 @@ export class TeamMember {
   }
 }
 
-export type TeamPageData = TeamMember[];
+const groupSchema = z.object({
+  id: z.string(),
+  display: textContentSchema,
+});
+
+const contentSchema = z.object({
+  groups: z.array(groupSchema),
+});
+
+type Group = z.infer<typeof groupSchema>;
+
+export type TeamPageData = {
+  members: TeamMember[];
+  groups: Group[];
+};
 
 export async function retrieveData(): Promise<TeamPageData> {
-  return schema
-    .parse(
-      await parse(await readFile('./public/team/members.csv', 'utf8'), {
-        columns: true,
-        skipEmptyLines: true,
-      }).toArray(),
-    )
-    .map(rawMember => new TeamMember(rawMember));
+  return {
+    members: z
+      .array(teamMemberSchema)
+      .parse(
+        await parseCsv(await readFile('./public/team/members.csv', 'utf8'), {
+          columns: true,
+          skipEmptyLines: true,
+        }).toArray(),
+      )
+      .map(rawMember => new TeamMember(rawMember)),
+    groups: contentSchema.parse(
+      parseYaml(await readFile(`./public/team/content.yaml`, `utf-8`)),
+    ).groups,
+  };
 }
 
 export async function retrieveTeamMemberData(
   slug: string,
 ): Promise<TeamMember | undefined> {
-  return (await retrieveData()).find(m => m.slug === slug);
+  return (await retrieveData()).members.find(m => m.slug === slug);
 }
