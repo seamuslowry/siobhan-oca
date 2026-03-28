@@ -25,40 +25,49 @@ courses:
       - Topics include simulation, kinematics, control, sensing, and system integration. The mathematical basis of each area is emphasized, and concepts are motivated using common robotics applications and programming exercises. Students participate in two projects over the course of the semester, in which they will implement algorithms that apply each of the topics discussed in class to real robotics problems.
     projects:
       - name: Robot Arm Light Art
+        description:
+          - Light art with slow capture photography with autonomous robotic arm movement and custom color changing end effector with articulated fingers
         collaborators:
           - type: STUDENT
-            name: John Smith
-            slug: john-smith-1
+            name: Richard Kim
+            slug: richard-kim
           - type: STUDENT
-            name: Emily Harrigton
-            slug: emily-harrington
+            name: Aritra Archee
+            slug: aritra-archee
           - type: STUDENT
-            name: Unknown Student
+            name: Harrison York
+            slug: harrison-york
         media:
           - type: mp4
             filename: richardlight.mp4
             alt: A demo video for art robot light
-      - name: TicToc Robot
+      - name: Frosty Bot
+        description:
+          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
-            name: John Smith
-            slug: john-smith-1
+            name: Nohemi Sepulveda
+            slug: nohemi-sepulveda
           - type: STUDENT
-            name: Emily Harrington
-            slug: emily-harrington
-          - type: ACADEMIC
-            name: Billy Mayes
-            slug: billy-mayes
+            name: Morgan McCloud
+            slug: morgan-mccloud
+          - type: STUDENT
+            name: Annabelle Chu
+            slug: annabelle-chu
+          - type: STUDENT
+            name: Jinze Lyu
+            slug: jinze-lyu
         media:
           - type: mp4
-            filename: tic-tac-tobot.mp4
+            filename: frosty.mp4
   - name: Introduction to Medical Robotics and Surgical Technologies
     syllabus: medical-robotics.pdf
     summary:
       - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
-      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin. 
     projects:
       - name: Stroke Prototype - Project 1
+        description:
+          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
         collaborators:
           - type: STUDENT
             name: John Smith
