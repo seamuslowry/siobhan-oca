@@ -16,7 +16,6 @@ summary:
     whitespace: pre-wrap
     italic: true
   - "This quote exemplifies my goal as an educator: to put students in the driver's seat of practicing engineering as early and often as possible."
-  - "I see students thrive with three basic things: simple structures to tackle complex problems, example applications, and opportunities to practice and apply this. I have learned that students engage when they are expected to solve difficult problems after the basics have been covered. They asked more insightful questions when the task is challenging. Students can memorize equations, but they struggle when the inputs or outputs are less clear, which requires multiple examples and sometimes multiple methods to solve a problem."
 courses:
   - name: Introduction to Robotics
     syllabus: intro-to-robotics.pdf
@@ -63,17 +62,20 @@ courses:
   - name: Introduction to Medical Robotics and Surgical Technologies
     syllabus: medical-robotics.pdf
     summary:
-      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+      - This course is a broad introduction to medical robotics and surgical technologies. This course covers technical instruction in core areas of surgical technology and requires the completion of 3 mini-projects where trainees address real-world problems in surgery. It is designed to provide trainees with the required academic foundation to navigate the field of surgical technology and transition to more in-depth impactful, research during their second year. 
     projects:
-      - name: Stroke Prototype - Project 1
+      - name: Stroke Simmulator Prototype
         description:
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
+          - Students developed a manikin head to simulate realistic eyeball and eyelid movements associated with stroke. These motions (dysconjugate gaze, nystagmus, eyelid tremor, droop) are preprogrammed and can also be controlled manually through dual joysticks. Joystick control allows users to interact with the manikin within the constraints of the user selected stroke setting.
         collaborators:
           - type: STUDENT
-            name: John Smith
-            slug: john-smith-1
+            name: Jared Bailey
           - type: STUDENT
-            name: Unknown Student
+            name: Pranav Krannan
+          - type: STUDENT
+            name: Ruoyao Wang
+          - type: STUDENT
+            name: Hailey Kim 
         media:
           - type: mp4
             filename: purpleintromedrob.mp4
@@ -81,10 +83,5 @@ courses:
   - name: Case Studies of Ethics in Robotics and Automation
     syllabus: test.pdf
     summary:
-      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
-      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin.
-  - name: Projects in Medical Robotics and Automation 
-    syllabus: test.pdf
-    summary:
-      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod leo urna, nec auctor est interdum ac. Ut consectetur enim sit amet dolor sollicitudin vestibulum. Pellentesque tincidunt, augue non pharetra lobortis, nisi est fringilla libero, vitae sodales dolor augue eu magna. Donec id lorem at metus eleifend sodales et sit amet elit. Proin elit leo, dictum sagittis libero vel, dictum pretium tortor. Aliquam id semper quam. Curabitur sodales ligula at lorem feugiat, id varius metus egestas.
-      - Pellentesque vitae nisi ac ligula placerat gravida sed eu mauris. Nam hendrerit euismod vestibulum. Integer vitae consequat massa. Fusce porttitor, velit a convallis pellentesque, est tortor vestibulum leo, sed volutpat ex odio eget mi. Maecenas risus metus, cursus eget felis vel, tristique interdum erat. Vivamus suscipit lorem lectus, at suscipit lectus tristique eget. Sed tempor eleifend sagittis. Curabitur tristique nibh vel fringilla sollicitudin.
+      - As engineers, we are responsible for the outcomes of our systems and technologies. As robotic and autonomous systems are implemented at larger scales, understanding the context, relevance, and implementation of these systems is critical. Knowing how we interact and use systems can help us avoid ethical pitfalls and develop effective, safe, and equitable technologies.
+      - This course connects key ethics principles of trust, bias/equity, surveillance/privacy and safety with real life case studies that consider technical options/opportunities, policy effects, and regulatory efficacy. Additionally, this course helps students identify and envision action of their values in their future engineering practice. The goal of this course is for students to develop a deeper understanding of how ethics applies to the decisions they will make as engineers developing robotic tools and autonomous systems. Additionally, this course sheds light on how companies and regulators work in different contexts in the US to effectively manage the emergence of autonomy in our hospitals, highways, and many other areas of our lives.
