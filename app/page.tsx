@@ -23,7 +23,7 @@ export default async function Home() {
           placeholder="blur"
           unoptimized
         />
-        <div className="bg-limestone/80 backdrop-blur-sm border border-white/35 rounded-none sm:rounded-2xl sm:shadow-xl text-duke-dark row-start-1 col-start-2 z-10 h-full sm:h-auto grid content-start auto-rows-min gap-2 py-6 px-5 mx-auto w-10/12 motion-safe:sm:animate-slide-in-from-left sm:mt-6 sm:mb-6 sm:w-[24vw] sm:min-w-[400px] sm:mx-0 sm:-translate-x-10">
+        <div className="bg-limestone/80 backdrop-blur-sm border overflow-auto border-white/35 rounded-none sm:rounded-2xl sm:shadow-xl text-duke-dark row-start-1 col-start-2 z-10 h-full sm:h-auto grid content-start auto-rows-min gap-2 py-6 px-5 mx-auto w-10/12 motion-safe:sm:animate-slide-in-from-left sm:mt-6 sm:mb-6 sm:w-[24vw] sm:min-w-[400px] sm:mx-0 sm:-translate-x-10">
           <div className="flex flex-col items-center">
             <Image
               src={bannerImage}

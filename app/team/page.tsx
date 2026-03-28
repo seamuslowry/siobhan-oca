@@ -1,29 +1,33 @@
 import type { Metadata } from 'next';
 import { retrieveMetadata } from '@/utils/metadata';
 import { retrieveData } from '@/utils/team';
-import TeamMember from './team-member';
-import partition from 'lodash.partition';
+import mapValues from 'lodash.mapvalues';
+import groupBy from 'lodash.groupby';
+import sortBy from 'lodash.sortby';
+import { Fragment } from 'react';
+import Divider from '@/components/divider';
+import TeamMemberGroup from './team-member-group';
 
 export async function generateMetadata(): Promise<Metadata> {
   return retrieveMetadata('team');
 }
 
 export default async function Team() {
-  const members = await retrieveData();
+  const { groups, members } = await retrieveData();
 
-  const [former, current] = partition(members, 'end');
+  const grouped = mapValues(groupBy(members, 'group'), l =>
+    sortBy(l, ['name', 'end']),
+  );
 
   return (
     <main>
-      <div className="mx-[8%] my-10 grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-20">
-        {current.map(member => (
-          <TeamMember member={member} key={member.slug} />
+      <div className="mx-[8%] my-10 flex flex-col gap-8">
+        {groups.map(({ id, display }, index) => (
+          <Fragment key={id}>
+            <TeamMemberGroup id={id} text={display} members={grouped[id]} />
+            {index < groups.length - 1 && <Divider />}
+          </Fragment>
         ))}
-        {former
-          .toSorted((a, b) => (b.end?.getTime() ?? 0) - (a.end?.getTime() ?? 0))
-          .map(member => (
-            <TeamMember member={member} key={member.slug} />
-          ))}
       </div>
     </main>
   );

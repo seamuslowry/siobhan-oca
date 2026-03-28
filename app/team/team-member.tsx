@@ -12,8 +12,7 @@ import { format } from 'date-fns/format';
 
 async function getImage(slug: string) {
   try {
-    // this import won't fail in local dev if the file doesn't exist
-    // the import only fails when actually building the project
+    // This import only fails during builds when no portrait exists.
     return (await import(`@/assets/team/${slug}.png`)).default;
   } catch {
     return createAvatar(thumbs, {
