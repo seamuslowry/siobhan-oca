@@ -10,14 +10,14 @@ topics:
       - type: text
         text: The Oca Lab conducts research in engineering education with a focus on robotics and the integration of ethics through case-based design. The lab examines how students learn to design, build, and reason about robotic systems while engaging with complex, real-world ethical challenges. Through the development and study of case-based curricula, the Oca Lab investigates how authentic design scenarios can deepen technical understanding, strengthen ethical decision-making, and foster reflective practice. Its work aims to prepare engineers who are both technically skilled in robotics and committed to responsible, human-centered innovation.
       - type: image
-        filename: demo.png
+        filename: pong.png
         alt: demo alt text
   - name: Human Robot Interaction
     description:
       - type: text
         text: The Oca Lab investigates human robot interaction with a particular focus on trust and safety in collaborative and real-world environments. The lab studies how people perceive, understand, and rely on robotic systems, and how design choices influence user confidence, risk awareness, and responsible use. Through empirical research and experimental design, the Oca Lab seeks to develop interaction frameworks that promote transparency, reliability, and ethical deployment. Its work advances the creation of robotic systems that are not only technically capable, but also trustworthy and safe partners in human-centered settings.
       - type: image
-        filename: demo.png
+        filename: IMG_6932.png
         alt: demo alt text
   - name: Medical Robotics
     description: 
@@ -26,5 +26,5 @@ topics:
         filename: demo.png
         alt: demo alt text
       - type: image
-        filename: demo.png
+        filename: medrobdanarm.png
         alt: demo alt text
