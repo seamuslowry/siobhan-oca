@@ -11,7 +11,9 @@ Static Next.js 16 site (App Router, React 19, Tailwind v4) exported to `out/` an
 
 Node is pinned to `22.13.0` (`.nvmrc`, CI, and `package.json` engines all agree). 22.13.0 is the floor because ESLint 10 requires `^20.19.0 || ^22.13.0 || >=24`; the previous 22.12.0 floor warned `EBADENGINE` on install. Use `nvm use` locally.
 
-The flat config is **hand-rolled, not via `eslint-config-next`**. `eslint-config-next@16.x` transitively depends on `eslint-plugin-react@7.x`, which crashes on ESLint 10 (vercel/next.js#89764, unfixed upstream as of May 2026). Lint signal is composed directly from `@next/eslint-plugin-next`, `@eslint-react/eslint-plugin`, `eslint-plugin-react-hooks`, `typescript-eslint`, and `eslint-plugin-prettier`. See `docs/solutions/tooling-decisions/eslint-config-next-removal-for-eslint-10-2026-05-10.md` before reintroducing `eslint-config-next` or changing the React plugin.
+The flat config is **hand-rolled, not via `eslint-config-next`**. `eslint-config-next@16.x` transitively depends on `eslint-plugin-react@7.x`, which crashes on ESLint 10 (vercel/next.js#89764, unfixed upstream as of May 2026). Lint signal is composed directly from `@next/eslint-plugin-next`, `@eslint-react/eslint-plugin`, `eslint-plugin-react-hooks`, `typescript-eslint`, and `eslint-plugin-prettier`.
+
+Two rule sets that `eslint-config-next` previously contributed are **deliberately deferred**, not dropped: `eslint-plugin-jsx-a11y` (`alt-text`, `aria-*`, `role-*` warnings) and `eslint-plugin-import` (`no-anonymous-default-export`). Both cap their npm peer dep at `eslint ^9` and would force a permanent `--legacy-peer-deps` install. Neither was firing on the pre-PR codebase, but the a11y signal in particular is real and worth restoring once an ESLint 10–compatible release ships. See `docs/solutions/tooling-decisions/eslint-config-next-removal-for-eslint-10-2026-05-10.md` before reintroducing `eslint-config-next`, changing the React plugin, or restoring a11y/import linting.
 
 ## Architecture quirks
 

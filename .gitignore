@@ -42,3 +42,5 @@ next-env.d.ts
 
 # terraform
 .terraform
+
+.context/compound-engineering/ce-code-review

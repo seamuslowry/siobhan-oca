@@ -1,8 +1,3 @@
-// `Tag` below is a destructured HTML tag name from a zod-validated config
-// (e.g. 'p', 'h1', 'span'), not a React component. JSX dynamic-element syntax
-// requires it to be capitalized, which makes @eslint-react/static-components
-// flag it as if a component were being created during render.
-/* eslint-disable @eslint-react/static-components */
 import clsx from 'clsx';
 import { z } from 'zod';
 
@@ -35,9 +30,13 @@ export function TextContent({
   desired?: DesiredTextContent;
 }) {
   const standardizedValue = typeof value === 'string' ? { text: value } : value;
-  // `Tag` is a destructured HTML tag name (e.g. 'p', 'h1', 'span'), not a React
-  // component. JSX requires the identifier to be capitalized for dynamic-element
-  // rendering, which trips @eslint-react/static-components.
+  // `Tag` is a destructured HTML tag name from the zod-validated config
+  // (e.g. 'p', 'h1', 'span'), not a React component. JSX dynamic-element
+  // syntax requires it to be capitalized, which makes
+  // @eslint-react/static-components flag it as if a component were being
+  // created during render. Disable the rule narrowly for this destructure
+  // and the JSX usage that depends on it.
+  /* eslint-disable @eslint-react/static-components */
   const {
     text,
     italic,
@@ -79,4 +78,5 @@ export function TextContent({
       {text}
     </Tag>
   );
+  /* eslint-enable @eslint-react/static-components */
 }

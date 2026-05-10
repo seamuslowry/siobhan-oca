@@ -126,7 +126,7 @@ Notes:
 - `nextPlugin.configs['core-web-vitals']` is a flat-config object that self-registers `@next/next` and applies its rule set. Spread it directly; do not also add `@next/next` under `plugins:`.
 - `@eslint-react`'s `recommended` preset auto-injects `settings["react-x"]` for version detection. Don't carry forward a `settings.react.version: 'detect'` block — it has no effect with `@eslint-react`.
 - `eslint-config-prettier` must come last; it disables stylistic rules from earlier configs that conflict with Prettier.
-- Keep the `globalIgnores` exactly as before. Removing `out/**` will cause ESLint to walk the static export and hang or take minutes; this is a known footgun in ESLint flat config (see `eslint-fix-hang-missing-globalignores` if such a doc exists in the repo).
+- Keep the `globalIgnores` exactly as before. Removing `out/**` will cause ESLint to walk the static export and hang or take minutes; this is a known footgun in ESLint flat config — see `~/git/hundred-and-ten-web/docs/solutions/developer-experience/eslint-fix-hang-missing-globalignores-2026-04-25.md` for the sibling-repo write-up.
 
 ### 4. Decide which `eslint-config-next` features to preserve
 
@@ -137,10 +137,15 @@ Notes:
 | `@next/eslint-plugin-next` | **Yes** | Next-specific rules (`@next/next/*`); ship in lockstep with `next` |
 | `eslint-plugin-react` | **No, swap** | Replace with `@eslint-react/eslint-plugin` (ESLint 10–ready) |
 | `eslint-plugin-react-hooks` | **Yes** | Standard React hooks rules; works with ESLint 10 |
-| `eslint-plugin-import` | **No** | Caps at ESLint 9; not currently flagging anything in this 14-file repo |
-| `eslint-plugin-jsx-a11y` | **No** | Not currently flagging anything in this repo; can re-add later if a11y signal becomes a goal |
+| `eslint-plugin-import` | **No, deferred** | Caps at ESLint 9 (peer `eslint: ^9` or older). Latest 2.32.0 has no ESLint 10 support and `npm install` `ERESOLVE`s without `--legacy-peer-deps`. Was not flagging anything on the pre-PR codebase. |
+| `eslint-plugin-jsx-a11y` | **No, deferred** | Same blocker: latest 6.10.2 caps at `eslint ^3 ‖ ^4 ‖ … ‖ ^9` and `npm install` `ERESOLVE`s without `--legacy-peer-deps`. Verified during this migration. Was active in baseline (`eslint-config-next/core-web-vitals` enabled `jsx-a11y/alt-text`, `aria-props`, `aria-proptypes`, `aria-unsupported-elements`, `role-has-required-aria-props`, `role-supports-aria-props` at `warn`) but not currently firing on the 14-file source tree. |
 
-For a larger app that actively relies on `import` or `jsx-a11y` rules, you'd need to either wait for ESLint 10–compatible versions of those plugins or wrap them with `@eslint/compat`. Skipping them was acceptable here because the lint surface is small.
+Both `eslint-plugin-import` and `eslint-plugin-jsx-a11y` are real signal we are choosing to defer rather than dropping permanently. The two paths to bring them back without waiting on upstream:
+
+- **Wrap with `@eslint/compat`'s `fixupPluginRules()`** and accept a permanent `--legacy-peer-deps` requirement on every `npm install` (CI included). The compat shim polyfills the removed `context.getFilename()`–style APIs that broke `eslint-plugin-react@7.x` on ESLint 10, but the npm peer-dep range itself is unchanged.
+- **Wait for an ESLint 10–compatible release** of each plugin, or for a successor (e.g., an `@eslint-a11y` analogue to `@eslint-react`).
+
+Re-evaluate after the codebase grows past ~20 components or when a11y becomes a deliberate goal — the absent rule set is most likely to bite on new `<img>`, `<a target="_blank">`, and ARIA-attribute usage.
 
 ### 5. Choose `@eslint-react`'s `recommended` preset
 
