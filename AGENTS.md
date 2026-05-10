@@ -48,3 +48,5 @@ Two rule sets that `eslint-config-next` previously contributed are **deliberatel
 ## Reference
 
 - README.md documents the full content schema for non-engineers (YAML field reference for each page). When the schema changes, update both the zod schema in `utils/` and the matching README section.
+- `docs/solutions/<category>/<topic>-YYYY-MM-DD.md` collects durable solutions to past problems (bugs, tooling decisions, conventions, workflow patterns). Each file carries YAML frontmatter (`module`, `tags`, `problem_type`, `applies_when`, `symptoms`) so it can be grepped. Relevant when implementing or debugging in a documented area — search before re-deriving a known answer.
+- `docs/plans/YYYY-MM-DD-NNN-<type>-<name>-plan.md` collects technical plans for non-trivial changes. Useful for understanding *why* a change took its current shape after the fact.

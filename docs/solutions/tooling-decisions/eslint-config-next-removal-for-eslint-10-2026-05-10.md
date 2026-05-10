@@ -1,6 +1,7 @@
 ---
 title: Replacing eslint-config-next with hand-rolled flat config to unblock ESLint 10
 date: 2026-05-10
+last_updated: 2026-05-10
 category: docs/solutions/tooling-decisions
 module: eslint
 problem_type: tooling_decision
@@ -14,18 +15,19 @@ symptoms:
   - "npm install warns EBADENGINE because ESLint 10 requires Node ^20.19.0 || ^22.13.0 || >=24"
   - "eslint . crashes with: TypeError: contextOrFilename.getFilename is not a function (eslint-plugin-react@7.x calling removed ESLint 10 API)"
   - "Peer-dep warnings for eslint-plugin-react capping at eslint ^9.7"
-resolution_type: dependency_replacement
+resolution_type: dependency_update
+related_components:
+  - tooling
+  - documentation
 tags:
-  - eslint
   - eslint-10
   - eslint-config-next
   - eslint-react
   - flat-config
   - next.js
-  - react
-  - typescript
   - dependency-upgrade
   - node-engines
+  - jsx-a11y-deferred
 ---
 
 # Replacing eslint-config-next with hand-rolled flat config to unblock ESLint 10
@@ -190,6 +192,62 @@ The new warnings break down as:
 - 1× `@eslint-react/set-state-in-effect`
 - 1× same as above (different file)
 
+## What Didn't Work
+
+Approaches tried during the migration that failed, partially worked, or were considered and rejected. Recorded so a future agent doesn't re-walk the same paths.
+
+### 1. Keeping Node 20.18.1 / 22.12.0 with ESLint 10
+
+The original plan said "continues to use Node 20.18.1." Installing `eslint@^10.3.0` on that floor immediately produced `EBADENGINE`. ESLint 10's own `package.json` declares `engines.node: "^20.19.0 || ^22.13.0 || >=24"`. Node 20.18.1 and 22.12.0 both fall below the minor-floor.
+
+**What worked:** Bump three places in lockstep — `.nvmrc`, `package.json` `engines.node`, and `.github/workflows/lint.yml` `node-version`. Skipping any one of the three either lets local dev silently drift below the floor or breaks CI.
+
+**Lesson:** Treat ESLint 10 as a Node-floor bump, not just an ESLint bump. Audit every place a Node version is pinned before running the first `npm install`.
+
+### 2. `eslint-disable-next-line` on the destructuring site for `@eslint-react/static-components`
+
+First attempt to silence the false-positive on the `<Tag>` pattern in `components/text-content.tsx` placed `// eslint-disable-next-line @eslint-react/static-components` directly above the destructure (`const { tag: Tag, ...rest } = ...`). The rule reports the violation at the **closing brace** of the destructuring expression — not at the line where `Tag` is declared and not at the JSX usage site. `eslint-disable-next-line` only suppresses the very next line, so the comment was attached to the wrong line and the error persisted.
+
+The intermediate attempt was file-level `/* eslint-disable @eslint-react/static-components */`, which worked but masks the rule for any future code added to the file.
+
+**What worked:** A function-block-scoped disable (`/* eslint-disable @eslint-react/static-components */` at the top of the function body, `/* eslint-enable @eslint-react/static-components */` at the bottom) scopes suppression to exactly the destructure + JSX usage, leaving the rest of the file protected.
+
+**Lesson:** When `@eslint-react/static-components` misfires on a JSX dynamic-tag pattern, the violation is attributed to the destructuring expression, not the JSX site. `eslint-disable-next-line` cannot reach the closing brace; reach for block-scope.
+
+### 3. Re-adding `eslint-plugin-jsx-a11y` directly
+
+Code review surfaced that `eslint-config-next/core-web-vitals` had been enabling jsx-a11y rules (`alt-text`, `aria-props`, `aria-proptypes`, `aria-unsupported-elements`, `role-has-required-aria-props`, `role-supports-aria-props`) at `warn`. The instinct was to re-add `eslint-plugin-jsx-a11y@^6.10.2` so those rules survived the migration. `npm install` `ERESOLVE`d: `eslint-plugin-jsx-a11y@6.10.2` declares its peer-dep as `eslint: ^3 || ^4 || ... || ^9` — capped at ESLint 9, same blocker class as `eslint-plugin-react@7.x` but with no `@eslint-*` successor on npm.
+
+**What worked:** Defer the plugin and document the trade-off in both `AGENTS.md` and this doc. The a11y signal is real but not currently firing on a 14-file source tree.
+
+**Lesson:** When migrating off `eslint-config-next` to ESLint 10, audit the **full** transitive plugin tree, not just `eslint-plugin-react`. Assume any plugin without a visible `@eslint-*` successor in the new namespace is also peer-dep-blocked. Check each plugin's `peerDependencies.eslint` range before assuming it'll work.
+
+### 4. `@eslint/compat` + `fixupPluginRules()` shim (rejected)
+
+The community PR vercel/next.js#90068 wraps `eslint-plugin-react@7.x` with `@eslint/compat`'s `fixupPluginRules()` to polyfill the removed `context.getFilename()` API. This is a legitimate escape hatch and would let the project keep `eslint-config-next` largely intact.
+
+Rejected because:
+
+- The shim has to reach into `eslint-config-next`'s exported config array and mutate a plugin object inside it — trusts Next's internal plugin layout to stay stable across minor versions.
+- It does not solve the `eslint-plugin-jsx-a11y` / `eslint-plugin-import` peer-dep cap; those would still need `--legacy-peer-deps`.
+- The underlying issue (vercel/next.js#89764) has been open ~3 months without maintainer review; the shim leaves us coupled to an upstream we cannot influence.
+- Hand-rolling the equivalent flat config is ~30 lines and removes the upstream blocker entirely.
+
+**Lesson:** When evaluating a compat-shim approach, count the upstream dependencies the shim still leaves you exposed to. If the shim only solves one of N blockers, hand-rolling the smaller config is often cheaper and more durable.
+
+## Investigation Journey
+
+The order problems actually surfaced (the "Guidance" section above presents the final ordering, not the exploratory one):
+
+1. **Plan said Node 20.18.1; reality said 22.13.0.** First `npm install` of `eslint@^10.3.0` produced `EBADENGINE`. Required an unplanned detour to bump `.nvmrc`, `package.json` `engines`, and the CI workflow before the rest of the plan could execute.
+2. **`@eslint-react` recommended preset surfaced more findings than expected.** The plan anticipated a near drop-in swap. In practice the preset is meaningfully stricter than `eslint-plugin-react/recommended`: 18 new warnings (mostly `no-array-index-key`) and 2 false-positive errors (`static-components`). Warnings are real signal worth a follow-up PR; the errors needed a targeted disable.
+3. **The `static-components` false-positive resisted the obvious fix.** `eslint-disable-next-line` at the destructure didn't suppress because the rule reports at the closing brace, not the declaration line. Took two iterations (line-level → file-level → function-block) to land on the right granularity.
+4. **Code review caught the silently-dropped jsx-a11y rules.** The migration initially ignored that `eslint-config-next/core-web-vitals` had been contributing jsx-a11y warnings. A reviewer pass surfaced this as regression risk. Investigation showed `eslint-plugin-jsx-a11y` itself caps at ESLint 9 — same blocker class as `eslint-plugin-react`, just less visible because no `@eslint-*` successor exists yet.
+5. **`eslint-plugin-import` failed the same audit for the same reason.** Once the jsx-a11y blocker was understood, a quick check showed `eslint-plugin-import` had the identical peer-dep cap. Bundled into the same "deferred" decision.
+6. **Final config landed at ~30 lines.** Smaller than the `@eslint/compat` shim approach in vercel/next.js#90068, no upstream dependency on `eslint-config-next`, no `--legacy-peer-deps` anywhere.
+
+**Meta-lesson for future ESLint-10-from-Next migrations:** the work decomposes into four roughly-independent investigations — Node floor, React plugin swap, peer-dep audit of the rest of the `eslint-config-next` tree, and false-positive triage in the new React plugin's stricter preset. Doing them in that order minimizes rework.
+
 ## Rollback
 
 If `eslint-config-next` ships ESLint 10 support and we want to move back:
@@ -205,6 +263,8 @@ The change is small (one config file + one component file's pragma + dependency 
 - vercel/next.js#89764 — ESLint v10 runtime crash, label `linear: next`, open as of May 10 2026.
 - vercel/next.js#90068 — community fix using `@eslint/compat`, open without maintainer review since Feb 17 2026.
 - vercel/next.js#93340 — separate "bump ESLint-related packages" PR, also open as of May 10 2026.
+- `seamuslowry/siobhan-oca` PR #127 — `chore(deps-dev): bump eslint from 9.39.2 to 10.0.0` (dependabot, closed unmerged Feb 9 2026). The prior auto-bump attempt that this manual migration supersedes.
+- `seamuslowry/siobhan-oca` PR #152 — `chore(deps-dev): bump the major-dependencies group ... 2 updates` (dependabot, open since Mar 23 2026). Likely the still-open auto-bump this PR will close.
 - `~/git/hundred-and-ten-web` PR #40 (commit `b05160e`) — sister-repo migration that swapped `eslint-plugin-react` for `@eslint-react/eslint-plugin`. That repo used Vite, so it didn't have to drop a wrapping config like `eslint-config-next`.
 - [`@eslint-react/eslint-plugin` on npm](https://www.npmjs.com/package/@eslint-react/eslint-plugin)
 - [`@next/eslint-plugin-next` on npm](https://www.npmjs.com/package/@next/eslint-plugin-next)
