@@ -9,7 +9,7 @@ Static Next.js 16 site (App Router, React 19, Tailwind v4) exported to `out/` an
 - `npm run lint` — ESLint 10 via flat config (`eslint.config.mjs`). This is the only CI quality gate (`.github/workflows/lint.yml`); there is no separate `typecheck`, `format`, or test script. Prettier runs through `eslint-plugin-prettier` so lint failures include formatting issues.
 - No test framework is configured.
 
-Node is pinned to `22.13.0` (`.nvmrc`, CI, and `package.json` engines all agree). 22.13.0 is the floor because ESLint 10 requires `^20.19.0 || ^22.13.0 || >=24`; the previous 22.12.0 floor warned `EBADENGINE` on install. Use `nvm use` locally.
+`.nvmrc` and CI run on Node `22.22.2` (current Node 22 LTS). `package.json` `engines.node` is `>=22.13.0` — the floor, set by ESLint 10's requirement of `^20.19.0 || ^22.13.0 || >=24`. Earlier 22.x versions warn `EBADENGINE` on install. Use `nvm use` locally to match `.nvmrc`.
 
 The flat config is **hand-rolled, not via `eslint-config-next`**. `eslint-config-next@16.x` transitively depends on `eslint-plugin-react@7.x`, which crashes on ESLint 10 (vercel/next.js#89764, unfixed upstream as of May 2026). Lint signal is composed directly from `@next/eslint-plugin-next`, `@eslint-react/eslint-plugin`, `eslint-plugin-react-hooks`, `typescript-eslint`, and `eslint-plugin-prettier`.
 
