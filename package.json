@@ -10,7 +10,7 @@
     "lint": "eslint ."
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.13.0"
   },
   "dependencies": {
     "@dicebear/core": "^9.3.1",
@@ -31,6 +31,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@eslint-react/eslint-plugin": "^5.7.5",
+    "@next/eslint-plugin-next": "16.1.6",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/lodash.groupby": "^4.6.9",
     "@types/lodash.kebabcase": "^4.1.9",
@@ -40,13 +42,14 @@
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "postcss": "^8",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.59.2"
   }
 }
