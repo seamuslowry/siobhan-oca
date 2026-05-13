@@ -1,4 +1,4 @@
-import Slider from '@/components/slider';
+import Slider, { type SliderItem } from '@/components/slider';
 import { Fragment } from 'react';
 import { type Project as ProjectType } from '@/utils/courses';
 import { TextContent } from '@/components/text-content';
@@ -13,6 +13,15 @@ export async function Project({
   const academicCollaborators = collaborators.filter(
     c => c.type === 'ACADEMIC',
   );
+
+  // Build the slider items server-side so the orientation flag (only
+  // available on the raw media value) crosses the RSC boundary alongside
+  // the rendered MediaContent node. Image entries are treated as horizontal
+  // so they keep the existing one-per-slide behavior.
+  const sliderItems: SliderItem[] = media.map((value, i) => ({
+    orientation: value.type === 'mp4' ? value.orientation : 'horizontal',
+    node: <MediaContent value={value} key={i} />,
+  }));
 
   return (
     <div
@@ -44,11 +53,7 @@ export async function Project({
           </p>
         )}
       </div>
-      <Slider>
-        {media.map(async (value, i) => (
-          <MediaContent value={value} key={i} />
-        ))}
-      </Slider>
+      <Slider items={sliderItems} />
     </div>
   );
 }
