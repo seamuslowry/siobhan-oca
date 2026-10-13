@@ -7,6 +7,7 @@ export const schema = z.discriminatedUnion('type', [
     type: z.literal('mp4'),
     filename: z.string(),
     alt: z.string().optional(),
+    orientation: z.enum(['horizontal', 'vertical']).default('horizontal'),
   }),
   z.object({
     type: z.literal('image'),
@@ -17,14 +18,23 @@ export const schema = z.discriminatedUnion('type', [
 
 export type MediaContent = z.infer<typeof schema>;
 
-export default async function MediaContent({
-  value: { type, filename, alt },
-}: {
-  value: MediaContent;
-}) {
+export const isVertical = (media: MediaContent) =>
+  media.type === 'mp4' && media.orientation === 'vertical';
+
+export default async function MediaContent({ value }: { value: MediaContent }) {
+  const { type, filename, alt } = value;
+
   if (type === 'mp4') {
     return (
-      <Video controls preload="metadata" className="w-full aspect-video">
+      <Video
+        controls
+        preload="metadata"
+        className={
+          isVertical(value)
+            ? 'mx-auto w-full max-w-sm aspect-9/16'
+            : 'w-full aspect-video'
+        }
+      >
         <source src={`/${filename}`} type="video/mp4" />
         {alt ?? 'Your browser does not support the video tag.'}
       </Video>

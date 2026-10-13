@@ -72,6 +72,8 @@ Media on pages can be either an image or an mp4 video. The fields are:
 - `alt`: The alt text for the media.
     - For type `mp4`, this is the text that will display if the client cannot support MP4 video. No modern clients have this restriction. So the value is optional.
     - For type `image`, this is the alt text for the image. This is an important accessibility field so the field is required.
+- `orientation`: Only for type `mp4`. Either `horizontal` or `vertical`. Defaults to `horizontal`. Set it to `vertical` for portrait (phone-style) videos so they display at their natural shape instead of being letterboxed.
+    - On the [Teaching Page](#teaching-page), consecutive `vertical` videos in a project's `media` list are shown side by side on one slide: up to 3 on desktop, 2 on tablets, and 1 on phones. Horizontal videos and images always get their own slide and break up a run of vertical videos.
 
 ## Home Page
 

@@ -39,6 +39,7 @@ courses:
         media:
           - type: mp4
             filename: richardlight.mp4
+            orientation: vertical
             alt: A demo video for art robot light
       - name: Frosty Bot
         description:
@@ -59,6 +60,7 @@ courses:
         media:
           - type: mp4
             filename: frosty.mp4
+            orientation: vertical
   - name: Introduction to Medical Robotics and Surgical Technologies
     syllabus: Intromedrob.pdf
     summary:
@@ -79,6 +81,7 @@ courses:
         media:
           - type: mp4
             filename: purpleintromedrob.mp4
+            orientation: vertical
             alt: A demo image for this project
   - name: Case Studies of Ethics in Robotics and Automation
     syllabus: ethicssyllabus.pdf
