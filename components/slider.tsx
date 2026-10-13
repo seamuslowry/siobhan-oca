@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { ArrowLeft, ArrowRight } from '@/components/icons';
 import { useMediaQuery } from '@/components/use-media-query';
@@ -89,6 +89,17 @@ export default function Slider({ items }: { items: SliderItem[] }) {
   const moveLeft = () => goTo(currentSlide - 1);
   const moveRight = () => goTo(currentSlide + 1);
 
+  // Off-screen slides stay mounted, so stop their videos when the viewer
+  // moves on. Otherwise they keep playing audio out of view.
+  const trackRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    trackRef.current?.querySelectorAll('[data-slide]').forEach((slide, i) => {
+      if (i !== currentSlide) {
+        slide.querySelectorAll('video').forEach(video => video.pause());
+      }
+    });
+  }, [currentSlide]);
+
   const handlers = useSwipeable({
     // swipe moves should be opposite of the swipe direction
     onSwipedLeft: moveRight,
@@ -99,7 +110,10 @@ export default function Slider({ items }: { items: SliderItem[] }) {
   if (!totalSlides) return null;
 
   return (
-    <div className="grid grid-cols-[min-content_1fr_min-content] md:gap-x-4 h-full">
+    <div
+      ref={trackRef}
+      className="grid grid-cols-[min-content_1fr_min-content] md:gap-x-4 h-full"
+    >
       {totalSlides > 1 && (
         <ArrowButton
           onClick={moveLeft}
@@ -116,6 +130,7 @@ export default function Slider({ items }: { items: SliderItem[] }) {
         {slides.map((slide, i) => (
           <div
             key={slide[0]}
+            data-slide
             className={clsx(
               'row-start-1 col-start-1 px-4 w-full flex justify-center text-center motion-safe:transition-transform motion-safe:duration-500',
               i > currentSlide && 'translate-x-full',
