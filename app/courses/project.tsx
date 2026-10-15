@@ -2,7 +2,7 @@ import Slider from '@/components/slider';
 import { Fragment } from 'react';
 import { type Project as ProjectType } from '@/utils/courses';
 import { TextContent } from '@/components/text-content';
-import MediaContent, { isVertical } from '@/components/media-content';
+import { toSliderItem } from '@/components/media-content';
 
 export async function Project({
   project: { name, collaborators, media, id },
@@ -44,12 +44,7 @@ export async function Project({
           </p>
         )}
       </div>
-      <Slider
-        items={media.map(value => ({
-          vertical: isVertical(value),
-          content: <MediaContent value={value} />,
-        }))}
-      />
+      <Slider items={media.map(toSliderItem)} />
     </div>
   );
 }

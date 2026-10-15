@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import Video from '@/components/video';
 import Image from 'next/image';
+import { type SliderItem } from '@/components/slider';
 
 export const schema = z.discriminatedUnion('type', [
   z.object({
@@ -18,8 +19,17 @@ export const schema = z.discriminatedUnion('type', [
 
 export type MediaContent = z.infer<typeof schema>;
 
-export const isVertical = (media: MediaContent) =>
+const isVertical = (media: MediaContent) =>
   media.type === 'mp4' && media.orientation === 'vertical';
+
+/**
+ * Builds a slider item for this media. Lives here so the slot width the slider
+ * reserves always matches how `MediaContent` renders the item.
+ */
+export const toSliderItem = (value: MediaContent): SliderItem => ({
+  vertical: isVertical(value),
+  content: <MediaContent value={value} />,
+});
 
 export default async function MediaContent({ value }: { value: MediaContent }) {
   const { type, filename, alt } = value;
