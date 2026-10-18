@@ -17,8 +17,8 @@ export async function Topic({
           <TextContent value={name} desired={{ size: '5xl', tag: 'h2' }} />
         }
       >
-        {/* need a max height on the grid for the scrolling behavior desired on the right column */}
-        <div className="grid grid-rows-1 md:grid-cols-[7fr_auto_3fr] max-h-[80vh] min-h-0">
+        {/* on md+ the grid is capped in height so the papers column scrolls; on mobile everything stacks and flows naturally */}
+        <div className="grid md:grid-rows-1 md:grid-cols-[7fr_auto_3fr] md:max-h-[80vh] min-h-0">
           <div className="ml-2 md:mx-8 my-4 flex flex-col gap-4">
             {description.map((v, i) => (
               <AnyContent key={i} value={v} />
