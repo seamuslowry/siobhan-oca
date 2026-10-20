@@ -19,6 +19,7 @@ const ROUTES: Route[] = [
       { text: 'Team', href: '/team' },
     ],
   },
+  { text: 'Media', href: '/media' },
 ];
 
 export async function retrieveRoutes() {

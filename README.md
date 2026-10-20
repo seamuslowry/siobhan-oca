@@ -174,6 +174,16 @@ To associate a team member with a project, the team member's slug must appear un
 
 To associate a team member with a paper, the team member's slug must appear as an author of the paper.
 
+## Media Page
+
+The content for this page is stored in `/public/media/content.yaml`. The fields are:
+- `metadata`: See [metadata](#metadata).
+- `articles`: An array of objects describing the articles on this page, displayed in the order they are listed. Each element is an object described below.
+    - `title` ([stylable](#stylable-text)): The title of the article. Without explicit styling, this will default to `size: 2xl`, `underline: true`, and `tag: h2`. This will be linked to the article.
+    - `link`: The URL of the article. This must be a validly formatted URL and will open in a new tab.
+    - `summary`: An array of ([stylable](#stylable-text)) strings displayed under the title. This field is optional.
+    - `media`: A [media object](#media) displayed beside the article on wide screens and above it on narrow screens. This field is optional. Images must be found in the `/assets/media` directory.
+
 ## Local Development
 
 To run the development server, first install [nvm](https://github.com/nvm-sh/nvm). This will allow you to install multiple node versions and easily switch between them. The installation of this command will vary by OS. Once installed, run the below to start the development server:
